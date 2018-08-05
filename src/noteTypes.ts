@@ -1,9 +1,11 @@
+import {
+    PLACEHOLDER_PITCH_TO_AVOID_NULL_POINTER_ISSUES,
+    SEPARATION_FOR_NEIGHBORING_NOTES,
+} from '../../../src/constants'
 import { Note } from '../../../src/types'
 
-const SEPARATION_FOR_NEIGHBORING_NOTES: number = 0.1
 const MAX_GAIN: number = 1
 const AVOID_PERCUSSION_BLOWING_OUT: number = 0.1
-const PLACEHOLDER_PITCH_TO_AVOID_NULL_POINTER_ISSUES: number = 1
 
 const stepwiseNoteType: (harmonic: number) => Note =
     (harmonic: number): Note => ({
