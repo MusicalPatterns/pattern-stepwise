@@ -1,0 +1,9 @@
+{
+  "extends": [
+    "../../tslint.json"
+  ],
+  "rules": {
+    "comment-format": false,
+    "no-unused-variable": false
+  }
+}
