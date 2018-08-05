@@ -1,4 +1,4 @@
-import { Note } from '../../src/types'
+import { Note } from '../../../src/types'
 
 const SEPARATION_FOR_NEIGHBORING_NOTES: number = 0.1
 const MAX_GAIN: number = 1

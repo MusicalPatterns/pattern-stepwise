@@ -1,7 +1,7 @@
-import buildEntity from '../../../src/buildEntity'
-import buildVoice from '../../../src/buildVoice'
-import { subharmonicSeriesPitches } from '../../../src/pitches'
-import { Entity } from '../../../src/types'
+import buildEntity from '../../../../src/buildEntity'
+import buildVoice from '../../../../src/buildVoice'
+import { subharmonicSeriesPitches } from '../../../../src/pitches'
+import { Entity } from '../../../../src/types'
 import {
     backboneNotes,
     fivePerNotes,

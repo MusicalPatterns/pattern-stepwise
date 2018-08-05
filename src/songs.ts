@@ -1,5 +1,5 @@
-import sequence from '../../src/sequence'
-import { Song } from '../../src/types'
+import sequence from '../../../src/sequence'
+import { Song } from '../../../src/types'
 import {
     stepwiseFivePerOscillatorForCheckingTuningAgainst,
     stepwiseMainDescentContinuationOscillatorForCheckingTuningAgainst,
