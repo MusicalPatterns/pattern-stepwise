@@ -1,7 +1,7 @@
 import buildEntity from '../../../../src/buildEntity'
 import buildSampleVoice from '../../../../src/buildSampleVoice'
 import { subharmonicSeriesPitches } from '../../../../src/pitches'
-import { Entity } from '../../../../src/types'
+import { Entity, EntityConfig } from '../../../../src/types'
 import {
     backboneNotes,
     fivePerNotes,
@@ -20,71 +20,71 @@ const THIRD_LOUD: number = 0.333
 const QUARTER_LOUD: number = 0.25
 const ALMOST_SILENT: number = 0.05
 
-const stepwiseMainDescent: Entity = buildEntity({
+const stepwiseMainDescent: EntityConfig = {
     notes: mainDescentNotes,
     pitches: subharmonicSeriesPitches,
-    voice: buildSampleVoice('trombone'),
+    voiceConfig: {timbre: 'trombone', voiceType: 'sample'},
     voiceGain: HALF_LOUD,
-})
+}
 
-const stepwiseMainDescentContinuation: Entity = buildEntity({
+const stepwiseMainDescentContinuation: EntityConfig = {
     notes: mainDescentContinuationNotes,
     pitches: subharmonicSeriesPitches,
-    voice: buildSampleVoice('tuba'),
-})
+    voiceConfig: {timbre: 'tuba', voiceType: 'sample'},
+}
 
-const stepwiseThreePer: Entity = buildEntity({
+const stepwiseThreePer: EntityConfig = {
     notes: threePerNotes,
     pitches: subharmonicSeriesPitches,
-    voice: buildSampleVoice('flute'),
+    voiceConfig: {timbre: 'flute', voiceType: 'sample'},
     voiceGain: QUARTER_LOUD,
-})
+}
 
-const stepwiseFivePer: Entity = buildEntity({
+const stepwiseFivePer: EntityConfig = {
     notes: fivePerNotes,
     pitches: subharmonicSeriesPitches,
-    voice: buildSampleVoice('violin'),
+    voiceConfig: {timbre: 'violin', voiceType: 'sample'},
     voiceGain: THIRD_LOUD,
-})
+}
 
-const stepwiseSevenPer: Entity = buildEntity({
+const stepwiseSevenPer: EntityConfig = {
     notes: sevenPerNotes,
     pitches: subharmonicSeriesPitches,
-    voice: buildSampleVoice('trumpet'),
+    voiceConfig: {timbre: 'trumpet', voiceType: 'sample'},
     voiceGain: QUARTER_LOUD,
-})
+}
 
-const stepwiseNinePer: Entity = buildEntity({
+const stepwiseNinePer: EntityConfig = {
     notes: ninePerNotes,
     pitches: subharmonicSeriesPitches,
-    voice: buildSampleVoice('cello'),
+    voiceConfig: {timbre: 'cello', voiceType: 'sample'},
     voiceGain: QUARTER_LOUD,
-})
+}
 
-const stepwiseBackbone: Entity = buildEntity({
+const stepwiseBackbone: EntityConfig = {
     notes: backboneNotes,
     pitches: subharmonicSeriesPitches,
-    voice: buildSampleVoice('piano'),
+    voiceConfig: {timbre: 'piano', voiceType: 'sample'},
     voiceGain: ALMOST_SILENT,
-})
+}
 
-const stepwiseKick: Entity = buildEntity({
+const stepwiseKick: EntityConfig = {
     notes: kickNotes,
     pitches: subharmonicSeriesPitches,
-    voice: buildSampleVoice('kick'),
-})
+    voiceConfig: {timbre: 'kick', voiceType: 'sample'},
+}
 
-const stepwiseSnare: Entity = buildEntity({
+const stepwiseSnare: EntityConfig = {
     notes: snareNotes,
     pitches: subharmonicSeriesPitches,
-    voice: buildSampleVoice('snare'),
-})
+    voiceConfig: {timbre: 'snare', voiceType: 'sample'},
+}
 
-const stepwiseHihat: Entity = buildEntity({
+const stepwiseHihat: EntityConfig = {
     notes: hihatNotes,
     pitches: subharmonicSeriesPitches,
-    voice: buildSampleVoice('hihat'),
-})
+    voiceConfig: {timbre: 'hihat', voiceType: 'sample'},
+}
 
 export {
     stepwiseMainDescent,

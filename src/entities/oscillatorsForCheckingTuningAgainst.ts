@@ -1,7 +1,5 @@
-import buildEntity from '../../../../src/buildEntity'
-import buildVoice from '../../../../src/buildVoice'
 import { subharmonicSeriesPitches } from '../../../../src/pitches'
-import { Entity } from '../../../../src/types'
+import { EntityConfig } from '../../../../src/types'
 import {
     backboneNotes,
     fivePerNotes,
@@ -12,47 +10,47 @@ import {
     threePerNotes,
 } from '../notes'
 
-const stepwiseMainDescentOscillatorForCheckingTuningAgainst: Entity = buildEntity({
+const stepwiseMainDescentOscillatorForCheckingTuningAgainst: EntityConfig = {
     notes: mainDescentNotes,
     pitches: subharmonicSeriesPitches,
-    voice: buildVoice('square'),
-})
+    voiceConfig: {timbre: 'square', voiceType: 'oscillator'},
+}
 
-const stepwiseMainDescentContinuationOscillatorForCheckingTuningAgainst: Entity = buildEntity({
+const stepwiseMainDescentContinuationOscillatorForCheckingTuningAgainst: EntityConfig = {
     notes: mainDescentContinuationNotes,
     pitches: subharmonicSeriesPitches,
-    voice: buildVoice('sine'),
-})
+    voiceConfig: {timbre: 'sine', voiceType: 'oscillator'},
+}
 
-const stepwiseThreePerOscillatorForCheckingTuningAgainst: Entity = buildEntity({
+const stepwiseThreePerOscillatorForCheckingTuningAgainst: EntityConfig = {
     notes: threePerNotes,
     pitches: subharmonicSeriesPitches,
-    voice: buildVoice('square'),
-})
+    voiceConfig: {timbre: 'square', voiceType: 'oscillator'},
+}
 
-const stepwiseFivePerOscillatorForCheckingTuningAgainst: Entity = buildEntity({
+const stepwiseFivePerOscillatorForCheckingTuningAgainst: EntityConfig = {
     notes: fivePerNotes,
     pitches: subharmonicSeriesPitches,
-    voice: buildVoice('square'),
-})
+    voiceConfig: {timbre: 'square', voiceType: 'oscillator'},
+}
 
-const stepwiseSevenPerOscillatorForCheckingTuningAgainst: Entity = buildEntity({
+const stepwiseSevenPerOscillatorForCheckingTuningAgainst: EntityConfig = {
     notes: sevenPerNotes,
     pitches: subharmonicSeriesPitches,
-    voice: buildVoice('square'),
-})
+    voiceConfig: {timbre: 'square', voiceType: 'oscillator'},
+}
 
-const stepwiseNinePerOscillatorForCheckingTuningAgainst: Entity = buildEntity({
+const stepwiseNinePerOscillatorForCheckingTuningAgainst: EntityConfig = {
     notes: ninePerNotes,
     pitches: subharmonicSeriesPitches,
-    voice: buildVoice('square'),
-})
+    voiceConfig: {timbre: 'square', voiceType: 'oscillator'},
+}
 
-const stepwiseBackboneOscillatorForCheckingTuningAgainst: Entity = buildEntity({
+const stepwiseBackboneOscillatorForCheckingTuningAgainst: EntityConfig = {
     notes: backboneNotes,
     pitches: subharmonicSeriesPitches,
-    voice: buildVoice('square'),
-})
+    voiceConfig: {timbre: 'square', voiceType: 'oscillator'},
+}
 
 export {
     stepwiseMainDescentOscillatorForCheckingTuningAgainst,
