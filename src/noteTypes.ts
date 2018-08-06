@@ -1,5 +1,5 @@
 import {
-    PLACEHOLDER_PITCH_TO_AVOID_NULL_POINTER_ISSUES,
+    PLACEHOLDER_PITCH_INDEX_TO_AVOID_NULL_POINTER_ISSUES,
     SEPARATION_FOR_NEIGHBORING_NOTES,
 } from '../../../src/constants'
 import { Note } from '../../../src/types'
@@ -11,7 +11,7 @@ const stepwiseNoteType: (harmonic: number) => Note =
     (harmonic: number): Note => ({
         duration: harmonic,
         gain: MAX_GAIN,
-        pitch: harmonic,
+        pitchIndex: harmonic,
         sustain: harmonic - SEPARATION_FOR_NEIGHBORING_NOTES,
     })
 
@@ -19,7 +19,7 @@ const unpitchedSampleNoteType: (duration: number) => Note =
     (duration: number): Note => ({
         duration,
         gain: AVOID_PERCUSSION_BLOWING_OUT,
-        pitch: PLACEHOLDER_PITCH_TO_AVOID_NULL_POINTER_ISSUES,
+        pitchIndex: PLACEHOLDER_PITCH_INDEX_TO_AVOID_NULL_POINTER_ISSUES,
         sustain: duration - SEPARATION_FOR_NEIGHBORING_NOTES,
     })
 
