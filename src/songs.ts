@@ -1,5 +1,6 @@
 import sequence from '../../../src/sequence'
-import { Song } from '../../../src/types'
+import { EntityConfig, Song } from '../../../src/types'
+import { C8_FOR_STEPWISE } from './basePitch'
 import {
     stepwiseFivePerOscillatorForCheckingTuningAgainst,
     stepwiseMainDescentContinuationOscillatorForCheckingTuningAgainst,
@@ -18,7 +19,7 @@ import {
     stepwiseThreePer,
 } from './entities/samples'
 
-const stepwiseSamples: Song = [
+const stepwiseSamples: EntityConfig[] = [
     stepwiseMainDescent,
     stepwiseMainDescentContinuation,
     stepwiseThreePer,
@@ -27,7 +28,7 @@ const stepwiseSamples: Song = [
     // stepwiseBackbone,
 ]
 
-const stepwiseOscillatorsForCheckingTuningAgainst: Song = [
+const stepwiseOscillatorsForCheckingTuningAgainst: EntityConfig[] = [
     stepwiseMainDescentOscillatorForCheckingTuningAgainst,
     stepwiseMainDescentContinuationOscillatorForCheckingTuningAgainst,
     stepwiseThreePerOscillatorForCheckingTuningAgainst,
@@ -36,18 +37,21 @@ const stepwiseOscillatorsForCheckingTuningAgainst: Song = [
     // stepwiseBackboneOscillatorForCheckingTuningAgainst,
 ]
 
-const stepwisePercussion: Song = [
+const stepwisePercussion: EntityConfig[] = [
     stepwiseKick,
     stepwiseSnare,
     stepwiseHihat,
 ]
 
-const stepwiseSong: Song = sequence([
-    stepwiseSamples,
-    // stepwiseOscillatorsForCheckingTuningAgainst,
-    // stepwisePercussion,
-])
+const stepwise: Song = {
+    basePitch: C8_FOR_STEPWISE,
+    entityConfigs: sequence([
+        stepwiseSamples,
+        // stepwiseOscillatorsForCheckingTuningAgainst,
+        // stepwisePercussion,
+    ]),
+}
 
 export {
-    stepwiseSong,
+    stepwise,
 }
