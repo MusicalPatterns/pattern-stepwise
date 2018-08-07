@@ -1,5 +1,5 @@
-import buildEntity from '../../../../src/buildEntity'
-import buildSampleVoice from '../../../../src/buildSampleVoice'
+import buildEntity from '../../../../src/compile/buildEntity'
+import buildSampleVoice from '../../../../src/compile/buildSampleVoice'
 import { subharmonicSeriesPitches } from '../../../../src/pitches'
 import { Entity, EntityConfig } from '../../../../src/types'
 import {

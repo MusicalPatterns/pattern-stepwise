@@ -1,5 +1,5 @@
-import sequence from '../../../src/sequence'
 import { EntityConfig, Song } from '../../../src/types'
+import sequence from '../../../src/utilities/sequence'
 import { C8_FOR_STEPWISE } from './basePitch'
 import {
     stepwiseFivePerOscillatorForCheckingTuningAgainst,

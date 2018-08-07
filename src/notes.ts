@@ -1,5 +1,5 @@
-import sequence from '../../../src/sequence'
 import { Note } from '../../../src/types'
+import sequence from '../../../src/utilities/sequence'
 import {
     backbone,
     fivePer,
