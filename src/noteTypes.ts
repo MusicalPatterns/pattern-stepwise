@@ -4,25 +4,29 @@ import {
     SEPARATION_FOR_NEIGHBORING_NOTES,
 } from '../../../src/constants'
 import { Note } from '../../../src/types'
+import * as from from '../../../src/utilities/from'
 import { Scalar } from '../../../src/utilities/nominalTypes'
+import * as to from '../../../src/utilities/to'
+import * as stepwiseFrom from './utilities/from'
+import { ContourElement } from './utilities/nominalTypes'
 
 // tslint:disable-next-line:no-any no-magic-numbers
 const AVOID_PERCUSSION_BLOWING_OUT: Scalar = 0.1 as any
 
-const stepwiseNoteType: (harmonic: number) => Note =
-    (harmonic: number): Note => ({
-        duration: harmonic,
+const stepwiseNoteType: (duration: ContourElement) => Note =
+    (contourElement: ContourElement): Note => ({
+        duration: to.Time(stepwiseFrom.ContourElement(contourElement)),
         gain: MAX_GAIN,
-        pitchIndex: harmonic,
-        sustain: harmonic - SEPARATION_FOR_NEIGHBORING_NOTES,
+        pitchIndex: stepwiseFrom.ContourElement(contourElement),
+        sustain: to.Time(stepwiseFrom.ContourElement(contourElement) - from.Time(SEPARATION_FOR_NEIGHBORING_NOTES)),
     })
 
-const unpitchedSampleNoteType: (duration: number) => Note =
-    (duration: number): Note => ({
-        duration,
+const unpitchedSampleNoteType: (duration: ContourElement) => Note =
+    (contourElement: ContourElement): Note => ({
+        duration: to.Time(stepwiseFrom.ContourElement(contourElement)),
         gain: AVOID_PERCUSSION_BLOWING_OUT,
         pitchIndex: PLACEHOLDER_PITCH_INDEX_TO_AVOID_NULL_POINTER_ISSUES,
-        sustain: duration - SEPARATION_FOR_NEIGHBORING_NOTES,
+        sustain: to.Time(stepwiseFrom.ContourElement(contourElement) - from.Time(SEPARATION_FOR_NEIGHBORING_NOTES)),
     })
 
 export {

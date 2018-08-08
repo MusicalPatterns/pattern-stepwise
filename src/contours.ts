@@ -1,57 +1,60 @@
 // tslint:disable:max-line-length
 // tslint:disable:no-magic-numbers
 
-const mainDescent: number[] = [...Array(29).keys()].map((n: number): number => (n + 1) * 2 - 1)
+import { Contour } from './types'
+import * as to from './utilities/to'
 
-const mainDescentContinuation: number[] = [...Array(12).keys()].map((n: number): number => (n + 1) * 2 + 57)
+const mainDescent: Contour = to.Contour([...Array(29).keys()].map((n: number): number => (n + 1) * 2 - 1))
 
-const threePer: number[] = [
+const mainDescentContinuation: Contour = to.Contour([...Array(12).keys()].map((n: number): number => (n + 1) * 2 + 57))
+
+const threePer: Contour = to.Contour([
     3, 1, 3, 1, 3, 1, 3, 5, 3, 1, 3, 5, 3, 5, 3, 5, 7, 5, 3, 5, 7, 5, 7, 5, 7, 9, 7, 5, 7, 9, 7, 9, 7, 9, 11, 9, 7, 9, 11, 9, 11, 9, 11, 13, 11, 9, 11, 13, 11, 13, 11, 13, 15, 13, 11, 13, 15, 13, 15, 13, 15, 17, 15, 13, 15, 17, 15, 17, 15, 17, 19, 17, 15, 17, 19, 17, 19, 17, 19, 21, 19, 17,
-]
+])
 
-const fivePer: number[] = [
+const fivePer: Contour = to.Contour([
     11, 13, 11, 13, 11, 13, 15, 13, 11, 9, 7, 5, 3, 5, 3, 1, 3, 5, 7, 9, 7, 5, 3, 5, 7, 5, 7, 5, 7, 5, 7, 5, 7, 5, 7, 5, 7, 9, 7, 5, 3, 5, 7, 9, 11, 9, 7, 5, 7, 9, 7, 9, 7, 9, 7, 9, 7, 9, 7, 9, 7, 9, 11, 9, 7, 5, 7, 9, 11, 13, 11, 9, 7, 9, 11, 9, 11, 9, 11, 9, 11, 9, 11, 9, 11, 9, 11, 13, 11, 9, 7, 9, 11, 13, 15, 13, 11, 9, 11, 13,
-]
+])
 
-const sevenPer: number[] = [
+const sevenPer: Contour = to.Contour([
     7, 9, 7, 9, 11, 9, 7, 5, 7, 9, 7, 9, 11, 13, 15, 13, 11, 9, 7, 5, 3, 5, 7, 9, 11, 13, 11, 9, 7, 9, 11, 9, 11, 9, 11, 9, 11, 9, 11, 9, 11, 9, 11, 9, 11, 9, 11, 9, 11, 13, 11, 9, 11, 9, 11, 9, 7, 9, 7, 9, 7, 5, 3, 1, 3, 5, 7, 9, 11, 13, 11, 9, 7, 5, 7, 5, 7, 5, 7, 9, 7, 9, 7, 9, 7, 9, 7, 9, 7, 9, 7, 9, 7, 9, 7, 9, 7, 9,
-]
+])
 
-const ninePer: number[] = [
+const ninePer: Contour = to.Contour([
     15, 13, 11, 9, 11, 9, 11, 9, 7, 9, 7, 9, 7, 9, 7, 9, 7, 5, 7, 5, 7, 9, 11, 13, 15, 17, 15, 13, 11, 9, 7, 5, 3, 1, 3, 5, 7, 9, 7, 9, 7, 9, 7, 9, 7, 9, 7, 9, 7, 9, 7, 9, 7, 9, 7, 9, 7, 9, 7, 9, 7, 9, 11, 13, 15, 17, 19, 17, 15, 13, 11, 9, 7, 5, 7, 5, 7, 5, 7, 9, 11, 13, 15, 17, 15, 13, 11, 9, 7, 5, 3, 1,
-]
+])
 
-const backbone: number[] = [3, 1]
+const backbone: Contour = to.Contour([3, 1])
 
-const kick: number[] = [8]
+const kick: Contour = to.Contour([8])
 
-const snare: number[] = [24]
+const snare: Contour = to.Contour([24])
 
-const hihat: number[] = [1]
+const hihat: Contour = to.Contour([1])
 
-const divideFortyeightByTwelve: number[] = [
+const divideFortyeightByTwelve: Contour = to.Contour([
     3, 1, 3, 1, 3, 1, 3, 1, 3, 1, 3, 1, 3, 1, 3, 1, 3, 1, 3, 1, 3, 1, 3, 1,
-]
+])
 
-const divideFortyeightBySix: number[] = [
+const divideFortyeightBySix: Contour = to.Contour([
     3, 5, 3, 5, 3, 5, 3, 5, 3, 5, 3, 5,
-]
+])
 
-const dividFortyeightByFour: number[] = [
+const dividFortyeightByFour: Contour = to.Contour([
     7, 5, 7, 5, 7, 5, 7, 5,
-]
+])
 
-const divideFortyeightByThree: number[] = [
+const divideFortyeightByThree: Contour = to.Contour([
     7, 9, 7, 9, 7, 9,
-]
+])
 
-const divideFortyeightByTwo: number[] = [
+const divideFortyeightByTwo: Contour = to.Contour([
     11, 13, 11, 13,
-]
+])
 
-const divideFortyeightByOne: number[] = [
+const divideFortyeightByOne: Contour = to.Contour([
     47, 49,
-]
+])
 
 export {
     mainDescent,
