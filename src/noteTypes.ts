@@ -17,7 +17,7 @@ const stepwiseNoteType: (duration: ContourElement) => Note =
     (contourElement: ContourElement): Note => ({
         duration: to.Time(stepwiseFrom.ContourElement(contourElement)),
         gain: MAX_GAIN,
-        pitchIndex: stepwiseFrom.ContourElement(contourElement),
+        pitchIndex: to.Index(stepwiseFrom.ContourElement(contourElement)),
         sustain: to.Time(stepwiseFrom.ContourElement(contourElement) - from.Time(SEPARATION_FOR_NEIGHBORING_NOTES)),
     })
 
