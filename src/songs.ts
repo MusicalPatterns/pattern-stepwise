@@ -1,4 +1,5 @@
-import { EntityConfig, Song } from '../../../src/types'
+import { EntityConfig } from '../../../src/compile/types'
+import { Song } from '../../../src/types'
 import sequence from '../../../src/utilities/sequence'
 import { C8_FOR_STEPWISE } from './basePitch'
 import {

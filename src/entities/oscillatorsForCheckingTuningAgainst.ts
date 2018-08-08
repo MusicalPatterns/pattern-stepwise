@@ -1,5 +1,6 @@
+import { EntityConfig } from '../../../../src/compile/types'
 import { subharmonicSeriesPitches } from '../../../../src/pitches'
-import { EntityConfig, OscillatorName, VoiceType } from '../../../../src/types'
+import { OscillatorName, VoiceType } from '../../../../src/types'
 import {
     backboneNotes,
     fivePerNotes,
