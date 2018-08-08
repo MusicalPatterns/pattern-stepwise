@@ -1,5 +1,5 @@
 import { subharmonicSeriesPitches } from '../../../../src/pitches'
-import { EntityConfig } from '../../../../src/types'
+import { EntityConfig, OscillatorName, VoiceType } from '../../../../src/types'
 import {
     backboneNotes,
     fivePerNotes,
@@ -13,43 +13,43 @@ import {
 const stepwiseMainDescentOscillatorForCheckingTuningAgainst: EntityConfig = {
     notes: mainDescentNotes,
     pitches: subharmonicSeriesPitches,
-    voiceConfig: {timbre: 'square', voiceType: 'oscillator'},
+    voiceConfig: {timbre: OscillatorName.SQUARE, voiceType: VoiceType.OSCILLATOR},
 }
 
 const stepwiseMainDescentContinuationOscillatorForCheckingTuningAgainst: EntityConfig = {
     notes: mainDescentContinuationNotes,
     pitches: subharmonicSeriesPitches,
-    voiceConfig: {timbre: 'sine', voiceType: 'oscillator'},
+    voiceConfig: {timbre: OscillatorName.SINE, voiceType: VoiceType.OSCILLATOR},
 }
 
 const stepwiseThreePerOscillatorForCheckingTuningAgainst: EntityConfig = {
     notes: threePerNotes,
     pitches: subharmonicSeriesPitches,
-    voiceConfig: {timbre: 'square', voiceType: 'oscillator'},
+    voiceConfig: {timbre: OscillatorName.SQUARE, voiceType: VoiceType.OSCILLATOR},
 }
 
 const stepwiseFivePerOscillatorForCheckingTuningAgainst: EntityConfig = {
     notes: fivePerNotes,
     pitches: subharmonicSeriesPitches,
-    voiceConfig: {timbre: 'square', voiceType: 'oscillator'},
+    voiceConfig: {timbre: OscillatorName.SQUARE, voiceType: VoiceType.OSCILLATOR},
 }
 
 const stepwiseSevenPerOscillatorForCheckingTuningAgainst: EntityConfig = {
     notes: sevenPerNotes,
     pitches: subharmonicSeriesPitches,
-    voiceConfig: {timbre: 'square', voiceType: 'oscillator'},
+    voiceConfig: {timbre: OscillatorName.SQUARE, voiceType: VoiceType.OSCILLATOR},
 }
 
 const stepwiseNinePerOscillatorForCheckingTuningAgainst: EntityConfig = {
     notes: ninePerNotes,
     pitches: subharmonicSeriesPitches,
-    voiceConfig: {timbre: 'square', voiceType: 'oscillator'},
+    voiceConfig: {timbre: OscillatorName.SQUARE, voiceType: VoiceType.OSCILLATOR},
 }
 
 const stepwiseBackboneOscillatorForCheckingTuningAgainst: EntityConfig = {
     notes: backboneNotes,
     pitches: subharmonicSeriesPitches,
-    voiceConfig: {timbre: 'square', voiceType: 'oscillator'},
+    voiceConfig: {timbre: OscillatorName.SQUARE, voiceType: VoiceType.OSCILLATOR},
 }
 
 export {
