@@ -1,6 +1,7 @@
 import { EntityConfig } from '../../../../src/compile/types'
 import { subharmonicSeriesPitches } from '../../../../src/pitches'
 import { Timbre, VoiceType } from '../../../../src/types'
+import { Scalar } from '../../../../src/utilities/nominalTypes'
 import {
     backboneNotes,
     fivePerNotes,
@@ -14,10 +15,14 @@ import {
     threePerNotes,
 } from '../notes'
 
-const HALF_LOUD: number = 0.5
-const THIRD_LOUD: number = 0.333
-const QUARTER_LOUD: number = 0.25
-const ALMOST_SILENT: number = 0.05
+// tslint:disable-next-line:no-any no-magic-numbers
+const HALF_LOUD: Scalar = 0.5 as any
+// tslint:disable-next-line:no-any no-magic-numbers
+const THIRD_LOUD: Scalar = 0.333 as any
+// tslint:disable-next-line:no-any no-magic-numbers
+const QUARTER_LOUD: Scalar = 0.25 as any
+// tslint:disable-next-line:no-any no-magic-numbers
+const ALMOST_SILENT: Scalar = 0.05 as any
 
 const stepwiseMainDescent: EntityConfig = {
     notes: mainDescentNotes,
@@ -25,7 +30,6 @@ const stepwiseMainDescent: EntityConfig = {
     voiceConfig: {timbre: Timbre.TROMBONE, voiceType: VoiceType.SAMPLE},
     voiceGain: HALF_LOUD,
 }
-
 const stepwiseMainDescentContinuation: EntityConfig = {
     notes: mainDescentContinuationNotes,
     pitches: subharmonicSeriesPitches,
@@ -38,21 +42,18 @@ const stepwiseThreePer: EntityConfig = {
     voiceConfig: {timbre: Timbre.FLUTE, voiceType: VoiceType.SAMPLE},
     voiceGain: QUARTER_LOUD,
 }
-
 const stepwiseFivePer: EntityConfig = {
     notes: fivePerNotes,
     pitches: subharmonicSeriesPitches,
     voiceConfig: {timbre: Timbre.VIOLIN, voiceType: VoiceType.SAMPLE},
     voiceGain: THIRD_LOUD,
 }
-
 const stepwiseSevenPer: EntityConfig = {
     notes: sevenPerNotes,
     pitches: subharmonicSeriesPitches,
     voiceConfig: {timbre: Timbre.TRUMPET, voiceType: VoiceType.SAMPLE},
     voiceGain: QUARTER_LOUD,
 }
-
 const stepwiseNinePer: EntityConfig = {
     notes: ninePerNotes,
     pitches: subharmonicSeriesPitches,
@@ -72,13 +73,11 @@ const stepwiseKick: EntityConfig = {
     pitches: subharmonicSeriesPitches,
     voiceConfig: {timbre: Timbre.KICK, voiceType: VoiceType.SAMPLE},
 }
-
 const stepwiseSnare: EntityConfig = {
     notes: snareNotes,
     pitches: subharmonicSeriesPitches,
     voiceConfig: {timbre: Timbre.SNARE, voiceType: VoiceType.SAMPLE},
 }
-
 const stepwiseHihat: EntityConfig = {
     notes: hihatNotes,
     pitches: subharmonicSeriesPitches,

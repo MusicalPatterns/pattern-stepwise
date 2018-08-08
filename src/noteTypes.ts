@@ -1,11 +1,13 @@
 import {
+    MAX_GAIN,
     PLACEHOLDER_PITCH_INDEX_TO_AVOID_NULL_POINTER_ISSUES,
     SEPARATION_FOR_NEIGHBORING_NOTES,
 } from '../../../src/constants'
 import { Note } from '../../../src/types'
+import { Scalar } from '../../../src/utilities/nominalTypes'
 
-const MAX_GAIN: number = 1
-const AVOID_PERCUSSION_BLOWING_OUT: number = 0.1
+// tslint:disable-next-line:no-any no-magic-numbers
+const AVOID_PERCUSSION_BLOWING_OUT: Scalar = 0.1 as any
 
 const stepwiseNoteType: (harmonic: number) => Note =
     (harmonic: number): Note => ({
