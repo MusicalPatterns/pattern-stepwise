@@ -1,4 +1,4 @@
-import { ContourElement } from '../../zdaubyaos/src/utilities/nominalTypes'
+import { ContourElement } from './utilities/nominalTypes'
 
 type Contour = ContourElement[]
 
