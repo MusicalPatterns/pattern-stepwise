@@ -1,4 +1,5 @@
 import { EntityConfig } from '../../../src/compile/types'
+import { subharmonicSeriesPitches } from '../../../src/pitches'
 import { Song } from '../../../src/types'
 import sequence from '../../../src/utilities/sequence'
 import { C8_FOR_STEPWISE } from './basePitch'
@@ -51,6 +52,9 @@ const stepwise: Song = {
         // stepwiseOscillatorsForCheckingTuningAgainst,
         // stepwisePercussion,
     ]),
+    scales: [
+        subharmonicSeriesPitches,
+    ],
 }
 
 export {
