@@ -1,4 +1,4 @@
-import {EntityConfig, TimeType} from '../../../../src/compile/types'
+import { EntityConfig, TimeType } from '../../../../src/compile/types'
 import { OscillatorName, VoiceType } from '../../../../src/types'
 import {
     backboneNotes,

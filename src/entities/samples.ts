@@ -1,4 +1,4 @@
-import {EntityConfig, TimeType} from '../../../../src/compile/types'
+import { EntityConfig, TimeType } from '../../../../src/compile/types'
 import { subharmonicSeriesPitches } from '../../../../src/pitches'
 import { Timbre, VoiceType } from '../../../../src/types'
 import { Scalar } from '../../../../src/utilities/nominalTypes'
