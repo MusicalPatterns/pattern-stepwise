@@ -18,6 +18,7 @@ const stepwiseNoteType: (duration: ContourElement) => Note =
         duration: to.Time(stepwiseFrom.ContourElement(contourElement)),
         gain: MAX_GAIN,
         pitchIndex: to.Index(stepwiseFrom.ContourElement(contourElement)),
+        pitchScalar: to.Scalar(1),
         scaleIndex: to.Index(0),
         sustain: to.Time(stepwiseFrom.ContourElement(contourElement) - from.Time(SEPARATION_FOR_NEIGHBORING_NOTES)),
     })
@@ -27,6 +28,7 @@ const unpitchedSampleNoteType: (duration: ContourElement) => Note =
         duration: to.Time(stepwiseFrom.ContourElement(contourElement)),
         gain: AVOID_PERCUSSION_BLOWING_OUT,
         pitchIndex: PLACEHOLDER_PITCH_INDEX_TO_AVOID_NULL_POINTER_ISSUES,
+        pitchScalar: to.Scalar(1),
         scaleIndex: to.Index(0),
         sustain: to.Time(stepwiseFrom.ContourElement(contourElement) - from.Time(SEPARATION_FOR_NEIGHBORING_NOTES)),
     })
