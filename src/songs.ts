@@ -52,6 +52,7 @@ const stepwise: Song = {
         // stepwiseOscillatorsForCheckingTuningAgainst,
         // stepwisePercussion,
     ]),
+    name: 'stepwise',
     scales: [
         subharmonicSeriesPitches,
     ],
