@@ -1,6 +1,6 @@
 import { EntityConfig } from '../../../src/compile/types'
 import { subharmonicSeriesPitches } from '../../../src/pitches'
-import { Song } from '../../../src/types'
+import { Song, SongName } from '../../../src/songTypes'
 import sequence from '../../../src/utilities/sequence'
 import { C8_FOR_STEPWISE } from './basePitch'
 import {
@@ -52,7 +52,8 @@ const stepwise: Song = {
         // stepwiseOscillatorsForCheckingTuningAgainst,
         // stepwisePercussion,
     ]),
-    name: 'stepwise',
+    formattedName: 'Stepwise',
+    name: SongName.STEPWISE,
     scales: [
         subharmonicSeriesPitches,
     ],
