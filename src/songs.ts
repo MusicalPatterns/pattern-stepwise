@@ -47,9 +47,8 @@ const stepwisePercussion: EntityConfig[] = [
 ]
 
 const stepwise: Song = {
-    baseFrequency: C8_FOR_STEPWISE,
     compile: defaultSongCompile,
-    config: {},
+    customConfig: {},
     entityConfigs: sequence([
         stepwiseSamples,
         // stepwiseOscillatorsForCheckingTuningAgainst,
@@ -60,6 +59,9 @@ const stepwise: Song = {
     scales: [
         subharmonicSeriesPitches,
     ],
+    standardConfig: {
+        baseFrequency: C8_FOR_STEPWISE,
+    },
 }
 
 export {
