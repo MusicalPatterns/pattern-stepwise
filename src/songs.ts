@@ -1,3 +1,4 @@
+import { defaultSongCompile } from '../../../src/compile/defaultSongCompile'
 import { EntityConfig } from '../../../src/compile/types'
 import { subharmonicSeriesPitches } from '../../../src/pitches'
 import { Song, SongName } from '../../../src/songTypes'
@@ -47,6 +48,8 @@ const stepwisePercussion: EntityConfig[] = [
 
 const stepwise: Song = {
     baseFrequency: C8_FOR_STEPWISE,
+    compile: defaultSongCompile,
+    config: {},
     entityConfigs: sequence([
         stepwiseSamples,
         // stepwiseOscillatorsForCheckingTuningAgainst,
