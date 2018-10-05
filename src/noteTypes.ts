@@ -1,5 +1,5 @@
 import {
-    MAX_GAIN,
+    FULL_GAIN,
     PLACEHOLDER_PITCH_INDEX_TO_AVOID_NULL_POINTER_ISSUES,
     SEPARATION_FOR_NEIGHBORING_NOTES,
 } from '../../../src/constants'
@@ -16,7 +16,7 @@ const AVOID_PERCUSSION_BLOWING_OUT: Scalar = 0.1 as any
 const stepwiseNoteType: (duration: ContourElement) => Note =
     (contourElement: ContourElement): Note => ({
         duration: to.Time(stepwiseFrom.ContourElement(contourElement)),
-        gain: MAX_GAIN,
+        gain: FULL_GAIN,
         pitchIndex: to.Index(stepwiseFrom.ContourElement(contourElement)),
         pitchScalar: to.Scalar(1),
         scaleIndex: to.Index(0),

@@ -1,12 +1,13 @@
 // tslint:disable:max-line-length
 // tslint:disable:no-magic-numbers
 
+import numbers from '../../../src/utilities/numbers'
 import { Contour } from './types'
 import * as to from './utilities/to'
 
-const mainDescent: Contour = to.Contour([...Array(29).keys()].map((n: number): number => (n + 1) * 2 - 1))
+const mainDescent: Contour = to.Contour(numbers.slice(0, 29).map((n: number): number => (n + 1) * 2 - 1))
 
-const mainDescentContinuation: Contour = to.Contour([...Array(12).keys()].map((n: number): number => (n + 1) * 2 + 57))
+const mainDescentContinuation: Contour = to.Contour(numbers.slice(0, 12).map((n: number): number => (n + 1) * 2 + 57))
 
 const threePer: Contour = to.Contour([
     3, 1, 3, 1, 3, 1, 3, 5, 3, 1, 3, 5, 3, 5, 3, 5, 7, 5, 3, 5, 7, 5, 7, 5, 7, 9, 7, 5, 7, 9, 7, 9, 7, 9, 11, 9, 7, 9, 11, 9, 11, 9, 11, 13, 11, 9, 11, 13, 11, 13, 11, 13, 15, 13, 11, 13, 15, 13, 15, 13, 15, 17, 15, 13, 15, 17, 15, 17, 15, 17, 19, 17, 15, 17, 19, 17, 19, 17, 19, 21, 19, 17,

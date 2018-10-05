@@ -1,4 +1,4 @@
-import { Note } from '../../../src/types'
+import { Note, Notes } from '../../../src/types'
 import sequence from '../../../src/utilities/sequence'
 import {
     backbone,
@@ -14,17 +14,17 @@ import {
 } from './contours'
 import { stepwiseNoteType, unpitchedSampleNoteType } from './noteTypes'
 
-const mainDescentNotes: Note[] = sequence([mainDescent, mainDescentContinuation]).map(stepwiseNoteType)
-const mainDescentContinuationNotes: Note[] = sequence([mainDescentContinuation, mainDescent]).map(stepwiseNoteType)
-const threePerNotes: Note[] = sequence([threePer, ninePer]).map(stepwiseNoteType)
-const fivePerNotes: Note[] = fivePer.map(stepwiseNoteType)
-const sevenPerNotes: Note[] = sevenPer.map(stepwiseNoteType)
-const ninePerNotes: Note[] = sequence([ninePer, threePer]).map(stepwiseNoteType)
-const backboneNotes: Note[] = backbone.map(stepwiseNoteType)
+const mainDescentNotes: Notes = sequence([mainDescent, mainDescentContinuation]).map(stepwiseNoteType)
+const mainDescentContinuationNotes: Notes = sequence([mainDescentContinuation, mainDescent]).map(stepwiseNoteType)
+const threePerNotes: Notes = sequence([threePer, ninePer]).map(stepwiseNoteType)
+const fivePerNotes: Notes = fivePer.map(stepwiseNoteType)
+const sevenPerNotes: Notes = sevenPer.map(stepwiseNoteType)
+const ninePerNotes: Notes = sequence([ninePer, threePer]).map(stepwiseNoteType)
+const backboneNotes: Notes = backbone.map(stepwiseNoteType)
 
-const kickNotes: Note[] = kick.map(unpitchedSampleNoteType)
-const snareNotes: Note[] = snare.map(unpitchedSampleNoteType)
-const hihatNotes: Note[] = hihat.map(unpitchedSampleNoteType)
+const kickNotes: Notes = kick.map(unpitchedSampleNoteType)
+const snareNotes: Notes = snare.map(unpitchedSampleNoteType)
+const hihatNotes: Notes = hihat.map(unpitchedSampleNoteType)
 
 export {
     mainDescentNotes,
