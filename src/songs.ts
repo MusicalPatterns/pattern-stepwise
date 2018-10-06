@@ -49,6 +49,7 @@ const stepwisePercussion: EntityConfig[] = [
 const stepwise: Song = {
     compile: defaultSongCompile,
     customConfig: {},
+    description: 'stepwise motion within recurring bounds',
     entityConfigs: sequence([
         stepwiseSamples,
         // stepwiseOscillatorsForCheckingTuningAgainst,
