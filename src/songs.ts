@@ -3,6 +3,7 @@ import { EntityConfig } from '../../../src/compile/types'
 import { subharmonicSeriesPitches } from '../../../src/pitches'
 import { Song, SongName } from '../../../src/songTypes'
 import sequence from '../../../src/utilities/sequence'
+import * as to from '../../../src/utilities/to'
 import { C8_FOR_STEPWISE } from './basePitch'
 import {
     stepwiseFivePerOscillatorForCheckingTuningAgainst,
@@ -62,6 +63,7 @@ const stepwise: Song = {
     ],
     standardConfig: {
         baseFrequency: C8_FOR_STEPWISE,
+        durationScalar: to.Scalar(1),
     },
 }
 
