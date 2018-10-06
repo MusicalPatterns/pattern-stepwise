@@ -25,13 +25,13 @@ const ninePer: Contour = to.Contour([
     15, 13, 11, 9, 11, 9, 11, 9, 7, 9, 7, 9, 7, 9, 7, 9, 7, 5, 7, 5, 7, 9, 11, 13, 15, 17, 15, 13, 11, 9, 7, 5, 3, 1, 3, 5, 7, 9, 7, 9, 7, 9, 7, 9, 7, 9, 7, 9, 7, 9, 7, 9, 7, 9, 7, 9, 7, 9, 7, 9, 7, 9, 11, 13, 15, 17, 19, 17, 15, 13, 11, 9, 7, 5, 7, 5, 7, 5, 7, 9, 11, 13, 15, 17, 15, 13, 11, 9, 7, 5, 3, 1,
 ])
 
-const backbone: Contour = to.Contour([3, 1])
+const backbone: Contour = to.Contour([ 3, 1 ])
 
-const kick: Contour = to.Contour([8])
+const kick: Contour = to.Contour([ 8 ])
 
-const snare: Contour = to.Contour([24])
+const snare: Contour = to.Contour([ 24 ])
 
-const hihat: Contour = to.Contour([1])
+const hihat: Contour = to.Contour([ 1 ])
 
 const divideFortyeightByTwelve: Contour = to.Contour([
     3, 1, 3, 1, 3, 1, 3, 1, 3, 1, 3, 1, 3, 1, 3, 1, 3, 1, 3, 1, 3, 1, 3, 1,
