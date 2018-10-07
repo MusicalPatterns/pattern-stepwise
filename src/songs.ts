@@ -1,5 +1,6 @@
 import { defaultSongCompile } from '../../../src/compile/defaultSongCompile'
 import { EntityConfig } from '../../../src/compile/types'
+import { defaultHandleCustomConfigChange } from '../../../src/interface/defaultHandleCustomConfigChange'
 import { subharmonicSeriesPitches } from '../../../src/pitches'
 import { Song, SongName } from '../../../src/songTypes'
 import sequence from '../../../src/utilities/sequence'
@@ -57,6 +58,7 @@ const stepwise: Song = {
         // stepwisePercussion,
     ]),
     formattedName: 'Stepwise',
+    handleCustomConfigChange: defaultHandleCustomConfigChange,
     name: SongName.STEPWISE,
     scales: [
         subharmonicSeriesPitches,
