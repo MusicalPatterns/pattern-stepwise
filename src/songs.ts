@@ -1,6 +1,5 @@
 import { defaultSongCompile } from '../../../src/compile/defaultSongCompile'
 import { EntityConfig } from '../../../src/compile/types'
-import { handleConfigChange } from '../../../src/interface/handleConfigChange'
 import { subharmonicSeriesPitches } from '../../../src/pitches'
 import { Song, SongName } from '../../../src/songTypes'
 import sequence from '../../../src/utilities/sequence'
