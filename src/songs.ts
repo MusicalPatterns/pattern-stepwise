@@ -1,7 +1,7 @@
-import { defaultSongCompile } from '../../../src/compile/defaultSongCompile'
-import { EntityConfigs } from '../../../src/compile/types'
-import { subharmonicSeriesPitches } from '../../../src/pitches'
-import { SongConfig, SongID } from '../../../src/songTypes'
+import { defaultCompileSong } from '../../../src/compile/defaultCompileSong'
+import { EntitySpecs } from '../../../src/compile/types'
+import { subharmonicSeriesScale } from '../../../src/scales'
+import { SongID, SongSpec } from '../../../src/songTypes'
 import sequence from '../../../src/utilities/sequence'
 import * as to from '../../../src/utilities/to'
 import { C8_FOR_STEPWISE } from './basePitch'
@@ -23,7 +23,7 @@ import {
     stepwiseThreePer,
 } from './entities/samples'
 
-const stepwiseSamples: EntityConfigs = [
+const stepwiseSamples: EntitySpecs = [
     stepwiseMainDescent,
     stepwiseMainDescentContinuation,
     stepwiseThreePer,
@@ -32,7 +32,7 @@ const stepwiseSamples: EntityConfigs = [
     // stepwiseBackbone,
 ]
 
-const stepwiseOscillatorsForCheckingTuningAgainst: EntityConfigs = [
+const stepwiseOscillatorsForCheckingTuningAgainst: EntitySpecs = [
     stepwiseMainDescentOscillatorForCheckingTuningAgainst,
     stepwiseMainDescentContinuationOscillatorForCheckingTuningAgainst,
     stepwiseThreePerOscillatorForCheckingTuningAgainst,
@@ -41,29 +41,29 @@ const stepwiseOscillatorsForCheckingTuningAgainst: EntityConfigs = [
     // stepwiseBackboneOscillatorForCheckingTuningAgainst,
 ]
 
-const stepwisePercussion: EntityConfigs = [
+const stepwisePercussion: EntitySpecs = [
     stepwiseKick,
     stepwiseSnare,
     stepwiseHihat,
 ]
 
-const stepwiseSongConfig: SongConfig = {
-    compile: defaultSongCompile,
+const stepwiseSongSpec: SongSpec = {
+    compile: defaultCompileSong,
     config: {
         baseFrequency: C8_FOR_STEPWISE,
         durationScalar: to.Scalar(1),
     },
-    entityConfigs: sequence([
+    entitySpecs: sequence([
         stepwiseSamples,
         // stepwiseOscillatorsForCheckingTuningAgainst,
         // stepwisePercussion,
     ]),
     scales: [
-        subharmonicSeriesPitches,
+        subharmonicSeriesScale,
     ],
     songId: SongID.STEPWISE,
 }
 
 export {
-    stepwiseSongConfig,
+    stepwiseSongSpec,
 }

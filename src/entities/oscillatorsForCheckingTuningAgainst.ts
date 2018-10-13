@@ -1,4 +1,4 @@
-import { EntityConfig, TimeType } from '../../../../src/compile/types'
+import { EntitySpec, TimeType } from '../../../../src/compile/types'
 import { OscillatorName, VoiceType } from '../../../../src/types'
 import {
     backboneNotes,
@@ -10,46 +10,46 @@ import {
     threePerNotes,
 } from '../notes'
 
-const stepwiseMainDescentOscillatorForCheckingTuningAgainst: EntityConfig = {
+const stepwiseMainDescentOscillatorForCheckingTuningAgainst: EntitySpec = {
     notes: mainDescentNotes,
     timeType: TimeType.ATOMIC,
-    voiceConfig: { timbre: OscillatorName.SQUARE, voiceType: VoiceType.OSCILLATOR },
+    voiceSpec: { timbre: OscillatorName.SQUARE, voiceType: VoiceType.OSCILLATOR },
 }
 
-const stepwiseMainDescentContinuationOscillatorForCheckingTuningAgainst: EntityConfig = {
+const stepwiseMainDescentContinuationOscillatorForCheckingTuningAgainst: EntitySpec = {
     notes: mainDescentContinuationNotes,
     timeType: TimeType.ATOMIC,
-    voiceConfig: { timbre: OscillatorName.SINE, voiceType: VoiceType.OSCILLATOR },
+    voiceSpec: { timbre: OscillatorName.SINE, voiceType: VoiceType.OSCILLATOR },
 }
 
-const stepwiseThreePerOscillatorForCheckingTuningAgainst: EntityConfig = {
+const stepwiseThreePerOscillatorForCheckingTuningAgainst: EntitySpec = {
     notes: threePerNotes,
     timeType: TimeType.ATOMIC,
-    voiceConfig: { timbre: OscillatorName.SQUARE, voiceType: VoiceType.OSCILLATOR },
+    voiceSpec: { timbre: OscillatorName.SQUARE, voiceType: VoiceType.OSCILLATOR },
 }
 
-const stepwiseFivePerOscillatorForCheckingTuningAgainst: EntityConfig = {
+const stepwiseFivePerOscillatorForCheckingTuningAgainst: EntitySpec = {
     notes: fivePerNotes,
     timeType: TimeType.ATOMIC,
-    voiceConfig: { timbre: OscillatorName.SQUARE, voiceType: VoiceType.OSCILLATOR },
+    voiceSpec: { timbre: OscillatorName.SQUARE, voiceType: VoiceType.OSCILLATOR },
 }
 
-const stepwiseSevenPerOscillatorForCheckingTuningAgainst: EntityConfig = {
+const stepwiseSevenPerOscillatorForCheckingTuningAgainst: EntitySpec = {
     notes: sevenPerNotes,
     timeType: TimeType.ATOMIC,
-    voiceConfig: { timbre: OscillatorName.SQUARE, voiceType: VoiceType.OSCILLATOR },
+    voiceSpec: { timbre: OscillatorName.SQUARE, voiceType: VoiceType.OSCILLATOR },
 }
 
-const stepwiseNinePerOscillatorForCheckingTuningAgainst: EntityConfig = {
+const stepwiseNinePerOscillatorForCheckingTuningAgainst: EntitySpec = {
     notes: ninePerNotes,
     timeType: TimeType.ATOMIC,
-    voiceConfig: { timbre: OscillatorName.SQUARE, voiceType: VoiceType.OSCILLATOR },
+    voiceSpec: { timbre: OscillatorName.SQUARE, voiceType: VoiceType.OSCILLATOR },
 }
 
-const stepwiseBackboneOscillatorForCheckingTuningAgainst: EntityConfig = {
+const stepwiseBackboneOscillatorForCheckingTuningAgainst: EntitySpec = {
     notes: backboneNotes,
     timeType: TimeType.ATOMIC,
-    voiceConfig: { timbre: OscillatorName.SQUARE, voiceType: VoiceType.OSCILLATOR },
+    voiceSpec: { timbre: OscillatorName.SQUARE, voiceType: VoiceType.OSCILLATOR },
 }
 
 export {

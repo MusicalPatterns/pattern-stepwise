@@ -1,5 +1,5 @@
-import { EntityConfig, TimeType } from '../../../../src/compile/types'
-import { subharmonicSeriesPitches } from '../../../../src/pitches'
+import { EntitySpec, TimeType } from '../../../../src/compile/types'
+import { subharmonicSeriesScale } from '../../../../src/scales'
 import { Timbre, VoiceType } from '../../../../src/types'
 import { Scalar } from '../../../../src/utilities/nominalTypes'
 import {
@@ -24,64 +24,64 @@ const QUARTER_LOUD: Scalar = 0.25 as any
 // tslint:disable-next-line:no-any no-magic-numbers
 const ALMOST_SILENT: Scalar = 0.05 as any
 
-const stepwiseMainDescent: EntityConfig = {
+const stepwiseMainDescent: EntitySpec = {
     notes: mainDescentNotes,
     timeType: TimeType.ATOMIC,
-    voiceConfig: { timbre: Timbre.TROMBONE, voiceType: VoiceType.SAMPLE },
     voiceGain: HALF_LOUD,
+    voiceSpec: { timbre: Timbre.TROMBONE, voiceType: VoiceType.SAMPLE },
 }
-const stepwiseMainDescentContinuation: EntityConfig = {
+const stepwiseMainDescentContinuation: EntitySpec = {
     notes: mainDescentContinuationNotes,
     timeType: TimeType.ATOMIC,
-    voiceConfig: { timbre: Timbre.TUBA, voiceType: VoiceType.SAMPLE },
+    voiceSpec: { timbre: Timbre.TUBA, voiceType: VoiceType.SAMPLE },
 }
 
-const stepwiseThreePer: EntityConfig = {
+const stepwiseThreePer: EntitySpec = {
     notes: threePerNotes,
     timeType: TimeType.ATOMIC,
-    voiceConfig: { timbre: Timbre.FLUTE, voiceType: VoiceType.SAMPLE },
     voiceGain: QUARTER_LOUD,
+    voiceSpec: { timbre: Timbre.FLUTE, voiceType: VoiceType.SAMPLE },
 }
-const stepwiseFivePer: EntityConfig = {
+const stepwiseFivePer: EntitySpec = {
     notes: fivePerNotes,
     timeType: TimeType.ATOMIC,
-    voiceConfig: { timbre: Timbre.VIOLIN, voiceType: VoiceType.SAMPLE },
     voiceGain: THIRD_LOUD,
+    voiceSpec: { timbre: Timbre.VIOLIN, voiceType: VoiceType.SAMPLE },
 }
-const stepwiseSevenPer: EntityConfig = {
+const stepwiseSevenPer: EntitySpec = {
     notes: sevenPerNotes,
     timeType: TimeType.ATOMIC,
-    voiceConfig: { timbre: Timbre.TRUMPET, voiceType: VoiceType.SAMPLE },
     voiceGain: QUARTER_LOUD,
+    voiceSpec: { timbre: Timbre.TRUMPET, voiceType: VoiceType.SAMPLE },
 }
-const stepwiseNinePer: EntityConfig = {
+const stepwiseNinePer: EntitySpec = {
     notes: ninePerNotes,
     timeType: TimeType.ATOMIC,
-    voiceConfig: { timbre: Timbre.CELLO, voiceType: VoiceType.SAMPLE },
     voiceGain: QUARTER_LOUD,
+    voiceSpec: { timbre: Timbre.CELLO, voiceType: VoiceType.SAMPLE },
 }
 
-const stepwiseBackbone: EntityConfig = {
+const stepwiseBackbone: EntitySpec = {
     notes: backboneNotes,
     timeType: TimeType.ATOMIC,
-    voiceConfig: { timbre: Timbre.PIANO, voiceType: VoiceType.SAMPLE },
     voiceGain: ALMOST_SILENT,
+    voiceSpec: { timbre: Timbre.PIANO, voiceType: VoiceType.SAMPLE },
 }
 
-const stepwiseKick: EntityConfig = {
+const stepwiseKick: EntitySpec = {
     notes: kickNotes,
     timeType: TimeType.ATOMIC,
-    voiceConfig: { timbre: Timbre.KICK, voiceType: VoiceType.SAMPLE },
+    voiceSpec: { timbre: Timbre.KICK, voiceType: VoiceType.SAMPLE },
 }
-const stepwiseSnare: EntityConfig = {
+const stepwiseSnare: EntitySpec = {
     notes: snareNotes,
     timeType: TimeType.ATOMIC,
-    voiceConfig: { timbre: Timbre.SNARE, voiceType: VoiceType.SAMPLE },
+    voiceSpec: { timbre: Timbre.SNARE, voiceType: VoiceType.SAMPLE },
 }
-const stepwiseHihat: EntityConfig = {
+const stepwiseHihat: EntitySpec = {
     notes: hihatNotes,
     timeType: TimeType.ATOMIC,
-    voiceConfig: { timbre: Timbre.HIHAT, voiceType: VoiceType.SAMPLE },
+    voiceSpec: { timbre: Timbre.HIHAT, voiceType: VoiceType.SAMPLE },
 }
 
 export {
