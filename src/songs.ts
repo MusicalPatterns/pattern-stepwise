@@ -1,5 +1,5 @@
 import { defaultSongCompile } from '../../../src/compile/defaultSongCompile'
-import { EntityConfig } from '../../../src/compile/types'
+import { EntityConfigs } from '../../../src/compile/types'
 import { subharmonicSeriesPitches } from '../../../src/pitches'
 import { Song, SongName } from '../../../src/songTypes'
 import sequence from '../../../src/utilities/sequence'
@@ -23,7 +23,7 @@ import {
     stepwiseThreePer,
 } from './entities/samples'
 
-const stepwiseSamples: EntityConfig[] = [
+const stepwiseSamples: EntityConfigs = [
     stepwiseMainDescent,
     stepwiseMainDescentContinuation,
     stepwiseThreePer,
@@ -32,7 +32,7 @@ const stepwiseSamples: EntityConfig[] = [
     // stepwiseBackbone,
 ]
 
-const stepwiseOscillatorsForCheckingTuningAgainst: EntityConfig[] = [
+const stepwiseOscillatorsForCheckingTuningAgainst: EntityConfigs = [
     stepwiseMainDescentOscillatorForCheckingTuningAgainst,
     stepwiseMainDescentContinuationOscillatorForCheckingTuningAgainst,
     stepwiseThreePerOscillatorForCheckingTuningAgainst,
@@ -41,7 +41,7 @@ const stepwiseOscillatorsForCheckingTuningAgainst: EntityConfig[] = [
     // stepwiseBackboneOscillatorForCheckingTuningAgainst,
 ]
 
-const stepwisePercussion: EntityConfig[] = [
+const stepwisePercussion: EntityConfigs = [
     stepwiseKick,
     stepwiseSnare,
     stepwiseHihat,
