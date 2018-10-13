@@ -1,7 +1,7 @@
 import { defaultSongCompile } from '../../../src/compile/defaultSongCompile'
 import { EntityConfigs } from '../../../src/compile/types'
 import { subharmonicSeriesPitches } from '../../../src/pitches'
-import { Song, SongName } from '../../../src/songTypes'
+import { Song, SongID } from '../../../src/songTypes'
 import sequence from '../../../src/utilities/sequence'
 import * as to from '../../../src/utilities/to'
 import { C8_FOR_STEPWISE } from './basePitch'
@@ -60,7 +60,7 @@ const stepwise: Song = {
         // stepwisePercussion,
     ]),
     formattedName: 'Stepwise',
-    name: SongName.STEPWISE,
+    id: SongID.STEPWISE,
     scales: [
         subharmonicSeriesPitches,
     ],
