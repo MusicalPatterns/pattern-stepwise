@@ -1,4 +1,4 @@
-import { Note, Notes } from '../../../src/types'
+import { NoteSpec, NoteSpecs, NoteSpecsDictionary } from '../../../src/compile/types'
 import sequence from '../../../src/utilities/sequence'
 import {
     backbone,
@@ -12,29 +12,40 @@ import {
     snare,
     threePer,
 } from './contours'
-import { stepwiseNoteType, unpitchedSampleNoteType } from './noteTypes'
+import { buildStepwiseNoteSpec, buildUnpitchedStepwiseNoteSpec } from './note'
 
-const mainDescentNotes: Notes = sequence([ mainDescent, mainDescentContinuation ]).map(stepwiseNoteType)
-const mainDescentContinuationNotes: Notes = sequence([ mainDescentContinuation, mainDescent ]).map(stepwiseNoteType)
-const threePerNotes: Notes = sequence([ threePer, ninePer ]).map(stepwiseNoteType)
-const fivePerNotes: Notes = fivePer.map(stepwiseNoteType)
-const sevenPerNotes: Notes = sevenPer.map(stepwiseNoteType)
-const ninePerNotes: Notes = sequence([ ninePer, threePer ]).map(stepwiseNoteType)
-const backboneNotes: Notes = backbone.map(stepwiseNoteType)
+const buildStepwiseNoteSpecs: () => NoteSpecsDictionary =
+    (): NoteSpecsDictionary => {
+        const mainDescentNoteSpecs: NoteSpecs = sequence([ mainDescent, mainDescentContinuation ])
+            .map(buildStepwiseNoteSpec)
+        const mainDescentContinuationNoteSpecs: NoteSpecs = sequence([ mainDescentContinuation, mainDescent ])
+            .map(buildStepwiseNoteSpec)
 
-const kickNotes: Notes = kick.map(unpitchedSampleNoteType)
-const snareNotes: Notes = snare.map(unpitchedSampleNoteType)
-const hihatNotes: Notes = hihat.map(unpitchedSampleNoteType)
+        const threePerNoteSpecs: NoteSpecs = sequence([ threePer, ninePer ]).map(buildStepwiseNoteSpec)
+        const fivePerNoteSpecs: NoteSpecs = fivePer.map(buildStepwiseNoteSpec)
+        const sevenPerNoteSpecs: NoteSpecs = sevenPer.map(buildStepwiseNoteSpec)
+        const ninePerNoteSpecs: NoteSpecs = sequence([ ninePer, threePer ]).map(buildStepwiseNoteSpec)
+
+        const backboneNoteSpecs: NoteSpecs = backbone.map(buildStepwiseNoteSpec)
+
+        const kickNoteSpecs: NoteSpecs = kick.map(buildUnpitchedStepwiseNoteSpec)
+        const snareNoteSpecs: NoteSpecs = snare.map(buildUnpitchedStepwiseNoteSpec)
+        const hihatNoteSpecs: NoteSpecs = hihat.map(buildUnpitchedStepwiseNoteSpec)
+
+        return {
+            backboneNoteSpecs,
+            fivePerNoteSpecs,
+            hihatNoteSpecs,
+            kickNoteSpecs,
+            mainDescentContinuationNoteSpecs,
+            mainDescentNoteSpecs,
+            ninePerNoteSpecs,
+            sevenPerNoteSpecs,
+            snareNoteSpecs,
+            threePerNoteSpecs,
+        }
+    }
 
 export {
-    mainDescentNotes,
-    mainDescentContinuationNotes,
-    threePerNotes,
-    fivePerNotes,
-    sevenPerNotes,
-    ninePerNotes,
-    backboneNotes,
-    kickNotes,
-    snareNotes,
-    hihatNotes,
+    buildStepwiseNoteSpecs,
 }

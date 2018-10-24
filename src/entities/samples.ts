@@ -1,96 +1,89 @@
-import { EntitySpec, TimeType } from '../../../../src/compile/types'
-import { subharmonicSeriesScale } from '../../../../src/scales'
-import { Timbre, VoiceType } from '../../../../src/types'
-import { Scalar } from '../../../../src/utilities/nominalTypes'
-import {
-    backboneNotes,
-    fivePerNotes,
-    hihatNotes,
-    kickNotes,
-    mainDescentContinuationNotes,
-    mainDescentNotes,
-    ninePerNotes,
-    sevenPerNotes,
-    snareNotes,
-    threePerNotes,
-} from '../notes'
+import { Entity, EntityDictionary, TimeType } from '../../../../src/compile/types'
+import { SongSpec } from '../../../../src/songs'
+import { SampleName, VoiceType } from '../../../../src/types'
+import { buildStepwiseNoteSpecs } from '../notes'
 
-// tslint:disable-next-line:no-any no-magic-numbers
-const HALF_LOUD: Scalar = 0.5 as any
-// tslint:disable-next-line:no-any no-magic-numbers
-const THIRD_LOUD: Scalar = 0.333 as any
-// tslint:disable-next-line:no-any no-magic-numbers
-const QUARTER_LOUD: Scalar = 0.25 as any
-// tslint:disable-next-line:no-any no-magic-numbers
-const ALMOST_SILENT: Scalar = 0.05 as any
+const buildSampleEntities: () => EntityDictionary =
+    (): EntityDictionary => {
+        const {
+            backboneNoteSpecs,
+            fivePerNoteSpecs,
+            hihatNoteSpecs,
+            kickNoteSpecs,
+            mainDescentContinuationNoteSpecs,
+            mainDescentNoteSpecs,
+            ninePerNoteSpecs,
+            sevenPerNoteSpecs,
+            snareNoteSpecs,
+            threePerNoteSpecs,
+        } = buildStepwiseNoteSpecs()
 
-const stepwiseMainDescent: EntitySpec = {
-    notes: mainDescentNotes,
-    timeType: TimeType.ATOMIC,
-    voiceGain: HALF_LOUD,
-    voiceSpec: { timbre: Timbre.TROMBONE, voiceType: VoiceType.SAMPLE },
-}
-const stepwiseMainDescentContinuation: EntitySpec = {
-    notes: mainDescentContinuationNotes,
-    timeType: TimeType.ATOMIC,
-    voiceSpec: { timbre: Timbre.TUBA, voiceType: VoiceType.SAMPLE },
-}
+        const stepwiseMainDescentEntity: Entity = {
+            noteSpecs: mainDescentNoteSpecs,
+            timeType: TimeType.ATOMIC,
+            voiceSpec: { timbre: SampleName.TROMBONE, voiceType: VoiceType.SAMPLE },
+        }
+        const stepwiseMainDescentContinuationEntity: Entity = {
+            noteSpecs: mainDescentContinuationNoteSpecs,
+            timeType: TimeType.ATOMIC,
+            voiceSpec: { timbre: SampleName.TUBA, voiceType: VoiceType.SAMPLE },
+        }
 
-const stepwiseThreePer: EntitySpec = {
-    notes: threePerNotes,
-    timeType: TimeType.ATOMIC,
-    voiceGain: QUARTER_LOUD,
-    voiceSpec: { timbre: Timbre.FLUTE, voiceType: VoiceType.SAMPLE },
-}
-const stepwiseFivePer: EntitySpec = {
-    notes: fivePerNotes,
-    timeType: TimeType.ATOMIC,
-    voiceGain: THIRD_LOUD,
-    voiceSpec: { timbre: Timbre.VIOLIN, voiceType: VoiceType.SAMPLE },
-}
-const stepwiseSevenPer: EntitySpec = {
-    notes: sevenPerNotes,
-    timeType: TimeType.ATOMIC,
-    voiceGain: QUARTER_LOUD,
-    voiceSpec: { timbre: Timbre.TRUMPET, voiceType: VoiceType.SAMPLE },
-}
-const stepwiseNinePer: EntitySpec = {
-    notes: ninePerNotes,
-    timeType: TimeType.ATOMIC,
-    voiceGain: QUARTER_LOUD,
-    voiceSpec: { timbre: Timbre.CELLO, voiceType: VoiceType.SAMPLE },
-}
+        const stepwiseThreePerEntity: Entity = {
+            noteSpecs: threePerNoteSpecs,
+            timeType: TimeType.ATOMIC,
+            voiceSpec: { timbre: SampleName.FLUTE, voiceType: VoiceType.SAMPLE },
+        }
+        const stepwiseFivePerEntity: Entity = {
+            noteSpecs: fivePerNoteSpecs,
+            timeType: TimeType.ATOMIC,
+            voiceSpec: { timbre: SampleName.VIOLIN, voiceType: VoiceType.SAMPLE },
+        }
+        const stepwiseSevenPerEntity: Entity = {
+            noteSpecs: sevenPerNoteSpecs,
+            timeType: TimeType.ATOMIC,
+            voiceSpec: { timbre: SampleName.TRUMPET, voiceType: VoiceType.SAMPLE },
+        }
+        const stepwiseNinePerEntity: Entity = {
+            noteSpecs: ninePerNoteSpecs,
+            timeType: TimeType.ATOMIC,
+            voiceSpec: { timbre: SampleName.CELLO, voiceType: VoiceType.SAMPLE },
+        }
 
-const stepwiseBackbone: EntitySpec = {
-    notes: backboneNotes,
-    timeType: TimeType.ATOMIC,
-    voiceGain: ALMOST_SILENT,
-    voiceSpec: { timbre: Timbre.PIANO, voiceType: VoiceType.SAMPLE },
-}
+        const stepwiseBackboneEntity: Entity = {
+            noteSpecs: backboneNoteSpecs,
+            timeType: TimeType.ATOMIC,
+            voiceSpec: { timbre: SampleName.PIANO, voiceType: VoiceType.SAMPLE },
+        }
 
-const stepwiseKick: EntitySpec = {
-    notes: kickNotes,
-    timeType: TimeType.ATOMIC,
-    voiceSpec: { timbre: Timbre.KICK, voiceType: VoiceType.SAMPLE },
-}
-const stepwiseSnare: EntitySpec = {
-    notes: snareNotes,
-    timeType: TimeType.ATOMIC,
-    voiceSpec: { timbre: Timbre.SNARE, voiceType: VoiceType.SAMPLE },
-}
-const stepwiseHihat: EntitySpec = {
-    notes: hihatNotes,
-    timeType: TimeType.ATOMIC,
-    voiceSpec: { timbre: Timbre.HIHAT, voiceType: VoiceType.SAMPLE },
-}
+        const stepwiseKickEntity: Entity = {
+            noteSpecs: kickNoteSpecs,
+            timeType: TimeType.ATOMIC,
+            voiceSpec: { timbre: SampleName.KICK, voiceType: VoiceType.SAMPLE },
+        }
+        const stepwiseSnareEntity: Entity = {
+            noteSpecs: snareNoteSpecs,
+            timeType: TimeType.ATOMIC,
+            voiceSpec: { timbre: SampleName.SNARE, voiceType: VoiceType.SAMPLE },
+        }
+        const stepwiseHihatEntity: Entity = {
+            noteSpecs: hihatNoteSpecs,
+            timeType: TimeType.ATOMIC,
+            voiceSpec: { timbre: SampleName.HIHAT, voiceType: VoiceType.SAMPLE },
+        }
+
+        return {
+            stepwiseFivePerEntity,
+            stepwiseHihatEntity,
+            stepwiseKickEntity,
+            stepwiseMainDescentContinuationEntity,
+            stepwiseMainDescentEntity,
+            stepwiseSevenPerEntity,
+            stepwiseSnareEntity,
+            stepwiseThreePerEntity,
+        }
+    }
 
 export {
-    stepwiseMainDescent,
-    stepwiseMainDescentContinuation,
-    stepwiseThreePer,
-    stepwiseFivePer,
-    stepwiseSevenPer,
-    stepwiseKick,
-    stepwiseSnare,
-    stepwiseHihat,
+    buildSampleEntities,
 }
