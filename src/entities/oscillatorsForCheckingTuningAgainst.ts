@@ -1,6 +1,11 @@
-import { Entity, EntityDictionary, NoteSpecsDictionary, TimeType } from '../../../../src/compile/types'
-import { SongSpec } from '../../../../src/songs'
-import { OscillatorName, VoiceType } from '../../../../src/types'
+import {
+    Entity,
+    EntityDictionary,
+    NoteSpecsDictionary,
+    OscillatorName,
+    TimeType,
+    VoiceType,
+} from '../../../../src'
 import { buildStepwiseNoteSpecs } from '../notes'
 
 const buildOscillatorsForCheckingTurningAgainstEntities: () => EntityDictionary =

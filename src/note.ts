@@ -1,9 +1,5 @@
-import { NoteSpec } from '../../../src/compile/types'
-import { FULL_GAIN, SEPARATION_FOR_NEIGHBORING_NOTES } from '../../../src/constants'
-import { Index, Scalar } from '../../../src/utilities/nominalTypes'
-import * as to from '../../../src/utilities/to'
-import * as stepwiseFrom from './utilities/from'
-import { ContourElement } from './utilities/nominalTypes'
+import { FULL_GAIN, Index, NoteSpec, Scalar, SEPARATION_FOR_NEIGHBORING_NOTES, to } from '../../../src'
+import { ContourElement, from } from './nominal'
 
 // tslint:disable-next-line:no-any no-magic-numbers
 const DURATIONS_AND_UNPITCHED_SAMPLES_SCALE_INDEX: Index = 1 as any
@@ -15,18 +11,18 @@ const UNPITCHED_SAMPLE_PITCH_SCALAR: Scalar = 256 as any
 const buildStepwiseNoteSpec: (duration: ContourElement) => NoteSpec =
     (contourElement: ContourElement): NoteSpec => ({
         durationSpec: {
-            index: to.Index(stepwiseFrom.ContourElement(contourElement)),
+            index: to.Index(from.ContourElement(contourElement)),
             scaleIndex: DURATIONS_AND_UNPITCHED_SAMPLES_SCALE_INDEX,
         },
         gainSpec: {
             scalar: FULL_GAIN,
         },
         pitchSpec: {
-            index: to.Index(stepwiseFrom.ContourElement(contourElement)),
+            index: to.Index(from.ContourElement(contourElement)),
             scaleIndex: PITCH_SCALE_INDEX,
         },
         sustainSpec: {
-            index: to.Index(stepwiseFrom.ContourElement(contourElement)),
+            index: to.Index(from.ContourElement(contourElement)),
             offset: SEPARATION_FOR_NEIGHBORING_NOTES,
         },
     })
@@ -34,7 +30,7 @@ const buildStepwiseNoteSpec: (duration: ContourElement) => NoteSpec =
 const buildUnpitchedStepwiseNoteSpec: (duration: ContourElement) => NoteSpec =
     (contourElement: ContourElement): NoteSpec => ({
         durationSpec: {
-            index: to.Index(stepwiseFrom.ContourElement(contourElement)),
+            index: to.Index(from.ContourElement(contourElement)),
             scaleIndex: DURATIONS_AND_UNPITCHED_SAMPLES_SCALE_INDEX,
         },
         pitchSpec: {
@@ -43,7 +39,7 @@ const buildUnpitchedStepwiseNoteSpec: (duration: ContourElement) => NoteSpec =
             scaleIndex: DURATIONS_AND_UNPITCHED_SAMPLES_SCALE_INDEX,
         },
         sustainSpec: {
-            index: to.Index(stepwiseFrom.ContourElement(contourElement)),
+            index: to.Index(from.ContourElement(contourElement)),
             offset: SEPARATION_FOR_NEIGHBORING_NOTES,
         },
     })

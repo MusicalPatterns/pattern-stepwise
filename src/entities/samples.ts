@@ -1,6 +1,4 @@
-import { Entity, EntityDictionary, TimeType } from '../../../../src/compile/types'
-import { SongSpec } from '../../../../src/songs'
-import { SampleName, VoiceType } from '../../../../src/types'
+import { Entity, EntityDictionary, SampleName,  TimeType, VoiceType } from '../../../../src'
 import { buildStepwiseNoteSpecs } from '../notes'
 
 const buildSampleEntities: () => EntityDictionary =

@@ -1,9 +1,9 @@
 // tslint:disable:max-line-length
 // tslint:disable:no-magic-numbers
 
-import numbers from '../../../src/utilities/numbers'
+import { numbers } from '../../../src'
+import { to } from './nominal'
 import { Contour } from './types'
-import * as to from './utilities/to'
 
 const mainDescent: Contour = to.Contour(numbers.slice(0, 29).map((n: number): number => (n + 1) * 2 - 1))
 

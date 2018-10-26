@@ -1,4 +1,4 @@
-import { Song } from '../../../src/songTypes'
+import { Song } from '../../../src'
 import { stepwiseSongMaterial } from './songMaterials'
 import { stepwiseSongMetadata } from './songMetadata'
 import { stepwiseSongSpec } from './songSpecs'

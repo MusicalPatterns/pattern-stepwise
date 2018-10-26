@@ -1,9 +1,9 @@
-import { Entities } from '../../../src/compile/types'
-import { buildOscillatorsForCheckingTurningAgainstEntities } from './entities/oscillatorsForCheckingTuningAgainst'
-import { buildSampleEntities } from './entities/samples'
+import { Entity } from '../../../../src'
+import { buildOscillatorsForCheckingTurningAgainstEntities } from './oscillatorsForCheckingTuningAgainst'
+import { buildSampleEntities } from './samples'
 
-const buildStepwiseEntities: () => Entities =
-    (): Entities => {
+const buildStepwiseEntities: () => Entity[] =
+    (): Entity[] => {
         const {
             stepwiseFivePerEntity,
             stepwiseHihatEntity,

@@ -1,5 +1,4 @@
-import { SongID } from '../../../src/songIds'
-import { SongMetadata } from '../../../src/songTypes'
+import { SongMetadata } from '../../../src'
 
 const stepwiseSongMetadata: SongMetadata = {
     description: 'stepwise motion within recurring bounds',

@@ -1,4 +1,4 @@
-import { ContourElement } from './utilities/nominalTypes'
+import { ContourElement } from './nominal'
 
 type Contour = ContourElement[]
 

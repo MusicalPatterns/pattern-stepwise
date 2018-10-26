@@ -1,4 +1,4 @@
-import { SongMaterial } from '../../../src/songTypes'
+import { SongMaterial } from '../../../src'
 import { buildStepwiseEntities } from './entities'
 import { buildStepwiseScales } from './scales'
 
