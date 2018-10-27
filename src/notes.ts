@@ -1,20 +1,22 @@
 import { NoteSpec, NoteSpecsDictionary, sequence } from '../../../src'
-import {
-    backbone,
-    fivePer,
-    hihat,
-    kick,
-    mainDescent,
-    mainDescentContinuation,
-    ninePer,
-    sevenPer,
-    snare,
-    threePer,
-} from './contours'
+import { buildStepwiseContours } from './contours'
 import { buildStepwiseNoteSpec, buildUnpitchedStepwiseNoteSpec } from './note'
 
 const buildStepwiseNoteSpecs: () => NoteSpecsDictionary =
     (): NoteSpecsDictionary => {
+        const {
+            backbone,
+            fivePer,
+            hihat,
+            kick,
+            mainDescent,
+            mainDescentContinuation,
+            ninePer,
+            sevenPer,
+            snare,
+            threePer,
+        } = buildStepwiseContours()
+
         const mainDescentNoteSpecs: NoteSpec[] = sequence([ mainDescent, mainDescentContinuation ])
             .map(buildStepwiseNoteSpec)
         const mainDescentContinuationNoteSpecs: NoteSpec[] = sequence([ mainDescentContinuation, mainDescent ])

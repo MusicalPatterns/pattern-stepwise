@@ -23,13 +23,13 @@ const buildOscillatorsForCheckingTurningAgainstEntities: () => EntityDictionary 
         const stepwiseMainDescentOscillatorForCheckingTuningAgainstEntity: Entity = {
             noteSpecs: mainDescentNoteSpecs,
             timeType: TimeType.ATOMIC,
-            voiceSpec: { timbre: OscillatorName.TRIANGLE, voiceType: VoiceType.OSCILLATOR },
+            voiceSpec: { timbre: OscillatorName.SAWTOOTH, voiceType: VoiceType.OSCILLATOR },
         }
 
         const stepwiseMainDescentContinuationOscillatorForCheckingTuningAgainstEntity: Entity = {
             noteSpecs: mainDescentContinuationNoteSpecs,
             timeType: TimeType.ATOMIC,
-            voiceSpec: { timbre: OscillatorName.TRIANGLE, voiceType: VoiceType.OSCILLATOR },
+            voiceSpec: { timbre: OscillatorName.SAWTOOTH, voiceType: VoiceType.OSCILLATOR },
         }
 
         const stepwiseThreePerOscillatorForCheckingTuningAgainstEntity: Entity = {
