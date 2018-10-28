@@ -1,4 +1,5 @@
-import { BuildScalesFunction, buildStandardScales, Scale, SongSpec } from '../../../src'
+import { BuildScalesFunction, buildStandardScales, Scale } from '../../../src'
+import { SongSpec } from '../../types'
 
 const buildStepwiseScales: BuildScalesFunction =
     (songSpec: SongSpec): Scale[] => {
