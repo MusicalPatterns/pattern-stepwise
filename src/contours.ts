@@ -1,7 +1,7 @@
 // tslint:disable:max-line-length
 // tslint:disable:no-magic-numbers
 
-import { DictionaryOf, numbers } from '../../../src'
+import { DictionaryOf, from, INITIAL, numbers } from '../../../src'
 import { to } from './nominal'
 import { Contour } from './types'
 
@@ -9,13 +9,13 @@ const buildStepwiseContours: () => DictionaryOf<Contour> =
     (): DictionaryOf<Contour> => {
         const mainDescent: Contour = to.Contour(
             numbers
-                .slice(0, 29)
+                .slice(from.Index(INITIAL), 29)
                 .map((n: number): number => (n + 1) * 2 - 1),
         )
 
         const mainDescentContinuation: Contour = to.Contour(
             numbers
-                .slice(0, 12)
+                .slice(from.Index(INITIAL), 12)
                 .map((n: number): number => (n + 1) * 2 + 57),
         )
 

@@ -1,11 +1,9 @@
-import { BaseSongSpec, DEFAULT_DURATION_SCALAR, Scalar } from '../../../src'
-
-// tslint:disable-next-line:no-any no-magic-numbers
-const C8_FOR_STEPWISE: Scalar = 4186 as any
+import { BaseSongSpec, DEFAULT_ATOMIC_TIME_TYPE_DURATION_SCALAR } from '../../../src'
+import { C8 } from './constants'
 
 const stepwiseSongSpec: BaseSongSpec = {
-    songDurationScalar: DEFAULT_DURATION_SCALAR,
-    songPitchScalar: C8_FOR_STEPWISE,
+    songDurationScalar: DEFAULT_ATOMIC_TIME_TYPE_DURATION_SCALAR,
+    songPitchScalar: C8,
 }
 
 export {
