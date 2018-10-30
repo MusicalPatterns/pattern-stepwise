@@ -1,86 +1,82 @@
 // tslint:disable:max-line-length
 // tslint:disable:no-magic-numbers
 
-import { DictionaryOf, from, INITIAL, numbers } from '../../../src'
-import { to } from './nominal'
-import { Contour } from './types'
+import { Block, DictionaryOf, from, INITIAL, numbers, to } from '../../../../src'
 
-const buildStepwiseContours: () => DictionaryOf<Contour> =
-    (): DictionaryOf<Contour> => {
-        const mainDescent: Contour = to.Contour(
-            numbers
-                .slice(from.Index(INITIAL), 29)
-                .map((n: number): number => (n + 1) * 2 - 1),
+const buildStepwiseBlocks: () => DictionaryOf<Block> =
+    (): DictionaryOf<Block> => {
+        const mainDescentBlock: Block = to.Block(numbers
+            .slice(from.Index(INITIAL), 28)
+            .map((n: number): number => n * 2 + 1),
         )
 
-        const mainDescentContinuation: Contour = to.Contour(
-            numbers
-                .slice(from.Index(INITIAL), 12)
-                .map((n: number): number => (n + 1) * 2 + 57),
+        const mainDescentContinuationBlock: Block = to.Block(numbers
+            .slice(from.Index(INITIAL), 12)
+            .map((n: number): number => n * 2 + 57),
         )
 
-        const threePer: Contour = to.Contour([
+        const threePerBlock: Block = to.Block([
             3, 1, 3, 1, 3, 1, 3, 5, 3, 1, 3, 5, 3, 5, 3, 5, 7, 5, 3, 5, 7, 5, 7, 5, 7, 9, 7, 5, 7, 9, 7, 9, 7, 9, 11, 9, 7, 9, 11, 9, 11, 9, 11, 13, 11, 9, 11, 13, 11, 13, 11, 13, 15, 13, 11, 13, 15, 13, 15, 13, 15, 17, 15, 13, 15, 17, 15, 17, 15, 17, 19, 17, 15, 17, 19, 17, 19, 17, 19, 21, 19, 17,
         ])
 
-        const fivePer: Contour = to.Contour([
+        const fivePerBlock: Block = to.Block([
             11, 13, 11, 13, 11, 13, 15, 13, 11, 9, 7, 5, 3, 5, 3, 1, 3, 5, 7, 9, 7, 5, 3, 5, 7, 5, 7, 5, 7, 5, 7, 5, 7, 5, 7, 5, 7, 9, 7, 5, 3, 5, 7, 9, 11, 9, 7, 5, 7, 9, 7, 9, 7, 9, 7, 9, 7, 9, 7, 9, 7, 9, 11, 9, 7, 5, 7, 9, 11, 13, 11, 9, 7, 9, 11, 9, 11, 9, 11, 9, 11, 9, 11, 9, 11, 9, 11, 13, 11, 9, 7, 9, 11, 13, 15, 13, 11, 9, 11, 13,
         ])
 
-        const sevenPer: Contour = to.Contour([
+        const sevenPerBlock: Block = to.Block([
             7, 9, 7, 9, 11, 9, 7, 5, 7, 9, 7, 9, 11, 13, 15, 13, 11, 9, 7, 5, 3, 5, 7, 9, 11, 13, 11, 9, 7, 9, 11, 9, 11, 9, 11, 9, 11, 9, 11, 9, 11, 9, 11, 9, 11, 9, 11, 9, 11, 13, 11, 9, 11, 9, 11, 9, 7, 9, 7, 9, 7, 5, 3, 1, 3, 5, 7, 9, 11, 13, 11, 9, 7, 5, 7, 5, 7, 5, 7, 9, 7, 9, 7, 9, 7, 9, 7, 9, 7, 9, 7, 9, 7, 9, 7, 9, 7, 9,
         ])
 
-        const ninePer: Contour = to.Contour([
+        const ninePerBlock: Block = to.Block([
             15, 13, 11, 9, 11, 9, 11, 9, 7, 9, 7, 9, 7, 9, 7, 9, 7, 5, 7, 5, 7, 9, 11, 13, 15, 17, 15, 13, 11, 9, 7, 5, 3, 1, 3, 5, 7, 9, 7, 9, 7, 9, 7, 9, 7, 9, 7, 9, 7, 9, 7, 9, 7, 9, 7, 9, 7, 9, 7, 9, 7, 9, 11, 13, 15, 17, 19, 17, 15, 13, 11, 9, 7, 5, 7, 5, 7, 5, 7, 9, 11, 13, 15, 17, 15, 13, 11, 9, 7, 5, 3, 1,
         ])
 
-        const backbone: Contour = to.Contour([ 3, 1 ])
+        const backboneBlock: Block = to.Block([ 3, 1 ])
 
-        const kick: Contour = to.Contour([ 8 ])
+        const kickBlock: Block = to.Block([ 8 ])
 
-        const snare: Contour = to.Contour([ 24 ])
+        const snareBlock: Block = to.Block([ 24 ])
 
-        const hihat: Contour = to.Contour([ 1 ])
+        const hihatBlock: Block = to.Block([ 1 ])
 
-        const divideFortyeightByTwelve: Contour = to.Contour([
+        const divideFortyeightByTwelveBlock: Block = to.Block([
             3, 1, 3, 1, 3, 1, 3, 1, 3, 1, 3, 1, 3, 1, 3, 1, 3, 1, 3, 1, 3, 1, 3, 1,
         ])
 
-        const divideFortyeightBySix: Contour = to.Contour([
+        const divideFortyeightBySixBlock: Block = to.Block([
             3, 5, 3, 5, 3, 5, 3, 5, 3, 5, 3, 5,
         ])
 
-        const dividFortyeightByFour: Contour = to.Contour([
+        const dividFortyeightByFourBlock: Block = to.Block([
             7, 5, 7, 5, 7, 5, 7, 5,
         ])
 
-        const divideFortyeightByThree: Contour = to.Contour([
+        const divideFortyeightByThreeBlock: Block = to.Block([
             7, 9, 7, 9, 7, 9,
         ])
 
-        const divideFortyeightByTwo: Contour = to.Contour([
+        const divideFortyeightByTwoBlock: Block = to.Block([
             11, 13, 11, 13,
         ])
 
-        const divideFortyeightByOne: Contour = to.Contour([
+        const divideFortyeightByOneBlock: Block = to.Block([
             47, 49,
         ])
 
         return {
-            backbone,
-            fivePer,
-            hihat,
-            kick,
-            mainDescent,
-            mainDescentContinuation,
-            ninePer,
-            sevenPer,
-            snare,
-            threePer,
+            backboneBlock,
+            fivePerBlock,
+            hihatBlock,
+            kickBlock,
+            mainDescentBlock,
+            mainDescentContinuationBlock,
+            ninePerBlock,
+            sevenPerBlock,
+            snareBlock,
+            threePerBlock,
         }
     }
 
 export {
-    buildStepwiseContours,
+    buildStepwiseBlocks,
 }
