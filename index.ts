@@ -1,1 +1,1 @@
-export { stepwiseSong } from './src'
+export { stepwisePattern } from './src'

@@ -1,1 +1,1 @@
-export { stepwiseSong } from './songs'
+export { stepwisePattern } from './patterns'
