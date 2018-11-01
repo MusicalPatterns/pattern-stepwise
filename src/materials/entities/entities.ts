@@ -1,8 +1,8 @@
-import { Entity } from '../../../../../src'
+import { BuildEntitiesFunction, Entity } from '../../../../../src'
 import { buildStepwiseOscillatorEntities } from './oscillatorEntities'
 import { buildStepwiseSampleEntities } from './sampleEntities'
 
-const buildStepwiseEntities: () => Entity[] =
+const buildStepwiseEntities: BuildEntitiesFunction =
     (): Entity[] => {
         const {
             stepwiseFivePerSampleEntity,
