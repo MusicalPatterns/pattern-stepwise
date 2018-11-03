@@ -3,14 +3,13 @@ import {
     DEFAULT_OFFSET_FOR_ALMOST_FULL_SUSTAIN,
     DEFAULT_PITCH_SCALE_INDEX,
     from,
-    FULL_GAIN,
     Index,
     NoteSpec,
     to,
 } from '../../../../src'
 import { PROBLEMATICALLY_NECESSARY_AND_PROBABLY_INACCURATE_UNPITCHED_SAMPLE_PITCH_SCALAR } from '../constants'
 
-const buildStepwiseNoteSpec: (duration: Index) => NoteSpec =
+const buildNoteSpec: (duration: Index) => NoteSpec =
     (contourElement: Index): NoteSpec => ({
         durationSpec: {
             index: to.Index(from.Index(contourElement)),
@@ -44,6 +43,6 @@ const buildStepwiseUnpitchedNoteSpec: (duration: Index) => NoteSpec =
     })
 
 export {
-    buildStepwiseNoteSpec,
+    buildNoteSpec,
     buildStepwiseUnpitchedNoteSpec,
 }

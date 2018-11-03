@@ -6,7 +6,7 @@ import {
     TimeType,
     VoiceType,
 } from '../../../../../src'
-import { buildStepwiseParts } from '../parts'
+import { buildParts } from '../parts'
 
 const buildStepwiseOscillatorEntities: () => EntityDictionary =
     (): EntityDictionary => {
@@ -18,7 +18,7 @@ const buildStepwiseOscillatorEntities: () => EntityDictionary =
             ninePerPart,
             sevenPerPart,
             threePerPart,
-        }: PartDictionary = buildStepwiseParts()
+        }: PartDictionary = buildParts()
 
         const stepwiseMainDescentOscillatorEntity: Entity = {
             part: mainDescentPart,

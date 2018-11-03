@@ -1,5 +1,5 @@
 import { Entity, EntityDictionary, SampleName,  TimeType, VoiceType } from '../../../../../src'
-import { buildStepwiseParts } from '../parts'
+import { buildParts } from '../parts'
 
 const buildStepwiseSampleEntities: () => EntityDictionary =
     (): EntityDictionary => {
@@ -14,7 +14,7 @@ const buildStepwiseSampleEntities: () => EntityDictionary =
             sevenPerPart,
             snarePart,
             threePerPart,
-        } = buildStepwiseParts()
+        } = buildParts()
 
         const stepwiseMainDescentSampleEntity: Entity = {
             part: mainDescentPart,

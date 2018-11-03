@@ -1,5 +1,5 @@
 import { Block, from, Index, SumOfIndices, to } from '../../../../../src/indexForTest'
-import { buildStepwiseBlocks } from '../../../src/indexForTest'
+import { buildBlocks } from '../../../src/indexForTest'
 
 const calculateTotalBlockDuration: (block: Block) => SumOfIndices =
     (block: Block): SumOfIndices =>
@@ -14,7 +14,7 @@ describe('stepwise blocks', () => {
         it('descends from 3 to 57, by 2 (only odds)', () => {
             const {
                 mainDescentBlock,
-            } = buildStepwiseBlocks()
+            } = buildBlocks()
 
             expect(mainDescentBlock)
                 .toEqual([
@@ -27,7 +27,7 @@ describe('stepwise blocks', () => {
         it('descends from 59 to 81, by 2 (only odds)', () => {
             const {
                 mainDescentContinuationBlock,
-            } = buildStepwiseBlocks()
+            } = buildBlocks()
 
             expect(mainDescentContinuationBlock)
                 .toEqual([
@@ -40,7 +40,7 @@ describe('stepwise blocks', () => {
         const {
             mainDescentBlock,
             mainDescentContinuationBlock,
-        } = buildStepwiseBlocks()
+        } = buildBlocks()
 
         expect(calculateTotalBlockDuration(mainDescentBlock))
             .toBe(calculateTotalBlockDuration(mainDescentContinuationBlock))

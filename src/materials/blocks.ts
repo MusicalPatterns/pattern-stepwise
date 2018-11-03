@@ -3,7 +3,7 @@
 
 import { Block, DictionaryOf, from, INITIAL, numbers, to } from '../../../../src'
 
-const buildStepwiseBlocks: () => DictionaryOf<Block> =
+const buildBlocks: () => DictionaryOf<Block> =
     (): DictionaryOf<Block> => {
         const mainDescentBlock: Block = to.Block(numbers
             .slice(from.Index(INITIAL), 28)
@@ -78,5 +78,5 @@ const buildStepwiseBlocks: () => DictionaryOf<Block> =
     }
 
 export {
-    buildStepwiseBlocks,
+    buildBlocks,
 }

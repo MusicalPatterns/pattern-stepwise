@@ -1,8 +1,8 @@
 import { Part, PartDictionary, sequence } from '../../../../src'
-import { buildStepwiseBlocks } from './blocks'
-import { buildStepwiseNoteSpec, buildStepwiseUnpitchedNoteSpec } from './notes'
+import { buildBlocks } from './blocks'
+import { buildNoteSpec, buildStepwiseUnpitchedNoteSpec } from './notes'
 
-const buildStepwiseParts: () => PartDictionary =
+const buildParts: () => PartDictionary =
     (): PartDictionary => {
         const {
             backboneBlock,
@@ -15,30 +15,30 @@ const buildStepwiseParts: () => PartDictionary =
             sevenPerBlock,
             snareBlock,
             threePerBlock,
-        } = buildStepwiseBlocks()
+        } = buildBlocks()
 
         const mainDescentPart: Part = sequence([
             mainDescentBlock,
             mainDescentContinuationBlock,
         ])
-            .map(buildStepwiseNoteSpec)
+            .map(buildNoteSpec)
         const mainDescentContinuationPart: Part = sequence([
             mainDescentContinuationBlock,
             mainDescentBlock,
         ])
-            .map(buildStepwiseNoteSpec)
+            .map(buildNoteSpec)
 
         const threePerPart: Part = sequence([ threePerBlock, ninePerBlock ])
-            .map(buildStepwiseNoteSpec)
+            .map(buildNoteSpec)
         const fivePerPart: Part = fivePerBlock
-            .map(buildStepwiseNoteSpec)
+            .map(buildNoteSpec)
         const sevenPerPart: Part = sevenPerBlock
-            .map(buildStepwiseNoteSpec)
+            .map(buildNoteSpec)
         const ninePerPart: Part = sequence([ ninePerBlock, threePerBlock ])
-            .map(buildStepwiseNoteSpec)
+            .map(buildNoteSpec)
 
         const backbonePart: Part = backboneBlock
-            .map(buildStepwiseNoteSpec)
+            .map(buildNoteSpec)
 
         const kickPart: Part = kickBlock
             .map(buildStepwiseUnpitchedNoteSpec)
@@ -62,5 +62,5 @@ const buildStepwiseParts: () => PartDictionary =
     }
 
 export {
-    buildStepwiseParts,
+    buildParts,
 }
