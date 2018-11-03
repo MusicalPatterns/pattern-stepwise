@@ -1,1 +1,1 @@
-export { stepwisePattern } from './src'
+export { pattern } from './src'

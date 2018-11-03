@@ -1,3 +1,4 @@
 // tslint:disable:no-reaching-imports
 
-export { buildStepwiseBlocks } from './materials/indexForTest'
+export { buildStepwiseBlocks, buildEntities, buildScales } from './materials/indexForTest'
+export { patternSpec } from './patterns'

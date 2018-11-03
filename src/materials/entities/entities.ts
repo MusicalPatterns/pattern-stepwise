@@ -2,7 +2,7 @@ import { BuildEntitiesFunction, Entity } from '../../../../../src'
 import { buildStepwiseOscillatorEntities } from './oscillatorEntities'
 import { buildStepwiseSampleEntities } from './sampleEntities'
 
-const buildStepwiseEntities: BuildEntitiesFunction =
+const buildEntities: BuildEntitiesFunction =
     (): Entity[] => {
         const {
             stepwiseFivePerSampleEntity,
@@ -35,5 +35,5 @@ const buildStepwiseEntities: BuildEntitiesFunction =
     }
 
 export {
-    buildStepwiseEntities,
+    buildEntities,
 }

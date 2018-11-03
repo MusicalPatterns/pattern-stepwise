@@ -2,11 +2,11 @@ import { DEFAULT_ATOMIC_TIME_TYPE_DURATION_SCALAR } from '../../../src'
 import { PatternId } from '../../patternId'
 import { Pattern, PatternMaterial, PatternMetadata, PatternSpec } from '../../types'
 import { C8 } from './constants'
-import { buildStepwiseEntities, buildStepwiseScales } from './materials'
+import { buildEntities, buildScales } from './materials'
 
 const stepwisePatternMaterial: PatternMaterial = {
-    buildEntitiesFunction: buildStepwiseEntities,
-    buildScalesFunction: buildStepwiseScales,
+    buildEntitiesFunction: buildEntities,
+    buildScalesFunction: buildScales,
 }
 
 const stepwisePatternMetadata: PatternMetadata = {
@@ -14,18 +14,19 @@ const stepwisePatternMetadata: PatternMetadata = {
     formattedName: 'Stepwise',
 }
 
-const stepwisePatternSpec: PatternSpec = {
+const patternSpec: PatternSpec = {
     patternDurationScalar: DEFAULT_ATOMIC_TIME_TYPE_DURATION_SCALAR,
     patternPitchScalar: C8,
 }
 
-const stepwisePattern: Pattern = {
+const pattern: Pattern = {
     material: stepwisePatternMaterial,
     metadata: stepwisePatternMetadata,
     patternId: PatternId.STEPWISE,
-    spec: stepwisePatternSpec,
+    spec: patternSpec,
 }
 
 export {
-    stepwisePattern,
+    pattern,
+    patternSpec,
 }

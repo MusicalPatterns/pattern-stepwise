@@ -1,1 +1,1 @@
-export { buildStepwiseEntities } from './entities'
+export { buildEntities } from './entities'

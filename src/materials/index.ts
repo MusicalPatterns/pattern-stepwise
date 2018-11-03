@@ -1,2 +1,2 @@
-export { buildStepwiseEntities } from './entities'
-export { buildStepwiseScales } from './scales'
+export { buildEntities } from './entities'
+export { buildScales } from './scales'

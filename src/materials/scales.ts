@@ -1,7 +1,7 @@
 import { BuildScalesFunction, buildStandardScales, Scale, scaleFromScalarsAndScalar } from '../../../../src'
 import { PatternSpec } from '../../../types'
 
-const buildStepwiseScales: BuildScalesFunction =
+const buildScales: BuildScalesFunction =
     (patternSpec: PatternSpec): Scale[] => {
         const { flatDurationsScale, subharmonicSeriesScale } = buildStandardScales()
 
@@ -23,5 +23,5 @@ const buildStepwiseScales: BuildScalesFunction =
     }
 
 export {
-    buildStepwiseScales,
+    buildScales,
 }
