@@ -22,6 +22,7 @@ const buildNoteSpec: (duration: Index) => NoteSpec =
         sustainSpec: {
             index: to.Index(from.Index(contourElement)),
             offset: DEFAULT_OFFSET_FOR_ALMOST_FULL_SUSTAIN,
+            scaleIndex: DEFAULT_DURATIONS_SCALE_INDEX,
         },
     })
 
@@ -39,6 +40,7 @@ const buildStepwiseUnpitchedNoteSpec: (duration: Index) => NoteSpec =
         sustainSpec: {
             index: to.Index(from.Index(contourElement)),
             offset: DEFAULT_OFFSET_FOR_ALMOST_FULL_SUSTAIN,
+            scaleIndex: DEFAULT_DURATIONS_SCALE_INDEX,
         },
     })
 
