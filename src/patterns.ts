@@ -12,6 +12,7 @@ const stepwisePatternMaterial: PatternMaterial = {
 const stepwisePatternMetadata: PatternMetadata = {
     description: 'stepwise motion within recurring bounds',
     formattedName: 'Stepwise',
+    musicalIdeaIllustrated: 'nested sequential summing',
 }
 
 const patternSpec: PatternSpec = {
