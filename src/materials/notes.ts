@@ -10,26 +10,26 @@ import {
 import { PROBLEMATICALLY_NECESSARY_AND_PROBABLY_INACCURATE_UNPITCHED_SAMPLE_PITCH_SCALAR } from '../constants'
 
 const buildNoteSpec: (duration: Index) => NoteSpec =
-    (contourElement: Index): NoteSpec => ({
+    (duration: Index): NoteSpec => ({
         durationSpec: {
-            index: to.Index(from.Index(contourElement)),
+            index: to.Index(from.Index(duration)),
             scaleIndex: DEFAULT_DURATIONS_SCALE_INDEX,
         },
         pitchSpec: {
-            index: to.Index(from.Index(contourElement)),
+            index: to.Index(from.Index(duration)),
             scaleIndex: DEFAULT_PITCH_SCALE_INDEX,
         },
         sustainSpec: {
-            index: to.Index(from.Index(contourElement)),
+            index: to.Index(from.Index(duration)),
             offset: DEFAULT_OFFSET_FOR_ALMOST_FULL_SUSTAIN,
             scaleIndex: DEFAULT_DURATIONS_SCALE_INDEX,
         },
     })
 
 const buildStepwiseUnpitchedNoteSpec: (duration: Index) => NoteSpec =
-    (contourElement: Index): NoteSpec => ({
+    (duration: Index): NoteSpec => ({
         durationSpec: {
-            index: to.Index(from.Index(contourElement)),
+            index: to.Index(from.Index(duration)),
             scaleIndex: DEFAULT_DURATIONS_SCALE_INDEX,
         },
         pitchSpec: {
@@ -38,7 +38,7 @@ const buildStepwiseUnpitchedNoteSpec: (duration: Index) => NoteSpec =
             scaleIndex: DEFAULT_DURATIONS_SCALE_INDEX,
         },
         sustainSpec: {
-            index: to.Index(from.Index(contourElement)),
+            index: to.Index(from.Index(duration)),
             offset: DEFAULT_OFFSET_FOR_ALMOST_FULL_SUSTAIN,
             scaleIndex: DEFAULT_DURATIONS_SCALE_INDEX,
         },
