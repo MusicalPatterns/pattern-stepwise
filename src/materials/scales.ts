@@ -3,9 +3,9 @@ import { PatternSpec } from '../../../types'
 
 const buildScales: BuildScalesFunction =
     (patternSpec: PatternSpec): Scale[] => {
-        const { flatDurationsScale, subharmonicSeriesScale } = buildStandardScales()
+        const { nonScale, flatDurationsScale, subharmonicSeriesScale } = buildStandardScales()
 
-        const gainScale: Scale = flatDurationsScale
+        const gainScale: Scale = nonScale
         const durationsScale: Scale = scaleFromScalarsAndScalar(
             flatDurationsScale.scalars,
             patternSpec.patternDurationScalar,
