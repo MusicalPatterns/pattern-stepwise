@@ -1,4 +1,5 @@
-import { Entity, EntityDictionary, SampleName,  TimeType, VoiceType } from '../../../../../src'
+import { SampleName, TimeType, VoiceType } from '@musical-patterns/performer'
+import { Entity, EntityDictionary } from '../../../../../src'
 import { buildParts } from '../parts'
 
 const buildStepwiseSampleEntities: () => EntityDictionary =

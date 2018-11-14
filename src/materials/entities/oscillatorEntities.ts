@@ -1,11 +1,5 @@
-import {
-    Entity,
-    EntityDictionary,
-    OscillatorName,
-    PartDictionary,
-    TimeType,
-    VoiceType,
-} from '../../../../../src'
+import { OscillatorName, TimeType, VoiceType } from '@musical-patterns/performer'
+import { Entity, EntityDictionary, PartDictionary } from '../../../../../src'
 import { buildParts } from '../parts'
 
 const buildStepwiseOscillatorEntities: () => EntityDictionary =
