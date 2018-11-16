@@ -1,7 +1,6 @@
-import { DEFAULT_ATOMIC_TIME_TYPE_DURATION_SCALAR } from '../../../src'
 import { PatternId } from '../../patternId'
 import { Pattern, PatternMaterial, PatternMetadata, PatternSpec } from '../../types'
-import { C8 } from './constants'
+import { STEPWISE_DURATION_SCALAR, STEPWISE_PITCH_SCALAR } from './constants'
 import { buildEntities, buildScales } from './materials'
 
 const stepwisePatternMaterial: PatternMaterial = {
@@ -16,8 +15,8 @@ const stepwisePatternMetadata: PatternMetadata = {
 }
 
 const patternSpec: PatternSpec = {
-    patternDurationScalar: DEFAULT_ATOMIC_TIME_TYPE_DURATION_SCALAR,
-    patternPitchScalar: C8,
+    patternDurationScalar: STEPWISE_DURATION_SCALAR,
+    patternPitchScalar: STEPWISE_PITCH_SCALAR,
 }
 
 const pattern: Pattern = {
