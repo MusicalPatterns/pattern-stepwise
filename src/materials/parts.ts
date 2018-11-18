@@ -1,9 +1,9 @@
-import { Part, PartDictionary, sequence } from '../../../../src'
+import { DictionaryOf, PartSpec, sequence } from '../../../../src'
 import { buildBlocks } from './blocks'
 import { buildNoteSpec, buildStepwiseUnpitchedNoteSpec } from './notes'
 
-const buildParts: () => PartDictionary =
-    (): PartDictionary => {
+const buildParts: () => DictionaryOf<PartSpec> =
+    (): DictionaryOf<PartSpec> => {
         const {
             backboneBlock,
             fivePerBlock,
@@ -17,34 +17,34 @@ const buildParts: () => PartDictionary =
             threePerBlock,
         } = buildBlocks()
 
-        const mainDescentPart: Part = sequence([
+        const mainDescentPart: PartSpec = sequence([
             mainDescentBlock,
             mainDescentContinuationBlock,
         ])
             .map(buildNoteSpec)
-        const mainDescentContinuationPart: Part = sequence([
+        const mainDescentContinuationPart: PartSpec = sequence([
             mainDescentContinuationBlock,
             mainDescentBlock,
         ])
             .map(buildNoteSpec)
 
-        const threePerPart: Part = sequence([ threePerBlock, ninePerBlock ])
+        const threePerPart: PartSpec = sequence([ threePerBlock, ninePerBlock ])
             .map(buildNoteSpec)
-        const fivePerPart: Part = fivePerBlock
+        const fivePerPart: PartSpec = fivePerBlock
             .map(buildNoteSpec)
-        const sevenPerPart: Part = sevenPerBlock
+        const sevenPerPart: PartSpec = sevenPerBlock
             .map(buildNoteSpec)
-        const ninePerPart: Part = sequence([ ninePerBlock, threePerBlock ])
-            .map(buildNoteSpec)
-
-        const backbonePart: Part = backboneBlock
+        const ninePerPart: PartSpec = sequence([ ninePerBlock, threePerBlock ])
             .map(buildNoteSpec)
 
-        const kickPart: Part = kickBlock
+        const backbonePart: PartSpec = backboneBlock
+            .map(buildNoteSpec)
+
+        const kickPart: PartSpec = kickBlock
             .map(buildStepwiseUnpitchedNoteSpec)
-        const snarePart: Part = snareBlock
+        const snarePart: PartSpec = snareBlock
             .map(buildStepwiseUnpitchedNoteSpec)
-        const hihatPart: Part = hihatBlock
+        const hihatPart: PartSpec = hihatBlock
             .map(buildStepwiseUnpitchedNoteSpec)
 
         return {

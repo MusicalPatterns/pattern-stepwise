@@ -1,9 +1,9 @@
 import { OscillatorName, VoiceType } from '@musical-patterns/performer'
-import { Entity, EntityDictionary, PartDictionary } from '../../../../../src'
+import { DictionaryOf, Entity, PartSpec } from '../../../../../src'
 import { buildParts } from '../parts'
 
-const buildStepwiseOscillatorEntities: () => EntityDictionary =
-    (): EntityDictionary => {
+const buildStepwiseOscillatorEntities: () => DictionaryOf<Entity> =
+    (): DictionaryOf<Entity> => {
         const {
             backbonePart,
             fivePerPart,
@@ -12,40 +12,40 @@ const buildStepwiseOscillatorEntities: () => EntityDictionary =
             ninePerPart,
             sevenPerPart,
             threePerPart,
-        }: PartDictionary = buildParts()
+        }: DictionaryOf<PartSpec> = buildParts()
 
         const stepwiseMainDescentOscillatorEntity: Entity = {
-            part: mainDescentPart,
+            partSpec: mainDescentPart,
             voiceSpec: { timbre: OscillatorName.SAWTOOTH, voiceType: VoiceType.OSCILLATOR },
         }
 
         const stepwiseMainDescentContinuationOscillatorEntity: Entity = {
-            part: mainDescentContinuationPart,
+            partSpec: mainDescentContinuationPart,
             voiceSpec: { timbre: OscillatorName.SQUARE, voiceType: VoiceType.OSCILLATOR },
         }
 
         const stepwiseThreePerOscillatorEntity: Entity = {
-            part: threePerPart,
+            partSpec: threePerPart,
             voiceSpec: { timbre: OscillatorName.SQUARE, voiceType: VoiceType.OSCILLATOR },
         }
 
         const stepwiseFivePerOscillatorEntity: Entity = {
-            part: fivePerPart,
+            partSpec: fivePerPart,
             voiceSpec: { timbre: OscillatorName.SQUARE, voiceType: VoiceType.OSCILLATOR },
         }
 
         const stepwiseSevenPerOscillatorEntity: Entity = {
-            part: sevenPerPart,
+            partSpec: sevenPerPart,
             voiceSpec: { timbre: OscillatorName.SQUARE, voiceType: VoiceType.OSCILLATOR },
         }
 
         const stepwiseNinePerOscillatorEntity: Entity = {
-            part: ninePerPart,
+            partSpec: ninePerPart,
             voiceSpec: { timbre: OscillatorName.SQUARE, voiceType: VoiceType.OSCILLATOR },
         }
 
         const stepwiseBackboneOscillatorEntity: Entity = {
-            part: backbonePart,
+            partSpec: backbonePart,
             voiceSpec: { timbre: OscillatorName.SINE, voiceType: VoiceType.OSCILLATOR },
         }
 
