@@ -1,5 +1,6 @@
 import { OscillatorName, VoiceType } from '@musical-patterns/performer'
-import { DictionaryOf, Entity, PartSpec } from '../../../../../src'
+import { DictionaryOf } from '@musical-patterns/utilities'
+import { Entity, PartSpec } from '../../../../../src'
 import { buildParts } from '../parts'
 
 const buildStepwiseOscillatorEntities: () => DictionaryOf<Entity> =
