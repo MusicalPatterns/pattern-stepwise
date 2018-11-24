@@ -30,8 +30,6 @@ const buildEntities: BuildEntitiesFunction =
             stepwiseMainDescentContinuationOscillatorEntity,
             stepwiseBackboneOscillatorEntity,
             stepwiseHihatSampleEntity,
-            // stepwiseKickSampleEntity,
-            // stepwiseSnareSampleEntity,
         ]
     }
 
