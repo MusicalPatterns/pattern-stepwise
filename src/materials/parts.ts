@@ -1,5 +1,5 @@
-import { DictionaryOf } from '@musical-patterns/utilities'
-import { PartSpec, sequence } from '../../../../src'
+import { DictionaryOf, sequence } from '@musical-patterns/utilities'
+import { PartSpec } from '../../../../src'
 import { buildBlocks } from './blocks'
 import { buildNoteSpec, buildStepwiseUnpitchedNoteSpec } from './notes'
 
