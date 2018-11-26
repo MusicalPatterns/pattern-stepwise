@@ -1,6 +1,6 @@
 // tslint:disable:max-line-length no-magic-numbers
 
-import { DictionaryOf, from, numbers } from '@musical-patterns/utilities'
+import { DictionaryOf, from, numbers } from '@musical-patterns/shared'
 import { INITIAL } from '../../../../constants'
 import { Block, to } from '../../../../nominal'
 
