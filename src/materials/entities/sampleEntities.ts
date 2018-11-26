@@ -1,6 +1,6 @@
 import { SampleName, VoiceType } from '@musical-patterns/performer'
 import { DictionaryOf } from '@musical-patterns/utilities'
-import { Entity } from '../../../../../src'
+import { Entity } from '../../../../../compile'
 import { buildParts } from '../parts'
 
 const buildStepwiseSampleEntities: () => DictionaryOf<Entity> =

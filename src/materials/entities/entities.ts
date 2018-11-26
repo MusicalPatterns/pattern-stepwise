@@ -1,4 +1,4 @@
-import { Entity } from '../../../../../src'
+import { Entity } from '../../../../../compile'
 import { BuildEntitiesFunction } from '../../../../types'
 import { buildStepwiseOscillatorEntities } from './oscillatorEntities'
 import { buildStepwiseSampleEntities } from './sampleEntities'

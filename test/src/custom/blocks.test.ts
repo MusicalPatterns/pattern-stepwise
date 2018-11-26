@@ -1,5 +1,5 @@
 import { from, Index, SumOfIndices, to } from '@musical-patterns/utilities'
-import { Block } from '../../../../../src/indexForTest'
+import { Block } from '../../../../../indexForTest'
 import { buildBlocks } from '../../../src/indexForTest'
 
 const calculateTotalBlockDuration: (block: Block) => SumOfIndices =
