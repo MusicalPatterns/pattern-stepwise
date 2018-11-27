@@ -4,7 +4,7 @@ import {
     DEFAULT_DURATIONS_SCALE_INDEX,
     DEFAULT_OFFSET_FOR_ALMOST_FULL_SUSTAIN,
     DEFAULT_PITCH_SCALE_INDEX,
-} from '../../../../constants'
+} from '../../../../patternMaterial'
 
 const buildStepwiseNoteSpec: (duration: Index) => NoteSpec =
     (duration: Index): NoteSpec => ({
