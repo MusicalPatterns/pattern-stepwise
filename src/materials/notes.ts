@@ -1,5 +1,4 @@
-import { from, Index, to } from '@musical-patterns/shared'
-import { NoteSpec } from '../../../../compile'
+import { from, Index, NoteSpec, to } from '@musical-patterns/shared'
 import {
     DEFAULT_DURATIONS_SCALE_INDEX,
     DEFAULT_OFFSET_FOR_ALMOST_FULL_SUSTAIN,
