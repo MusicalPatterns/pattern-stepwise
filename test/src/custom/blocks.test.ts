@@ -1,4 +1,4 @@
-import { from, Index, SumOfIndices, to } from '@musical-patterns/shared'
+import { from, Index, SumOfIndices, to } from '@musical-patterns/utilities'
 import { Block } from '../../../../../indexForTest'
 import { buildBlocks } from '../../../src/indexForTest'
 

@@ -1,6 +1,6 @@
 // tslint:disable:no-magic-numbers
 
-import { Scalar, to } from '@musical-patterns/shared'
+import { Scalar, to } from '@musical-patterns/utilities'
 
 const C8: Scalar = to.Scalar(4186)
 const STEPWISE_PITCH_SCALAR: Scalar = C8

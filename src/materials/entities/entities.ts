@@ -1,4 +1,4 @@
-import { BuildEntitiesFunction, Entity } from '@musical-patterns/shared'
+import { BuildEntitiesFunction, Entity } from '@musical-patterns/utilities'
 import { buildStepwiseOscillatorEntities } from './oscillatorEntities'
 import { buildStepwiseSampleEntities } from './sampleEntities'
 

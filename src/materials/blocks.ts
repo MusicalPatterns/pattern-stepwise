@@ -1,6 +1,6 @@
 // tslint:disable:max-line-length no-magic-numbers
 
-import { DictionaryOf, from, INITIAL, numbers } from '@musical-patterns/shared'
+import { DictionaryOf, from, INITIAL, numbers } from '@musical-patterns/utilities'
 import { Block, to } from '../../../../nominal'
 
 const buildBlocks: () => DictionaryOf<Block> =
