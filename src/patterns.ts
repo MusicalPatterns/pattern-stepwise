@@ -1,4 +1,5 @@
-import { Pattern, PatternId, PatternMaterial, PatternMetadata, PatternSpec } from '@musical-patterns/shared'
+import { PatternId } from '@musical-patterns/registry'
+import { Pattern, PatternMaterial, PatternMetadata, PatternSpec } from '@musical-patterns/shared'
 import { STEPWISE_DURATION_SCALAR, STEPWISE_PITCH_SCALAR } from './constants'
 import { buildEntities, buildScales } from './materials'
 
