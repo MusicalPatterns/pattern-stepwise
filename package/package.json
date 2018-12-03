@@ -1,10 +1,14 @@
 {
   "name": "@musical-patterns/pattern-stepwise",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "main": "index.js",
   "typings": "index.d.ts",
   "repository": {
     "type": "git",
     "url": "https://github.com/MusicalPatterns/pattern-stepwise.git"
+  },
+  "dependencies": {
+    "@musical-patterns/pattern": "^1.0.4",
+    "@musical-patterns/utilities": "^1.0.71"
   }
 }
