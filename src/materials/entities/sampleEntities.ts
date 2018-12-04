@@ -1,5 +1,4 @@
-import { Entity } from '@musical-patterns/compiler'
-import { SampleName, VoiceType } from '@musical-patterns/performer'
+import { Entity, TimbreName } from '@musical-patterns/compiler'
 import { DictionaryOf } from '@musical-patterns/utilities'
 import { buildParts } from '../parts'
 
@@ -20,46 +19,46 @@ const buildStepwiseSampleEntities: () => DictionaryOf<Entity> =
 
         const stepwiseMainDescentSampleEntity: Entity = {
             partSpec: mainDescentPart,
-            voiceSpec: { timbre: SampleName.TROMBONE, voiceType: VoiceType.SAMPLE },
+            timbreName: TimbreName.TROMBONE,
         }
         const stepwiseMainDescentContinuationSampleEntity: Entity = {
             partSpec: mainDescentContinuationPart,
-            voiceSpec: { timbre: SampleName.TUBA, voiceType: VoiceType.SAMPLE },
+            timbreName: TimbreName.TUBA,
         }
 
         const stepwiseThreePerSampleEntity: Entity = {
             partSpec: threePerPart,
-            voiceSpec: { timbre: SampleName.FLUTE, voiceType: VoiceType.SAMPLE },
+            timbreName: TimbreName.FLUTE,
         }
         const stepwiseFivePerSampleEntity: Entity = {
             partSpec: fivePerPart,
-            voiceSpec: { timbre: SampleName.VIOLIN, voiceType: VoiceType.SAMPLE },
+            timbreName: TimbreName.VIOLIN,
         }
         const stepwiseSevenPerSampleEntity: Entity = {
             partSpec: sevenPerPart,
-            voiceSpec: { timbre: SampleName.TRUMPET, voiceType: VoiceType.SAMPLE },
+            timbreName: TimbreName.TRUMPET,
         }
         const stepwiseNinePerSampleEntity: Entity = {
             partSpec: ninePerPart,
-            voiceSpec: { timbre: SampleName.CELLO, voiceType: VoiceType.SAMPLE },
+            timbreName: TimbreName.CELLO,
         }
 
         const stepwiseBackboneSampleEntity: Entity = {
             partSpec: backbonePart,
-            voiceSpec: { timbre: SampleName.PIANO, voiceType: VoiceType.SAMPLE },
+            timbreName: TimbreName.PIANO,
         }
 
         const stepwiseKickSampleEntity: Entity = {
             partSpec: kickPart,
-            voiceSpec: { timbre: SampleName.KICK, voiceType: VoiceType.SAMPLE },
+            timbreName: TimbreName.KICK,
         }
         const stepwiseSnareSampleEntity: Entity = {
             partSpec: snarePart,
-            voiceSpec: { timbre: SampleName.SNARE, voiceType: VoiceType.SAMPLE },
+            timbreName: TimbreName.SNARE,
         }
         const stepwiseHihatSampleEntity: Entity = {
             partSpec: hihatPart,
-            voiceSpec: { timbre: SampleName.HIHAT, voiceType: VoiceType.SAMPLE },
+            timbreName: TimbreName.HIHAT,
         }
 
         return {

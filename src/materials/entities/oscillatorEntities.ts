@@ -1,5 +1,4 @@
-import { Entity, PartSpec } from '@musical-patterns/compiler'
-import { OscillatorName, VoiceType } from '@musical-patterns/performer'
+import { Entity, PartSpec, TimbreName } from '@musical-patterns/compiler'
 import { DictionaryOf } from '@musical-patterns/utilities'
 import { buildParts } from '../parts'
 
@@ -17,37 +16,37 @@ const buildStepwiseOscillatorEntities: () => DictionaryOf<Entity> =
 
         const stepwiseMainDescentOscillatorEntity: Entity = {
             partSpec: mainDescentPart,
-            voiceSpec: { timbre: OscillatorName.SAWTOOTH, voiceType: VoiceType.OSCILLATOR },
+            timbreName: TimbreName.SAWTOOTH,
         }
 
         const stepwiseMainDescentContinuationOscillatorEntity: Entity = {
             partSpec: mainDescentContinuationPart,
-            voiceSpec: { timbre: OscillatorName.SQUARE, voiceType: VoiceType.OSCILLATOR },
+            timbreName: TimbreName.SQUARE,
         }
 
         const stepwiseThreePerOscillatorEntity: Entity = {
             partSpec: threePerPart,
-            voiceSpec: { timbre: OscillatorName.SQUARE, voiceType: VoiceType.OSCILLATOR },
+            timbreName: TimbreName.SQUARE,
         }
 
         const stepwiseFivePerOscillatorEntity: Entity = {
             partSpec: fivePerPart,
-            voiceSpec: { timbre: OscillatorName.SQUARE, voiceType: VoiceType.OSCILLATOR },
+            timbreName: TimbreName.SQUARE,
         }
 
         const stepwiseSevenPerOscillatorEntity: Entity = {
             partSpec: sevenPerPart,
-            voiceSpec: { timbre: OscillatorName.SQUARE, voiceType: VoiceType.OSCILLATOR },
+            timbreName: TimbreName.SQUARE,
         }
 
         const stepwiseNinePerOscillatorEntity: Entity = {
             partSpec: ninePerPart,
-            voiceSpec: { timbre: OscillatorName.SQUARE, voiceType: VoiceType.OSCILLATOR },
+            timbreName: TimbreName.SQUARE,
         }
 
         const stepwiseBackboneOscillatorEntity: Entity = {
             partSpec: backbonePart,
-            voiceSpec: { timbre: OscillatorName.SINE, voiceType: VoiceType.OSCILLATOR },
+            timbreName: TimbreName.SINE,
         }
 
         return {
