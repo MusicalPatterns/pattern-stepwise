@@ -18,46 +18,46 @@ const buildStepwiseSampleEntities: () => DictionaryOf<Entity> =
         } = buildParts()
 
         const stepwiseMainDescentSampleEntity: Entity = {
-            partSpec: mainDescentPart,
+            noteSpecs: mainDescentPart,
             timbreName: TimbreName.TROMBONE,
         }
         const stepwiseMainDescentContinuationSampleEntity: Entity = {
-            partSpec: mainDescentContinuationPart,
+            noteSpecs: mainDescentContinuationPart,
             timbreName: TimbreName.TUBA,
         }
 
         const stepwiseThreePerSampleEntity: Entity = {
-            partSpec: threePerPart,
+            noteSpecs: threePerPart,
             timbreName: TimbreName.FLUTE,
         }
         const stepwiseFivePerSampleEntity: Entity = {
-            partSpec: fivePerPart,
+            noteSpecs: fivePerPart,
             timbreName: TimbreName.VIOLIN,
         }
         const stepwiseSevenPerSampleEntity: Entity = {
-            partSpec: sevenPerPart,
+            noteSpecs: sevenPerPart,
             timbreName: TimbreName.TRUMPET,
         }
         const stepwiseNinePerSampleEntity: Entity = {
-            partSpec: ninePerPart,
+            noteSpecs: ninePerPart,
             timbreName: TimbreName.CELLO,
         }
 
         const stepwiseBackboneSampleEntity: Entity = {
-            partSpec: backbonePart,
+            noteSpecs: backbonePart,
             timbreName: TimbreName.PIANO,
         }
 
         const stepwiseKickSampleEntity: Entity = {
-            partSpec: kickPart,
+            noteSpecs: kickPart,
             timbreName: TimbreName.KICK,
         }
         const stepwiseSnareSampleEntity: Entity = {
-            partSpec: snarePart,
+            noteSpecs: snarePart,
             timbreName: TimbreName.SNARE,
         }
         const stepwiseHihatSampleEntity: Entity = {
-            partSpec: hihatPart,
+            noteSpecs: hihatPart,
             timbreName: TimbreName.HIHAT,
         }
 
