@@ -6,7 +6,9 @@
         "gain": 1,
         "frequency": 1046.5,
         "position": [
-          1
+          0,
+          0,
+          0
         ],
         "sustain": 399.9
       },
@@ -15,7 +17,9 @@
         "gain": 1,
         "frequency": 697.6666666666666,
         "position": [
-          1
+          0,
+          0,
+          0
         ],
         "sustain": 599.9
       },
@@ -24,7 +28,9 @@
         "gain": 1,
         "frequency": 523.25,
         "position": [
-          1
+          0,
+          0,
+          0
         ],
         "sustain": 799.9
       },
@@ -33,7 +39,9 @@
         "gain": 1,
         "frequency": 418.6,
         "position": [
-          1
+          0,
+          0,
+          0
         ],
         "sustain": 999.9
       },
@@ -42,7 +50,9 @@
         "gain": 1,
         "frequency": 348.8333333333333,
         "position": [
-          1
+          0,
+          0,
+          0
         ],
         "sustain": 1199.9
       },
@@ -51,7 +61,9 @@
         "gain": 1,
         "frequency": 299,
         "position": [
-          1
+          0,
+          0,
+          0
         ],
         "sustain": 1399.9
       },
@@ -60,7 +72,9 @@
         "gain": 1,
         "frequency": 261.625,
         "position": [
-          1
+          0,
+          0,
+          0
         ],
         "sustain": 1599.9
       },
@@ -69,7 +83,9 @@
         "gain": 1,
         "frequency": 232.55555555555554,
         "position": [
-          1
+          0,
+          0,
+          0
         ],
         "sustain": 1799.9
       },
@@ -78,7 +94,9 @@
         "gain": 1,
         "frequency": 209.3,
         "position": [
-          1
+          0,
+          0,
+          0
         ],
         "sustain": 1999.9
       },
@@ -87,7 +105,9 @@
         "gain": 1,
         "frequency": 190.27272727272728,
         "position": [
-          1
+          0,
+          0,
+          0
         ],
         "sustain": 2199.9
       },
@@ -96,7 +116,9 @@
         "gain": 1,
         "frequency": 174.41666666666666,
         "position": [
-          1
+          0,
+          0,
+          0
         ],
         "sustain": 2399.9
       },
@@ -105,7 +127,9 @@
         "gain": 1,
         "frequency": 161,
         "position": [
-          1
+          0,
+          0,
+          0
         ],
         "sustain": 2599.9
       },
@@ -114,7 +138,9 @@
         "gain": 1,
         "frequency": 149.5,
         "position": [
-          1
+          0,
+          0,
+          0
         ],
         "sustain": 2799.9
       },
@@ -123,7 +149,9 @@
         "gain": 1,
         "frequency": 139.53333333333333,
         "position": [
-          1
+          0,
+          0,
+          0
         ],
         "sustain": 2999.9
       },
@@ -132,7 +160,9 @@
         "gain": 1,
         "frequency": 130.8125,
         "position": [
-          1
+          0,
+          0,
+          0
         ],
         "sustain": 3199.9
       },
@@ -141,7 +171,9 @@
         "gain": 1,
         "frequency": 123.11764705882352,
         "position": [
-          1
+          0,
+          0,
+          0
         ],
         "sustain": 3399.9
       },
@@ -150,7 +182,9 @@
         "gain": 1,
         "frequency": 116.27777777777777,
         "position": [
-          1
+          0,
+          0,
+          0
         ],
         "sustain": 3599.9
       },
@@ -159,7 +193,9 @@
         "gain": 1,
         "frequency": 110.1578947368421,
         "position": [
-          1
+          0,
+          0,
+          0
         ],
         "sustain": 3799.9
       },
@@ -168,7 +204,9 @@
         "gain": 1,
         "frequency": 104.65,
         "position": [
-          1
+          0,
+          0,
+          0
         ],
         "sustain": 3999.9
       },
@@ -177,7 +215,9 @@
         "gain": 1,
         "frequency": 99.66666666666666,
         "position": [
-          1
+          0,
+          0,
+          0
         ],
         "sustain": 4199.9
       },
@@ -186,7 +226,9 @@
         "gain": 1,
         "frequency": 95.13636363636364,
         "position": [
-          1
+          0,
+          0,
+          0
         ],
         "sustain": 4399.9
       },
@@ -195,7 +237,9 @@
         "gain": 1,
         "frequency": 91,
         "position": [
-          1
+          0,
+          0,
+          0
         ],
         "sustain": 4599.9
       },
@@ -204,7 +248,9 @@
         "gain": 1,
         "frequency": 87.20833333333333,
         "position": [
-          1
+          0,
+          0,
+          0
         ],
         "sustain": 4799.9
       },
@@ -213,7 +259,9 @@
         "gain": 1,
         "frequency": 83.72,
         "position": [
-          1
+          0,
+          0,
+          0
         ],
         "sustain": 4999.9
       },
@@ -222,7 +270,9 @@
         "gain": 1,
         "frequency": 80.5,
         "position": [
-          1
+          0,
+          0,
+          0
         ],
         "sustain": 5199.9
       },
@@ -231,7 +281,9 @@
         "gain": 1,
         "frequency": 77.51851851851852,
         "position": [
-          1
+          0,
+          0,
+          0
         ],
         "sustain": 5399.9
       },
@@ -240,7 +292,9 @@
         "gain": 1,
         "frequency": 74.75,
         "position": [
-          1
+          0,
+          0,
+          0
         ],
         "sustain": 5599.9
       },
@@ -249,7 +303,9 @@
         "gain": 1,
         "frequency": 72.17241379310344,
         "position": [
-          1
+          0,
+          0,
+          0
         ],
         "sustain": 5799.9
       },
@@ -258,7 +314,9 @@
         "gain": 1,
         "frequency": 69.76666666666667,
         "position": [
-          1
+          0,
+          0,
+          0
         ],
         "sustain": 5999.9
       },
@@ -267,7 +325,9 @@
         "gain": 1,
         "frequency": 67.51612903225806,
         "position": [
-          1
+          0,
+          0,
+          0
         ],
         "sustain": 6199.9
       },
@@ -276,7 +336,9 @@
         "gain": 1,
         "frequency": 65.40625,
         "position": [
-          1
+          0,
+          0,
+          0
         ],
         "sustain": 6399.9
       },
@@ -285,7 +347,9 @@
         "gain": 1,
         "frequency": 63.42424242424243,
         "position": [
-          1
+          0,
+          0,
+          0
         ],
         "sustain": 6599.9
       },
@@ -294,7 +358,9 @@
         "gain": 1,
         "frequency": 61.55882352941176,
         "position": [
-          1
+          0,
+          0,
+          0
         ],
         "sustain": 6799.9
       },
@@ -303,7 +369,9 @@
         "gain": 1,
         "frequency": 59.8,
         "position": [
-          1
+          0,
+          0,
+          0
         ],
         "sustain": 6999.9
       },
@@ -312,7 +380,9 @@
         "gain": 1,
         "frequency": 58.138888888888886,
         "position": [
-          1
+          0,
+          0,
+          0
         ],
         "sustain": 7199.9
       },
@@ -321,7 +391,9 @@
         "gain": 1,
         "frequency": 56.56756756756757,
         "position": [
-          1
+          0,
+          0,
+          0
         ],
         "sustain": 7399.9
       },
@@ -330,7 +402,9 @@
         "gain": 1,
         "frequency": 55.07894736842105,
         "position": [
-          1
+          0,
+          0,
+          0
         ],
         "sustain": 7599.9
       },
@@ -339,7 +413,9 @@
         "gain": 1,
         "frequency": 53.666666666666664,
         "position": [
-          1
+          0,
+          0,
+          0
         ],
         "sustain": 7799.9
       },
@@ -348,7 +424,9 @@
         "gain": 1,
         "frequency": 52.325,
         "position": [
-          1
+          0,
+          0,
+          0
         ],
         "sustain": 7999.9
       },
@@ -357,7 +435,9 @@
         "gain": 1,
         "frequency": 51.048780487804876,
         "position": [
-          1
+          0,
+          0,
+          0
         ],
         "sustain": 8199.9
       }
@@ -374,7 +454,9 @@
         "gain": 1,
         "frequency": 69.76666666666667,
         "position": [
-          1
+          0,
+          0,
+          0
         ],
         "sustain": 5999.9
       },
@@ -383,7 +465,9 @@
         "gain": 1,
         "frequency": 67.51612903225806,
         "position": [
-          1
+          0,
+          0,
+          0
         ],
         "sustain": 6199.9
       },
@@ -392,7 +476,9 @@
         "gain": 1,
         "frequency": 65.40625,
         "position": [
-          1
+          0,
+          0,
+          0
         ],
         "sustain": 6399.9
       },
@@ -401,7 +487,9 @@
         "gain": 1,
         "frequency": 63.42424242424243,
         "position": [
-          1
+          0,
+          0,
+          0
         ],
         "sustain": 6599.9
       },
@@ -410,7 +498,9 @@
         "gain": 1,
         "frequency": 61.55882352941176,
         "position": [
-          1
+          0,
+          0,
+          0
         ],
         "sustain": 6799.9
       },
@@ -419,7 +509,9 @@
         "gain": 1,
         "frequency": 59.8,
         "position": [
-          1
+          0,
+          0,
+          0
         ],
         "sustain": 6999.9
       },
@@ -428,7 +520,9 @@
         "gain": 1,
         "frequency": 58.138888888888886,
         "position": [
-          1
+          0,
+          0,
+          0
         ],
         "sustain": 7199.9
       },
@@ -437,7 +531,9 @@
         "gain": 1,
         "frequency": 56.56756756756757,
         "position": [
-          1
+          0,
+          0,
+          0
         ],
         "sustain": 7399.9
       },
@@ -446,7 +542,9 @@
         "gain": 1,
         "frequency": 55.07894736842105,
         "position": [
-          1
+          0,
+          0,
+          0
         ],
         "sustain": 7599.9
       },
@@ -455,7 +553,9 @@
         "gain": 1,
         "frequency": 53.666666666666664,
         "position": [
-          1
+          0,
+          0,
+          0
         ],
         "sustain": 7799.9
       },
@@ -464,7 +564,9 @@
         "gain": 1,
         "frequency": 52.325,
         "position": [
-          1
+          0,
+          0,
+          0
         ],
         "sustain": 7999.9
       },
@@ -473,7 +575,9 @@
         "gain": 1,
         "frequency": 51.048780487804876,
         "position": [
-          1
+          0,
+          0,
+          0
         ],
         "sustain": 8199.9
       },
@@ -482,7 +586,9 @@
         "gain": 1,
         "frequency": 1046.5,
         "position": [
-          1
+          0,
+          0,
+          0
         ],
         "sustain": 399.9
       },
@@ -491,7 +597,9 @@
         "gain": 1,
         "frequency": 697.6666666666666,
         "position": [
-          1
+          0,
+          0,
+          0
         ],
         "sustain": 599.9
       },
@@ -500,7 +608,9 @@
         "gain": 1,
         "frequency": 523.25,
         "position": [
-          1
+          0,
+          0,
+          0
         ],
         "sustain": 799.9
       },
@@ -509,7 +619,9 @@
         "gain": 1,
         "frequency": 418.6,
         "position": [
-          1
+          0,
+          0,
+          0
         ],
         "sustain": 999.9
       },
@@ -518,7 +630,9 @@
         "gain": 1,
         "frequency": 348.8333333333333,
         "position": [
-          1
+          0,
+          0,
+          0
         ],
         "sustain": 1199.9
       },
@@ -527,7 +641,9 @@
         "gain": 1,
         "frequency": 299,
         "position": [
-          1
+          0,
+          0,
+          0
         ],
         "sustain": 1399.9
       },
@@ -536,7 +652,9 @@
         "gain": 1,
         "frequency": 261.625,
         "position": [
-          1
+          0,
+          0,
+          0
         ],
         "sustain": 1599.9
       },
@@ -545,7 +663,9 @@
         "gain": 1,
         "frequency": 232.55555555555554,
         "position": [
-          1
+          0,
+          0,
+          0
         ],
         "sustain": 1799.9
       },
@@ -554,7 +674,9 @@
         "gain": 1,
         "frequency": 209.3,
         "position": [
-          1
+          0,
+          0,
+          0
         ],
         "sustain": 1999.9
       },
@@ -563,7 +685,9 @@
         "gain": 1,
         "frequency": 190.27272727272728,
         "position": [
-          1
+          0,
+          0,
+          0
         ],
         "sustain": 2199.9
       },
@@ -572,7 +696,9 @@
         "gain": 1,
         "frequency": 174.41666666666666,
         "position": [
-          1
+          0,
+          0,
+          0
         ],
         "sustain": 2399.9
       },
@@ -581,7 +707,9 @@
         "gain": 1,
         "frequency": 161,
         "position": [
-          1
+          0,
+          0,
+          0
         ],
         "sustain": 2599.9
       },
@@ -590,7 +718,9 @@
         "gain": 1,
         "frequency": 149.5,
         "position": [
-          1
+          0,
+          0,
+          0
         ],
         "sustain": 2799.9
       },
@@ -599,7 +729,9 @@
         "gain": 1,
         "frequency": 139.53333333333333,
         "position": [
-          1
+          0,
+          0,
+          0
         ],
         "sustain": 2999.9
       },
@@ -608,7 +740,9 @@
         "gain": 1,
         "frequency": 130.8125,
         "position": [
-          1
+          0,
+          0,
+          0
         ],
         "sustain": 3199.9
       },
@@ -617,7 +751,9 @@
         "gain": 1,
         "frequency": 123.11764705882352,
         "position": [
-          1
+          0,
+          0,
+          0
         ],
         "sustain": 3399.9
       },
@@ -626,7 +762,9 @@
         "gain": 1,
         "frequency": 116.27777777777777,
         "position": [
-          1
+          0,
+          0,
+          0
         ],
         "sustain": 3599.9
       },
@@ -635,7 +773,9 @@
         "gain": 1,
         "frequency": 110.1578947368421,
         "position": [
-          1
+          0,
+          0,
+          0
         ],
         "sustain": 3799.9
       },
@@ -644,7 +784,9 @@
         "gain": 1,
         "frequency": 104.65,
         "position": [
-          1
+          0,
+          0,
+          0
         ],
         "sustain": 3999.9
       },
@@ -653,7 +795,9 @@
         "gain": 1,
         "frequency": 99.66666666666666,
         "position": [
-          1
+          0,
+          0,
+          0
         ],
         "sustain": 4199.9
       },
@@ -662,7 +806,9 @@
         "gain": 1,
         "frequency": 95.13636363636364,
         "position": [
-          1
+          0,
+          0,
+          0
         ],
         "sustain": 4399.9
       },
@@ -671,7 +817,9 @@
         "gain": 1,
         "frequency": 91,
         "position": [
-          1
+          0,
+          0,
+          0
         ],
         "sustain": 4599.9
       },
@@ -680,7 +828,9 @@
         "gain": 1,
         "frequency": 87.20833333333333,
         "position": [
-          1
+          0,
+          0,
+          0
         ],
         "sustain": 4799.9
       },
@@ -689,7 +839,9 @@
         "gain": 1,
         "frequency": 83.72,
         "position": [
-          1
+          0,
+          0,
+          0
         ],
         "sustain": 4999.9
       },
@@ -698,7 +850,9 @@
         "gain": 1,
         "frequency": 80.5,
         "position": [
-          1
+          0,
+          0,
+          0
         ],
         "sustain": 5199.9
       },
@@ -707,7 +861,9 @@
         "gain": 1,
         "frequency": 77.51851851851852,
         "position": [
-          1
+          0,
+          0,
+          0
         ],
         "sustain": 5399.9
       },
@@ -716,7 +872,9 @@
         "gain": 1,
         "frequency": 74.75,
         "position": [
-          1
+          0,
+          0,
+          0
         ],
         "sustain": 5599.9
       },
@@ -725,7 +883,9 @@
         "gain": 1,
         "frequency": 72.17241379310344,
         "position": [
-          1
+          0,
+          0,
+          0
         ],
         "sustain": 5799.9
       }
@@ -742,7 +902,9 @@
         "gain": 1,
         "frequency": 1046.5,
         "position": [
-          1
+          0,
+          0,
+          0
         ],
         "sustain": 399.9
       },
@@ -751,7 +913,9 @@
         "gain": 1,
         "frequency": 2093,
         "position": [
-          1
+          0,
+          0,
+          0
         ],
         "sustain": 199.9
       }
@@ -768,7 +932,9 @@
         "gain": 1,
         "frequency": 1,
         "position": [
-          1
+          0,
+          0,
+          0
         ],
         "sustain": 199.9
       }
