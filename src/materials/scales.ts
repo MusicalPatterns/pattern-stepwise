@@ -1,19 +1,22 @@
 import { BuildScalesFunction, Scale } from '@musical-patterns/compiler'
-import { buildStandardScales, PatternSpec, scaleFromScalarsAndScalar } from '@musical-patterns/pattern'
+import { buildStandardScales, PatternSpec } from '@musical-patterns/pattern'
+import { to } from '@musical-patterns/utilities'
 
 const buildScales: BuildScalesFunction =
     (patternSpec: PatternSpec): Scale[] => {
         const { nonScale, flatDurationsScale, subharmonicSeriesScale } = buildStandardScales()
 
         const gainScale: Scale = nonScale
-        const durationsScale: Scale = scaleFromScalarsAndScalar(
-            flatDurationsScale.scalars,
-            patternSpec.patternDurationScalar,
-        )
-        const pitchesScale: Scale = scaleFromScalarsAndScalar(
-            subharmonicSeriesScale.scalars,
-            patternSpec.patternPitchScalar,
-        )
+        const durationsScale: Scale = {
+            offset: patternSpec.patternDurationOffset || to.Offset(0),
+            scalar: patternSpec.patternDurationScalar || to.Scalar(1),
+            scalars: flatDurationsScale.scalars,
+        }
+        const pitchesScale: Scale = {
+            offset: patternSpec.patternPitchOffset || to.Offset(0),
+            scalar: patternSpec.patternPitchScalar || to.Scalar(1),
+            scalars: subharmonicSeriesScale.scalars,
+        }
 
         return [
             gainScale,
