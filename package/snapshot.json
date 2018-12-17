@@ -443,7 +443,7 @@
       }
     ],
     "voiceSpec": {
-      "timbre": "SAWTOOTH",
+      "timbreName": "SAWTOOTH",
       "voiceType": "OSCILLATOR"
     }
   },
@@ -891,7 +891,7 @@
       }
     ],
     "voiceSpec": {
-      "timbre": "SQUARE",
+      "timbreName": "SQUARE",
       "voiceType": "OSCILLATOR"
     }
   },
@@ -921,7 +921,7 @@
       }
     ],
     "voiceSpec": {
-      "timbre": "SINE",
+      "timbreName": "SINE",
       "voiceType": "OSCILLATOR"
     }
   },
@@ -940,7 +940,7 @@
       }
     ],
     "voiceSpec": {
-      "timbre": "HIHAT",
+      "timbreName": "HIHAT",
       "voiceType": "SAMPLE"
     }
   }

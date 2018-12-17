@@ -1,4 +1,4 @@
-import { Entity, NoteSpec, TimbreName } from '@musical-patterns/compiler'
+import { Entity, NoteSpec, TimbreNameEnum } from '@musical-patterns/compiler'
 import { DictionaryOf } from '@musical-patterns/utilities'
 import { buildParts } from '../parts'
 
@@ -16,37 +16,37 @@ const buildStepwiseOscillatorEntities: () => DictionaryOf<Entity> =
 
         const stepwiseMainDescentOscillatorEntity: Entity = {
             noteSpecs: mainDescentPart,
-            timbreName: TimbreName.SAWTOOTH,
+            timbreName: TimbreNameEnum.SAWTOOTH,
         }
 
         const stepwiseMainDescentContinuationOscillatorEntity: Entity = {
             noteSpecs: mainDescentContinuationPart,
-            timbreName: TimbreName.SQUARE,
+            timbreName: TimbreNameEnum.SQUARE,
         }
 
         const stepwiseThreePerOscillatorEntity: Entity = {
             noteSpecs: threePerPart,
-            timbreName: TimbreName.SQUARE,
+            timbreName: TimbreNameEnum.SQUARE,
         }
 
         const stepwiseFivePerOscillatorEntity: Entity = {
             noteSpecs: fivePerPart,
-            timbreName: TimbreName.SQUARE,
+            timbreName: TimbreNameEnum.SQUARE,
         }
 
         const stepwiseSevenPerOscillatorEntity: Entity = {
             noteSpecs: sevenPerPart,
-            timbreName: TimbreName.SQUARE,
+            timbreName: TimbreNameEnum.SQUARE,
         }
 
         const stepwiseNinePerOscillatorEntity: Entity = {
             noteSpecs: ninePerPart,
-            timbreName: TimbreName.SQUARE,
+            timbreName: TimbreNameEnum.SQUARE,
         }
 
         const stepwiseBackboneOscillatorEntity: Entity = {
             noteSpecs: backbonePart,
-            timbreName: TimbreName.SINE,
+            timbreName: TimbreNameEnum.SINE,
         }
 
         return {
