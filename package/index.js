@@ -1,4 +1,7 @@
-export { pattern as stepwisePattern } from './dist'
+const { pattern: stepwisePattern } = require('./dist')
+const stepwiseSnapshot = require('./snapshot')
 
-import snapshot from './snapshot'
-export default snapshot
+module.exports = {
+    stepwisePattern,
+    stepwiseSnapshot,
+}
