@@ -10,7 +10,7 @@ const calculateTotalBlockDuration: (block: Block) => SumOfIndices =
             to.SumOfIndices(0),
         )
 
-describe('stepwise blocks', () => {
+describe('blocks', () => {
     describe('main descent', () => {
         it('descends from 3 to 57, by 2 (only odds)', () => {
             const {

@@ -1,34 +1,34 @@
 import { BuildEntitiesFunction, Entity } from '@musical-patterns/compiler'
-import { buildStepwiseOscillatorEntities } from './oscillatorEntities'
-import { buildStepwiseSampleEntities } from './sampleEntities'
+import { buildOscillatorEntities } from './oscillatorEntities'
+import { buildSampleEntities } from './sampleEntities'
 
 const buildEntities: BuildEntitiesFunction =
     (): Entity[] => {
         const {
-            stepwiseFivePerSampleEntity,
-            stepwiseHihatSampleEntity,
-            stepwiseKickSampleEntity,
-            stepwiseMainDescentContinuationSampleEntity,
-            stepwiseMainDescentSampleEntity,
-            stepwiseSevenPerSampleEntity,
-            stepwiseSnareSampleEntity,
-            stepwiseThreePerSampleEntity,
-        } = buildStepwiseSampleEntities()
+            fivePerSampleEntity,
+            hihatSampleEntity,
+            kickSampleEntity,
+            mainDescentContinuationSampleEntity,
+            mainDescentSampleEntity,
+            sevenPerSampleEntity,
+            snareSampleEntity,
+            threePerSampleEntity,
+        } = buildSampleEntities()
 
         const {
-            stepwiseBackboneOscillatorEntity,
-            stepwiseFivePerOscillatorEntity,
-            stepwiseMainDescentContinuationOscillatorEntity,
-            stepwiseMainDescentOscillatorEntity,
-            stepwiseSevenPerOscillatorEntity,
-            stepwiseThreePerOscillatorEntity,
-        } = buildStepwiseOscillatorEntities()
+            backboneOscillatorEntity,
+            fivePerOscillatorEntity,
+            mainDescentContinuationOscillatorEntity,
+            mainDescentOscillatorEntity,
+            sevenPerOscillatorEntity,
+            threePerOscillatorEntity,
+        } = buildOscillatorEntities()
 
         return [
-            stepwiseMainDescentOscillatorEntity,
-            stepwiseMainDescentContinuationOscillatorEntity,
-            stepwiseBackboneOscillatorEntity,
-            stepwiseHihatSampleEntity,
+            mainDescentOscillatorEntity,
+            mainDescentContinuationOscillatorEntity,
+            backboneOscillatorEntity,
+            hihatSampleEntity,
         ]
     }
 

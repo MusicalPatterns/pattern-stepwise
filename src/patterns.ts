@@ -4,18 +4,18 @@ import { to } from '@musical-patterns/utilities'
 import { STEPWISE_DURATION_SCALAR, STEPWISE_PITCH_SCALAR } from './constants'
 import { buildEntities, buildScales } from './materials'
 
-const stepwisePatternMaterial: PatternMaterial = {
+const material: PatternMaterial = {
     buildEntitiesFunction: buildEntities,
     buildScalesFunction: buildScales,
 }
 
-const stepwisePatternMetadata: PatternMetadata = {
+const metadata: PatternMetadata = {
     description: 'stepwise motion within recurring bounds',
     formattedName: 'Stepwise',
     musicalIdeaIllustrated: 'nested sequential summing',
 }
 
-const patternSpec: PatternSpec = {
+const spec: PatternSpec = {
     patternDurationOffset: to.Offset(0),
     patternDurationScalar: STEPWISE_DURATION_SCALAR,
     patternPitchOffset: to.Offset(0),
@@ -23,10 +23,10 @@ const patternSpec: PatternSpec = {
 }
 
 const pattern: Pattern = {
-    material: stepwisePatternMaterial,
-    metadata: stepwisePatternMetadata,
+    material,
+    metadata,
     patternId: PatternId.STEPWISE,
-    spec: patternSpec,
+    spec,
 }
 
 export {

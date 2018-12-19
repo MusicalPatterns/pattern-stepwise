@@ -2,7 +2,7 @@ import { Entity, NoteSpec, TimbreNameEnum } from '@musical-patterns/compiler'
 import { DictionaryOf } from '@musical-patterns/utilities'
 import { buildParts } from '../parts'
 
-const buildStepwiseOscillatorEntities: () => DictionaryOf<Entity> =
+const buildOscillatorEntities: () => DictionaryOf<Entity> =
     (): DictionaryOf<Entity> => {
         const {
             backbonePart,
@@ -14,52 +14,52 @@ const buildStepwiseOscillatorEntities: () => DictionaryOf<Entity> =
             threePerPart,
         }: DictionaryOf<NoteSpec[]> = buildParts()
 
-        const stepwiseMainDescentOscillatorEntity: Entity = {
+        const mainDescentOscillatorEntity: Entity = {
             noteSpecs: mainDescentPart,
             timbreName: TimbreNameEnum.SAWTOOTH,
         }
 
-        const stepwiseMainDescentContinuationOscillatorEntity: Entity = {
+        const mainDescentContinuationOscillatorEntity: Entity = {
             noteSpecs: mainDescentContinuationPart,
             timbreName: TimbreNameEnum.SQUARE,
         }
 
-        const stepwiseThreePerOscillatorEntity: Entity = {
+        const threePerOscillatorEntity: Entity = {
             noteSpecs: threePerPart,
             timbreName: TimbreNameEnum.SQUARE,
         }
 
-        const stepwiseFivePerOscillatorEntity: Entity = {
+        const fivePerOscillatorEntity: Entity = {
             noteSpecs: fivePerPart,
             timbreName: TimbreNameEnum.SQUARE,
         }
 
-        const stepwiseSevenPerOscillatorEntity: Entity = {
+        const sevenPerOscillatorEntity: Entity = {
             noteSpecs: sevenPerPart,
             timbreName: TimbreNameEnum.SQUARE,
         }
 
-        const stepwiseNinePerOscillatorEntity: Entity = {
+        const ninePerOscillatorEntity: Entity = {
             noteSpecs: ninePerPart,
             timbreName: TimbreNameEnum.SQUARE,
         }
 
-        const stepwiseBackboneOscillatorEntity: Entity = {
+        const backboneOscillatorEntity: Entity = {
             noteSpecs: backbonePart,
             timbreName: TimbreNameEnum.SINE,
         }
 
         return {
-            stepwiseBackboneOscillatorEntity,
-            stepwiseFivePerOscillatorEntity,
-            stepwiseMainDescentContinuationOscillatorEntity,
-            stepwiseMainDescentOscillatorEntity,
-            stepwiseNinePerOscillatorEntity,
-            stepwiseSevenPerOscillatorEntity,
-            stepwiseThreePerOscillatorEntity,
+            backboneOscillatorEntity,
+            fivePerOscillatorEntity,
+            mainDescentContinuationOscillatorEntity,
+            mainDescentOscillatorEntity,
+            ninePerOscillatorEntity,
+            sevenPerOscillatorEntity,
+            threePerOscillatorEntity,
         }
     }
 
 export {
-    buildStepwiseOscillatorEntities,
+    buildOscillatorEntities,
 }

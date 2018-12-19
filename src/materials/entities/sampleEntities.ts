@@ -2,7 +2,7 @@ import { Entity, TimbreNameEnum } from '@musical-patterns/compiler'
 import { DictionaryOf } from '@musical-patterns/utilities'
 import { buildParts } from '../parts'
 
-const buildStepwiseSampleEntities: () => DictionaryOf<Entity> =
+const buildSampleEntities: () => DictionaryOf<Entity> =
     (): DictionaryOf<Entity> => {
         const {
             backbonePart,
@@ -17,62 +17,62 @@ const buildStepwiseSampleEntities: () => DictionaryOf<Entity> =
             threePerPart,
         } = buildParts()
 
-        const stepwiseMainDescentSampleEntity: Entity = {
+        const mainDescentSampleEntity: Entity = {
             noteSpecs: mainDescentPart,
             timbreName: TimbreNameEnum.TROMBONE,
         }
-        const stepwiseMainDescentContinuationSampleEntity: Entity = {
+        const mainDescentContinuationSampleEntity: Entity = {
             noteSpecs: mainDescentContinuationPart,
             timbreName: TimbreNameEnum.TUBA,
         }
 
-        const stepwiseThreePerSampleEntity: Entity = {
+        const threePerSampleEntity: Entity = {
             noteSpecs: threePerPart,
             timbreName: TimbreNameEnum.FLUTE,
         }
-        const stepwiseFivePerSampleEntity: Entity = {
+        const fivePerSampleEntity: Entity = {
             noteSpecs: fivePerPart,
             timbreName: TimbreNameEnum.VIOLIN,
         }
-        const stepwiseSevenPerSampleEntity: Entity = {
+        const sevenPerSampleEntity: Entity = {
             noteSpecs: sevenPerPart,
             timbreName: TimbreNameEnum.TRUMPET,
         }
-        const stepwiseNinePerSampleEntity: Entity = {
+        const ninePerSampleEntity: Entity = {
             noteSpecs: ninePerPart,
             timbreName: TimbreNameEnum.CELLO,
         }
 
-        const stepwiseBackboneSampleEntity: Entity = {
+        const backboneSampleEntity: Entity = {
             noteSpecs: backbonePart,
             timbreName: TimbreNameEnum.PIANO,
         }
 
-        const stepwiseKickSampleEntity: Entity = {
+        const kickSampleEntity: Entity = {
             noteSpecs: kickPart,
             timbreName: TimbreNameEnum.KICK,
         }
-        const stepwiseSnareSampleEntity: Entity = {
+        const snareSampleEntity: Entity = {
             noteSpecs: snarePart,
             timbreName: TimbreNameEnum.SNARE,
         }
-        const stepwiseHihatSampleEntity: Entity = {
+        const hihatSampleEntity: Entity = {
             noteSpecs: hihatPart,
             timbreName: TimbreNameEnum.HIHAT,
         }
 
         return {
-            stepwiseFivePerSampleEntity,
-            stepwiseHihatSampleEntity,
-            stepwiseKickSampleEntity,
-            stepwiseMainDescentContinuationSampleEntity,
-            stepwiseMainDescentSampleEntity,
-            stepwiseSevenPerSampleEntity,
-            stepwiseSnareSampleEntity,
-            stepwiseThreePerSampleEntity,
+            fivePerSampleEntity,
+            hihatSampleEntity,
+            kickSampleEntity,
+            mainDescentContinuationSampleEntity,
+            mainDescentSampleEntity,
+            sevenPerSampleEntity,
+            snareSampleEntity,
+            threePerSampleEntity,
         }
     }
 
 export {
-    buildStepwiseSampleEntities,
+    buildSampleEntities,
 }

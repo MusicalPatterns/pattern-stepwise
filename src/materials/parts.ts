@@ -1,7 +1,7 @@
 import { NoteSpec } from '@musical-patterns/compiler'
 import { DictionaryOf, sequence } from '@musical-patterns/utilities'
 import { buildBlocks } from './blocks'
-import { buildNoteSpec, buildStepwiseUnpitchedNoteSpec } from './notes'
+import { buildNoteSpec, buildUnpitchedNoteSpec } from './notes'
 
 const buildParts: () => DictionaryOf<NoteSpec[]> =
     (): DictionaryOf<NoteSpec[]> => {
@@ -42,11 +42,11 @@ const buildParts: () => DictionaryOf<NoteSpec[]> =
             .map(buildNoteSpec)
 
         const kickPart: NoteSpec[] = kickBlock
-            .map(buildStepwiseUnpitchedNoteSpec)
+            .map(buildUnpitchedNoteSpec)
         const snarePart: NoteSpec[] = snareBlock
-            .map(buildStepwiseUnpitchedNoteSpec)
+            .map(buildUnpitchedNoteSpec)
         const hihatPart: NoteSpec[] = hihatBlock
-            .map(buildStepwiseUnpitchedNoteSpec)
+            .map(buildUnpitchedNoteSpec)
 
         return {
             backbonePart,

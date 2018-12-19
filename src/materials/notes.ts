@@ -6,7 +6,7 @@ import {
 } from '@musical-patterns/pattern'
 import { from, Index, to } from '@musical-patterns/utilities'
 
-const buildStepwiseNoteSpec: (duration: Index) => NoteSpec =
+const buildUnpitchedNoteSpec: (duration: Index) => NoteSpec =
     (duration: Index): NoteSpec => ({
         durationSpec: {
             index: to.Index(from.Index(duration)),
@@ -21,16 +21,14 @@ const buildStepwiseNoteSpec: (duration: Index) => NoteSpec =
 
 const buildNoteSpec: (duration: Index) => NoteSpec =
     (duration: Index): NoteSpec => ({
-        ...buildStepwiseNoteSpec(duration),
+        ...buildUnpitchedNoteSpec(duration),
         pitchSpec: {
             index: to.Index(from.Index(duration)),
             scaleIndex: DEFAULT_PITCH_SCALE_INDEX,
         },
     })
 
-const buildStepwiseUnpitchedNoteSpec: (duration: Index) => NoteSpec = buildStepwiseNoteSpec
-
 export {
     buildNoteSpec,
-    buildStepwiseUnpitchedNoteSpec,
+    buildUnpitchedNoteSpec,
 }
