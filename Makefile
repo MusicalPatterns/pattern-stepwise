@@ -11,6 +11,9 @@ pull:
 push:
 	set -e; ../../node_modules/@musical-patterns/cli/bin/push.sh
 
+ship:
+	set -e; pushd ../..; make ship PATTERN="stepwise"; popd
+
 .PHONY: test
 test:
 	set -e; pushd ../..; make test JASMINE_CONFIG_PATH="src/stepwise/test/jasmine.js" PATTERN_NAME="STEPWISE"; popd
