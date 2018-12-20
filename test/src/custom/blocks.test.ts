@@ -1,12 +1,11 @@
-import { Block } from '@musical-patterns/pattern'
-import { from, Index, SumOfIndices, to } from '@musical-patterns/utilities'
+import { Block, from, SumOfIndices, to } from '@musical-patterns/utilities'
 import { buildBlocks } from '../../../src/indexForTest'
 
 const calculateTotalBlockDuration: (block: Block) => SumOfIndices =
     (block: Block): SumOfIndices =>
         block.reduce(
-            (accumulator: SumOfIndices, blockElement: Index) =>
-                to.SumOfIndices(from.SumOfIndices(accumulator) + from.Index(blockElement)),
+            (accumulator: SumOfIndices, blockElement: number) =>
+                to.SumOfIndices(from.SumOfIndices(accumulator) + blockElement),
             to.SumOfIndices(0),
         )
 
@@ -20,7 +19,7 @@ describe('blocks', () => {
             expect(mainDescentBlock)
                 .toEqual([
                     3, 5, 7, 9, 11, 13, 15, 17, 19, 21, 23, 25, 27, 29, 31, 33, 35, 37, 39, 41, 43, 45, 47, 49, 51, 53, 55, 57,
-                ].map(to.Index))
+                ])
         })
     })
 
@@ -33,7 +32,7 @@ describe('blocks', () => {
             expect(mainDescentContinuationBlock)
                 .toEqual([
                     59, 61, 63, 65, 67, 69, 71, 73, 75, 77, 79, 81,
-                ].map(to.Index))
+                ])
         })
     })
 
