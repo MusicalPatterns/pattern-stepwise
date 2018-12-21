@@ -2,8 +2,14 @@ MAKEFLAGS += --no-print-directory --always-make
 
 PATTERN=$(notdir $(shell pwd))
 
+build:
+	@set -e; ../../node_modules/@musical-patterns/cli/bin/build.sh tsc package
+
 commit:
 	@set -e; ../../node_modules/@musical-patterns/cli/bin/commit.sh
+
+publish:
+	@set -e; ../../node_modules/@musical-patterns/cli/bin/publish.sh package
 
 lint:
 	@set -e; pushd ../..; make lint DIR="src/${PATTERN}"; popd
