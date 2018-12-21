@@ -1,7 +1,7 @@
-const { pattern: stepwisePattern } = require('./dist')
-const stepwiseSnapshot = require('./snapshot')
+const { pattern } = require('./dist')
+const snapshot = require('./snapshot')
 
 module.exports = {
-    stepwisePattern,
-    stepwiseSnapshot,
+    pattern,
+    snapshot,
 }
