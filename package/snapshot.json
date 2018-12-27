@@ -443,7 +443,7 @@
       }
     ],
     "voiceSpec": {
-      "timbreName": "SAW",
+      "timbreName": "DISSONANT_2",
       "voiceType": "OSCILLATOR"
     }
   },
@@ -891,7 +891,7 @@
       }
     ],
     "voiceSpec": {
-      "timbreName": "SQUARE",
+      "timbreName": "TB303_SQUARE",
       "voiceType": "OSCILLATOR"
     }
   },
@@ -921,7 +921,7 @@
       }
     ],
     "voiceSpec": {
-      "timbreName": "SINE",
+      "timbreName": "DISSONANT_PIANO",
       "voiceType": "OSCILLATOR"
     }
   },

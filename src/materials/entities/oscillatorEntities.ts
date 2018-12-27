@@ -16,12 +16,12 @@ const buildOscillatorEntities: () => DictionaryOf<Entity> =
 
         const mainDescentOscillatorEntity: Entity = {
             noteSpecs: mainDescentPart,
-            timbreName: TimbreNameEnum.SAW,
+            timbreName: TimbreNameEnum.DISSONANT_2,
         }
 
         const mainDescentContinuationOscillatorEntity: Entity = {
             noteSpecs: mainDescentContinuationPart,
-            timbreName: TimbreNameEnum.SQUARE,
+            timbreName: TimbreNameEnum.TB303_SQUARE,
         }
 
         const threePerOscillatorEntity: Entity = {
@@ -46,7 +46,7 @@ const buildOscillatorEntities: () => DictionaryOf<Entity> =
 
         const backboneOscillatorEntity: Entity = {
             noteSpecs: backbonePart,
-            timbreName: TimbreNameEnum.SINE,
+            timbreName: TimbreNameEnum.DISSONANT_PIANO,
         }
 
         return {
