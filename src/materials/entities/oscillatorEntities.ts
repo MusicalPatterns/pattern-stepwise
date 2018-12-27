@@ -16,7 +16,7 @@ const buildOscillatorEntities: () => DictionaryOf<Entity> =
 
         const mainDescentOscillatorEntity: Entity = {
             noteSpecs: mainDescentPart,
-            timbreName: TimbreNameEnum.SAWTOOTH,
+            timbreName: TimbreNameEnum.SAW,
         }
 
         const mainDescentContinuationOscillatorEntity: Entity = {
