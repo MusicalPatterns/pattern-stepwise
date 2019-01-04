@@ -1,6 +1,6 @@
 import { NoteSpec } from '@musical-patterns/compiler'
+import { DEFAULT_DURATIONS_SCALE_INDEX, DEFAULT_PITCH_SCALE_INDEX } from '@musical-patterns/pattern'
 import { to } from '@musical-patterns/utilities'
-import { DEFAULT_DURATIONS_SCALE_INDEX, DEFAULT_PITCH_SCALE_INDEX } from '@musical-patterns/utilities-pattern'
 
 const buildUnpitchedNoteSpec: (duration: number) => NoteSpec =
     (duration: number): NoteSpec => ({

@@ -1,5 +1,6 @@
 import { PatternMaterial } from '@musical-patterns/compiler'
-import { Pattern, PatternId, PatternMetadata, PatternSpec } from '@musical-patterns/pattern'
+import { PatternMetadata, PatternSpec } from '@musical-patterns/pattern'
+import { Pattern, PatternId } from '@musical-patterns/registry'
 import { to } from '@musical-patterns/utilities'
 import { STEPWISE_DURATION_SCALAR, STEPWISE_PITCH_SCALAR } from './constants'
 import { buildEntities, buildScales } from './materials'
