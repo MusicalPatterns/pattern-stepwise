@@ -14,7 +14,9 @@ const material: PatternMaterial = {
 const metadata: PatternMetadata = {
     description: post,
     formattedName: 'Stepwise',
+    mostRecentPublish: process.env.PUBLISH_DATE,
     musicalIdeaIllustrated: 'nested sequential summing',
+    originalPublish: '2018-08-14T07:00:00.000Z',
 }
 
 const spec: PatternSpec = {
