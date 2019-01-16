@@ -1,5 +1,5 @@
 import { BuildScalesFunction, Scale } from '@musical-patterns/compiler'
-import { buildStandardScales, PatternSpec } from '@musical-patterns/pattern'
+import { buildStandardScales, PatternSpec, StandardPatternSpecProperties } from '@musical-patterns/pattern'
 import { to } from '@musical-patterns/utilities'
 
 const buildScales: BuildScalesFunction =
@@ -8,13 +8,13 @@ const buildScales: BuildScalesFunction =
 
         const gainScale: Scale = nonScale
         const durationsScale: Scale = {
-            offset: patternSpec.patternDurationOffset || to.Offset(0),
-            scalar: patternSpec.patternDurationScalar || to.Scalar(1),
+            offset: patternSpec[ StandardPatternSpecProperties.PATTERN_DURATION_OFFSET ] || to.Offset(0),
+            scalar: patternSpec[ StandardPatternSpecProperties.PATTERN_DURATION_SCALAR ] || to.Scalar(1),
             scalars: flatDurationsScale.scalars,
         }
         const pitchesScale: Scale = {
-            offset: patternSpec.patternPitchOffset || to.Offset(0),
-            scalar: patternSpec.patternPitchScalar || to.Scalar(1),
+            offset: patternSpec[ StandardPatternSpecProperties.PATTERN_PITCH_OFFSET ] || to.Offset(0),
+            scalar: patternSpec[ StandardPatternSpecProperties.PATTERN_PITCH_SCALAR ] || to.Scalar(1),
             scalars: subharmonicSeriesScale.scalars,
         }
 
