@@ -1,9 +1,9 @@
 import { BuildScalesFunction, Scale } from '@musical-patterns/compiler'
-import { buildStandardScales, PatternSpec, StandardPatternSpecProperties } from '@musical-patterns/pattern'
+import { buildStandardScales, StandardPatternSpec, StandardPatternSpecProperties } from '@musical-patterns/pattern'
 import { to } from '@musical-patterns/utilities'
 
 const buildScales: BuildScalesFunction =
-    (patternSpec: PatternSpec): Scale[] => {
+    (patternSpec: StandardPatternSpec): Scale[] => {
         const { nonScale, flatDurationsScale, subharmonicSeriesScale } = buildStandardScales()
 
         const gainScale: Scale = nonScale
