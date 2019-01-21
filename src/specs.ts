@@ -5,12 +5,12 @@ import {
     StandardSpecData,
     StandardSpecProperties,
 } from '@musical-patterns/pattern'
-import { STEPWISE_DURATION_SCALAR, STEPWISE_PITCH_SCALAR } from './constants'
+import { STEPWISE_BASE_DURATION, STEPWISE_BASE_FREQUENCY } from './constants'
 
 const initial: StandardSpec = {
     ...standardInitialSpec,
-    [ StandardSpecProperties.PATTERN_DURATION_SCALAR ]: STEPWISE_DURATION_SCALAR,
-    [ StandardSpecProperties.PATTERN_PITCH_SCALAR ]: STEPWISE_PITCH_SCALAR,
+    [ StandardSpecProperties.BASE_DURATION ]: STEPWISE_BASE_DURATION,
+    [ StandardSpecProperties.BASE_FREQUENCY ]: STEPWISE_BASE_FREQUENCY,
 }
 
 const specData: StandardSpecData = {

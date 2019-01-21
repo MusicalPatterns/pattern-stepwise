@@ -1,12 +1,12 @@
 // tslint:disable:no-magic-numbers
 
-import { Scalar, to } from '@musical-patterns/utilities'
+import { Frequency, Millisecond, to } from '@musical-patterns/utilities'
 
-const C8: Scalar = to.Scalar(4186)
-const STEPWISE_PITCH_SCALAR: Scalar = C8
-const STEPWISE_DURATION_SCALAR: Scalar = to.Scalar(100)
+const C8: Frequency = to.Frequency(4186)
+const STEPWISE_BASE_FREQUENCY: Frequency = C8
+const STEPWISE_BASE_DURATION: Millisecond = to.Millisecond(100)
 
 export {
-    STEPWISE_PITCH_SCALAR,
-    STEPWISE_DURATION_SCALAR,
+    STEPWISE_BASE_FREQUENCY,
+    STEPWISE_BASE_DURATION,
 }
