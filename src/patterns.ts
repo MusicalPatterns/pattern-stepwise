@@ -1,5 +1,5 @@
 import { Material } from '@musical-patterns/compiler'
-import { buildPatterns, Id, Metadata, Patterns, StandardPattern } from '@musical-patterns/pattern'
+import { Id, Metadata, Patterns, StandardPattern } from '@musical-patterns/pattern'
 import { buildEntities, buildScales } from './material'
 import { post } from './metadata'
 import { specData } from './specs'
@@ -24,9 +24,9 @@ const pattern: StandardPattern = {
     specData,
 }
 
-const patterns: Patterns = buildPatterns({
+const patterns: Patterns = {
     [ pattern.id ]: pattern,
-})
+}
 
 export {
     pattern,
