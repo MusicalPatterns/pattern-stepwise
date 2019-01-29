@@ -1,5 +1,5 @@
 import { NoteSpec } from '@musical-patterns/compiler'
-import { DictionaryOf, sequence } from '@musical-patterns/utilities'
+import { Block, DictionaryOf, sequence } from '@musical-patterns/utilities'
 import { buildBlocks } from './blocks'
 import { buildNoteSpec, buildUnpitchedNoteSpec } from './notes'
 
@@ -18,24 +18,28 @@ const buildParts: () => DictionaryOf<NoteSpec[]> =
             threePerBlock,
         } = buildBlocks()
 
-        const mainDescentPart: NoteSpec[] = sequence([
+        const mainDescentPartBlocks: Block = sequence([
             mainDescentBlock,
             mainDescentContinuationBlock,
         ])
+        const mainDescentPart: NoteSpec[] = mainDescentPartBlocks
             .map(buildNoteSpec)
-        const mainDescentContinuationPart: NoteSpec[] = sequence([
+        const mainDescentContinuationPartBlocks: Block = sequence([
             mainDescentContinuationBlock,
             mainDescentBlock,
         ])
+        const mainDescentContinuationPart: NoteSpec[] = mainDescentContinuationPartBlocks
             .map(buildNoteSpec)
 
-        const threePerPart: NoteSpec[] = sequence([ threePerBlock, ninePerBlock ])
+        const threePerPartBlocks: Block = sequence([ threePerBlock, ninePerBlock ])
+        const threePerPart: NoteSpec[] = threePerPartBlocks
             .map(buildNoteSpec)
         const fivePerPart: NoteSpec[] = fivePerBlock
             .map(buildNoteSpec)
         const sevenPerPart: NoteSpec[] = sevenPerBlock
             .map(buildNoteSpec)
-        const ninePerPart: NoteSpec[] = sequence([ ninePerBlock, threePerBlock ])
+        const ninePerPartBlocks: Block = sequence([ ninePerBlock, threePerBlock ])
+        const ninePerPart: NoteSpec[] = ninePerPartBlocks
             .map(buildNoteSpec)
 
         const backbonePart: NoteSpec[] = backboneBlock

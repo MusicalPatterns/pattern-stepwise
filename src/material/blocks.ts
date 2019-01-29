@@ -1,4 +1,4 @@
-// tslint:disable:max-line-length no-magic-numbers
+// tslint:disable:max-line-length no-magic-numbers no-dead-store
 
 import { Block, DictionaryOf, from, INITIAL, numbers, to } from '@musical-patterns/utilities'
 

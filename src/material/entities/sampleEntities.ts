@@ -1,3 +1,5 @@
+// tslint:disable:no-dead-store
+
 import { Entity, TimbreNameEnum } from '@musical-patterns/compiler'
 import { DictionaryOf } from '@musical-patterns/utilities'
 import { buildParts } from '../parts'
