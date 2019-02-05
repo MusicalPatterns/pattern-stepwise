@@ -1,4 +1,4 @@
-// tslint:disable:no-dead-store
+// tslint:disable no-dead-store
 
 import { BuildEntitiesFunction, Entity } from '@musical-patterns/compiler'
 import { buildOscillatorEntities } from './oscillatorEntities'
