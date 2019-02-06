@@ -5,12 +5,12 @@ import { Block, DictionaryOf, from, INITIAL, positiveIntegers, to } from '@music
 const buildBlocks: () => DictionaryOf<Block> =
     (): DictionaryOf<Block> => {
         const mainDescentBlock: Block = to.Block(positiveIntegers
-            .slice(from.Index(INITIAL), 28)
+            .slice(from.Ordinal(INITIAL), 28)
             .map((integer: number): number => integer * 2 + 1),
         )
 
         const mainDescentContinuationBlock: Block = to.Block(positiveIntegers
-            .slice(from.Index(INITIAL), 12)
+            .slice(from.Ordinal(INITIAL), 12)
             .map((integer: number): number => integer * 2 + 57),
         )
 

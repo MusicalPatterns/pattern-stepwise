@@ -5,7 +5,7 @@ import { to } from '@musical-patterns/utilities'
 const buildUnpitchedNoteSpec: (duration: number) => NoteSpec =
     (duration: number): NoteSpec => ({
         durationSpec: {
-            index: to.Index(duration),
+            index: to.Ordinal(duration),
             scaleIndex: STANDARD_DURATIONS_SCALE_INDEX,
         },
     })
@@ -14,7 +14,7 @@ const buildNoteSpec: (duration: number) => NoteSpec =
     (duration: number): NoteSpec => ({
         ...buildUnpitchedNoteSpec(duration),
         pitchSpec: {
-            index: to.Index(duration),
+            index: to.Ordinal(duration),
             scaleIndex: STANDARD_PITCH_SCALE_INDEX,
         },
     })
