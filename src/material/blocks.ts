@@ -1,17 +1,17 @@
 // tslint:disable max-line-length no-magic-numbers no-dead-store
 
-import { Block, DictionaryOf, from, INITIAL, positiveIntegers, to } from '@musical-patterns/utilities'
+import { Block, DictionaryOf, INITIAL, positiveIntegers, product, slice, sum, to } from '@musical-patterns/utilities'
 
 const buildBlocks: () => DictionaryOf<Block> =
     (): DictionaryOf<Block> => {
-        const mainDescentBlock: Block = to.Block(positiveIntegers
-            .slice(from.Ordinal(INITIAL), 28)
-            .map((integer: number): number => integer * 2 + 1),
+        const mainDescentBlock: Block = to.Block(
+            slice(positiveIntegers, INITIAL, to.Ordinal(28))
+                .map((integer: number): number => sum(product(integer, 2), 1)),
         )
 
-        const mainDescentContinuationBlock: Block = to.Block(positiveIntegers
-            .slice(from.Ordinal(INITIAL), 12)
-            .map((integer: number): number => integer * 2 + 57),
+        const mainDescentContinuationBlock: Block = to.Block(
+            slice(positiveIntegers, INITIAL, to.Ordinal(12))
+                .map((integer: number): number => sum(product(integer, 2), 57)),
         )
 
         const threePerBlock: Block = to.Block([

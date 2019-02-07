@@ -1,11 +1,11 @@
-import { Block, from, SumOfIndices, to } from '@musical-patterns/utilities'
+import { Block, sum, SumOfIndices, to } from '@musical-patterns/utilities'
 import { buildBlocks } from '../../../src/indexForTest'
 
 const calculateTotalBlockDuration: (block: Block) => SumOfIndices =
     (block: Block): SumOfIndices =>
         block.reduce(
-            (accumulator: SumOfIndices, blockElement: number) =>
-                to.SumOfIndices(from.SumOfIndices(accumulator) + blockElement),
+            (accumulator: SumOfIndices, cell: number) =>
+                sum(accumulator, to.SumOfIndices(cell)),
             to.SumOfIndices(0),
         )
 
