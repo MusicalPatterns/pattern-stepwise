@@ -1,12 +1,13 @@
-import { Block, sum, SumOfIndices, to } from '@musical-patterns/utilities'
+import { Block, sum, to } from '@musical-patterns/utilities'
 import { buildBlocks } from '../../../src/indexForTest'
 
-const calculateTotalBlockDuration: (block: Block) => SumOfIndices =
-    (block: Block): SumOfIndices =>
+const calculateTotalBlockDuration: (block: Block) => number =
+    (block: Block): number =>
         block.reduce(
-            (accumulator: SumOfIndices, cell: number) =>
-                sum(accumulator, to.SumOfIndices(cell)),
-            to.SumOfIndices(0),
+            // tslint:disable-next-line no-unnecessary-callback-wrapper
+            (accumulator: number, cell: number) =>
+                sum(accumulator, cell),
+            0,
         )
 
 describe('blocks', () => {
