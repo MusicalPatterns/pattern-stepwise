@@ -17,12 +17,12 @@ const buildBlocks: () => DictionaryOf<Block> =
     (): DictionaryOf<Block> => {
         const mainDescentBlock: Block = to.Block(
             slice(positiveIntegers, INITIAL, to.Ordinal(28))
-                .map((integer: Integer): number => sum(product(from.Integer(integer), 2), 1)),
+                .map((integer: Integer): number => sum(product(integer, to.Integer(2)), to.Integer(1))),
         )
 
         const mainDescentContinuationBlock: Block = to.Block(
             slice(positiveIntegers, INITIAL, to.Ordinal(12))
-                .map((integer: Integer): number => sum(product(from.Integer(integer), 2), 57)),
+                .map((integer: Integer): number => sum(product(integer, to.Integer(2)), to.Integer(57))),
         )
 
         const threePerBlock: Block = to.Block([
