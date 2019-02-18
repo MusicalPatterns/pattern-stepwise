@@ -1,20 +1,27 @@
 import { NoteSpec } from '@musical-patterns/compiler'
 import { STANDARD_DURATIONS_SCALE_INDEX, STANDARD_PITCH_SCALE_INDEX } from '@musical-patterns/pattern'
-import { to } from '@musical-patterns/utilities'
+import { to, translateFromOneIndexedToZeroIndexed } from '@musical-patterns/utilities'
+import { REDUCE_GAIN_BECAUSE_SAMPLES_ARE_REALLY_LOUD } from './constants'
 
 const buildUnpitchedNoteSpec: (duration: number) => NoteSpec =
     (duration: number): NoteSpec => ({
         durationSpec: {
-            index: to.Ordinal(duration),
+            index: translateFromOneIndexedToZeroIndexed(to.Ordinal(duration)),
             scaleIndex: STANDARD_DURATIONS_SCALE_INDEX,
+        },
+        gainSpec: {
+            scalar: REDUCE_GAIN_BECAUSE_SAMPLES_ARE_REALLY_LOUD,
         },
     })
 
 const buildNoteSpec: (duration: number) => NoteSpec =
     (duration: number): NoteSpec => ({
-        ...buildUnpitchedNoteSpec(duration),
+        durationSpec: {
+            index: translateFromOneIndexedToZeroIndexed(to.Ordinal(duration)),
+            scaleIndex: STANDARD_DURATIONS_SCALE_INDEX,
+        },
         pitchSpec: {
-            index: to.Ordinal(duration),
+            index: translateFromOneIndexedToZeroIndexed(to.Ordinal(duration)),
             scaleIndex: STANDARD_PITCH_SCALE_INDEX,
         },
     })

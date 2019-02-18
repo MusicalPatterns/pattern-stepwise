@@ -47,7 +47,7 @@ const buildBlocks: () => DictionaryOf<Block> =
 
         const snareBlock: Block = to.Block([ 24 ])
 
-        const hihatBlock: Block = to.Block([ 1 ])
+        const hihatBlock: Block = to.Block([ 3 ])
 
         const divideFortyeightByTwelveBlock: Block = to.Block([
             3, 1, 3, 1, 3, 1, 3, 1, 3, 1, 3, 1, 3, 1, 3, 1, 3, 1, 3, 1, 3, 1, 3, 1,

@@ -31,6 +31,8 @@ const buildEntities: BuildEntitiesFunction =
             mainDescentContinuationOscillatorEntity,
             backboneOscillatorEntity,
             hihatSampleEntity,
+            snareSampleEntity,
+            kickSampleEntity,
         ]
     }
 
