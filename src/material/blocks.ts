@@ -3,7 +3,6 @@
 import {
     Block,
     DictionaryOf,
-    from,
     INITIAL,
     Integer,
     positiveIntegers,

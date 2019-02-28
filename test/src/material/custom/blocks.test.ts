@@ -1,4 +1,4 @@
-import { Block, sum, to } from '@musical-patterns/utilities'
+import { Block, sum } from '@musical-patterns/utilities'
 import { buildBlocks } from '../../../../src/indexForTest'
 
 const calculateTotalBlockDuration: (block: Block) => number =
