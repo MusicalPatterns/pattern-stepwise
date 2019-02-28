@@ -1,62 +1,55 @@
-import { Entity, NoteSpec, TimbreNameEnum } from '@musical-patterns/compiler'
-import { DictionaryOf } from '@musical-patterns/utilities'
+import { Entity, TimbreNameEnum } from '@musical-patterns/compiler'
 import { buildParts } from '../parts'
+import { StepwiseParts } from '../types'
+import { OscillatorEntities } from './types'
 
-const buildOscillatorEntities: () => DictionaryOf<Entity> =
-    (): DictionaryOf<Entity> => {
-        const {
-            backbonePart,
-            fivePerPart,
-            mainDescentContinuationPart,
-            mainDescentPart,
-            ninePerPart,
-            sevenPerPart,
-            threePerPart,
-        }: DictionaryOf<NoteSpec[]> = buildParts()
+const buildOscillatorEntities: () => OscillatorEntities =
+    (): OscillatorEntities => {
+        const parts: StepwiseParts = buildParts()
 
-        const mainDescentOscillatorEntity: Entity = {
-            noteSpecs: mainDescentPart,
+        const mainDescent: Entity = {
+            noteSpecs: parts.mainDescent,
             timbreName: TimbreNameEnum.SQUARE,
         }
 
-        const mainDescentContinuationOscillatorEntity: Entity = {
-            noteSpecs: mainDescentContinuationPart,
+        const mainDescentContinuation: Entity = {
+            noteSpecs: parts.mainDescentContinuation,
             timbreName: TimbreNameEnum.SAW,
         }
 
-        const threePerOscillatorEntity: Entity = {
-            noteSpecs: threePerPart,
+        const threePer: Entity = {
+            noteSpecs: parts.threePer,
             timbreName: TimbreNameEnum.SQUARE,
         }
 
-        const fivePerOscillatorEntity: Entity = {
-            noteSpecs: fivePerPart,
+        const fivePer: Entity = {
+            noteSpecs: parts.fivePer,
             timbreName: TimbreNameEnum.SQUARE,
         }
 
-        const sevenPerOscillatorEntity: Entity = {
-            noteSpecs: sevenPerPart,
+        const sevenPer: Entity = {
+            noteSpecs: parts.sevenPer,
             timbreName: TimbreNameEnum.SQUARE,
         }
 
-        const ninePerOscillatorEntity: Entity = {
-            noteSpecs: ninePerPart,
+        const ninePer: Entity = {
+            noteSpecs: parts.ninePer,
             timbreName: TimbreNameEnum.SQUARE,
         }
 
-        const backboneOscillatorEntity: Entity = {
-            noteSpecs: backbonePart,
+        const backbone: Entity = {
+            noteSpecs: parts.backbone,
             timbreName: TimbreNameEnum.TRIANGLE,
         }
 
         return {
-            backboneOscillatorEntity,
-            fivePerOscillatorEntity,
-            mainDescentContinuationOscillatorEntity,
-            mainDescentOscillatorEntity,
-            ninePerOscillatorEntity,
-            sevenPerOscillatorEntity,
-            threePerOscillatorEntity,
+            backbone,
+            fivePer,
+            mainDescent,
+            mainDescentContinuation,
+            ninePer,
+            sevenPer,
+            threePer,
         }
     }
 

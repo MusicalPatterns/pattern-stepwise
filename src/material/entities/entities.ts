@@ -3,36 +3,20 @@
 import { BuildEntitiesFunction, Entity } from '@musical-patterns/compiler'
 import { buildOscillatorEntities } from './oscillatorEntities'
 import { buildSampleEntities } from './sampleEntities'
+import { OscillatorEntities, SampleEntities } from './types'
 
 const buildEntities: BuildEntitiesFunction =
     (): Entity[] => {
-        const {
-            fivePerSampleEntity,
-            hihatSampleEntity,
-            kickSampleEntity,
-            mainDescentContinuationSampleEntity,
-            mainDescentSampleEntity,
-            sevenPerSampleEntity,
-            snareSampleEntity,
-            threePerSampleEntity,
-        } = buildSampleEntities()
-
-        const {
-            backboneOscillatorEntity,
-            fivePerOscillatorEntity,
-            mainDescentContinuationOscillatorEntity,
-            mainDescentOscillatorEntity,
-            sevenPerOscillatorEntity,
-            threePerOscillatorEntity,
-        } = buildOscillatorEntities()
+        const sampleEntities: SampleEntities = buildSampleEntities()
+        const oscillatorEntities: OscillatorEntities = buildOscillatorEntities()
 
         return [
-            mainDescentOscillatorEntity,
-            mainDescentContinuationOscillatorEntity,
-            backboneOscillatorEntity,
-            hihatSampleEntity,
-            snareSampleEntity,
-            kickSampleEntity,
+            oscillatorEntities.mainDescent,
+            oscillatorEntities.mainDescentContinuation,
+            oscillatorEntities.backbone,
+            sampleEntities.hihat,
+            sampleEntities.snare,
+            sampleEntities.kick,
         ]
     }
 

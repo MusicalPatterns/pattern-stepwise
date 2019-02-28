@@ -1,64 +1,54 @@
 import { NoteSpec } from '@musical-patterns/compiler'
-import { DictionaryOf, sequence, to } from '@musical-patterns/utilities'
+import { sequence, to } from '@musical-patterns/utilities'
 import { buildBlocks } from './blocks'
 import { buildNoteSpec, buildUnpitchedNoteSpec } from './notes'
+import { StepwiseBlocks, StepwiseParts } from './types'
 
-const buildParts: () => DictionaryOf<NoteSpec[]> =
-    (): DictionaryOf<NoteSpec[]> => {
-        const {
-            backboneBlock,
-            fivePerBlock,
-            hihatBlock,
-            kickBlock,
-            mainDescentBlock,
-            mainDescentContinuationBlock,
-            ninePerBlock,
-            sevenPerBlock,
-            snareBlock,
-            threePerBlock,
-        } = buildBlocks()
+const buildParts: () => StepwiseParts =
+    (): StepwiseParts => {
+        const blocks: StepwiseBlocks = buildBlocks()
 
-        const mainDescentPart: NoteSpec[] = to.Block(sequence([
-            mainDescentBlock,
-            mainDescentContinuationBlock,
+        const mainDescent: NoteSpec[] = to.Block(sequence([
+            blocks.mainDescent,
+            blocks.mainDescentContinuation,
         ]))
             .map(buildNoteSpec)
-        const mainDescentContinuationPart: NoteSpec[] = to.Block(sequence([
-            mainDescentContinuationBlock,
-            mainDescentBlock,
+        const mainDescentContinuation: NoteSpec[] = to.Block(sequence([
+            blocks.mainDescentContinuation,
+            blocks.mainDescent,
         ]))
             .map(buildNoteSpec)
 
-        const threePerPart: NoteSpec[] = to.Block(sequence([ threePerBlock, ninePerBlock ]))
+        const threePer: NoteSpec[] = to.Block(sequence([ blocks.threePer, blocks.ninePer ]))
             .map(buildNoteSpec)
-        const fivePerPart: NoteSpec[] = fivePerBlock
+        const fivePer: NoteSpec[] = blocks.fivePer
             .map(buildNoteSpec)
-        const sevenPerPart: NoteSpec[] = sevenPerBlock
+        const sevenPer: NoteSpec[] = blocks.sevenPer
             .map(buildNoteSpec)
-        const ninePerPart: NoteSpec[] = to.Block(sequence([ ninePerBlock, threePerBlock ]))
-            .map(buildNoteSpec)
-
-        const backbonePart: NoteSpec[] = backboneBlock
+        const ninePer: NoteSpec[] = to.Block(sequence([ blocks.ninePer, blocks.threePer ]))
             .map(buildNoteSpec)
 
-        const kickPart: NoteSpec[] = kickBlock
+        const backbone: NoteSpec[] = blocks.backbone
+            .map(buildNoteSpec)
+
+        const kick: NoteSpec[] = blocks.kick
             .map(buildUnpitchedNoteSpec)
-        const snarePart: NoteSpec[] = snareBlock
+        const snare: NoteSpec[] = blocks.snare
             .map(buildUnpitchedNoteSpec)
-        const hihatPart: NoteSpec[] = hihatBlock
+        const hihat: NoteSpec[] = blocks.hihat
             .map(buildUnpitchedNoteSpec)
 
         return {
-            backbonePart,
-            fivePerPart,
-            hihatPart,
-            kickPart,
-            mainDescentContinuationPart,
-            mainDescentPart,
-            ninePerPart,
-            sevenPerPart,
-            snarePart,
-            threePerPart,
+            backbone,
+            fivePer,
+            hihat,
+            kick,
+            mainDescent,
+            mainDescentContinuation,
+            ninePer,
+            sevenPer,
+            snare,
+            threePer,
         }
     }
 

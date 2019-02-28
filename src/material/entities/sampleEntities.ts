@@ -1,77 +1,67 @@
 // tslint:disable no-dead-store
 
 import { Entity, TimbreNameEnum } from '@musical-patterns/compiler'
-import { DictionaryOf } from '@musical-patterns/utilities'
 import { buildParts } from '../parts'
+import { StepwiseParts } from '../types'
+import { SampleEntities } from './types'
 
-const buildSampleEntities: () => DictionaryOf<Entity> =
-    (): DictionaryOf<Entity> => {
-        const {
-            backbonePart,
-            fivePerPart,
-            hihatPart,
-            kickPart,
-            mainDescentContinuationPart,
-            mainDescentPart,
-            ninePerPart,
-            sevenPerPart,
-            snarePart,
-            threePerPart,
-        } = buildParts()
+const buildSampleEntities: () => SampleEntities =
+    (): SampleEntities => {
+        const parts: StepwiseParts = buildParts()
 
-        const mainDescentSampleEntity: Entity = {
-            noteSpecs: mainDescentPart,
+        const mainDescent: Entity = {
+            noteSpecs: parts.mainDescent,
             timbreName: TimbreNameEnum.TROMBONE,
         }
-        const mainDescentContinuationSampleEntity: Entity = {
-            noteSpecs: mainDescentContinuationPart,
+        const mainDescentContinuation: Entity = {
+            noteSpecs: parts.mainDescentContinuation,
             timbreName: TimbreNameEnum.TUBA,
         }
 
-        const threePerSampleEntity: Entity = {
-            noteSpecs: threePerPart,
+        const threePer: Entity = {
+            noteSpecs: parts.threePer,
             timbreName: TimbreNameEnum.FLUTE,
         }
-        const fivePerSampleEntity: Entity = {
-            noteSpecs: fivePerPart,
+        const fivePer: Entity = {
+            noteSpecs: parts.fivePer,
             timbreName: TimbreNameEnum.VIOLIN,
         }
-        const sevenPerSampleEntity: Entity = {
-            noteSpecs: sevenPerPart,
+        const sevenPer: Entity = {
+            noteSpecs: parts.sevenPer,
             timbreName: TimbreNameEnum.TRUMPET,
         }
-        const ninePerSampleEntity: Entity = {
-            noteSpecs: ninePerPart,
+        const ninePer: Entity = {
+            noteSpecs: parts.ninePer,
             timbreName: TimbreNameEnum.CELLO,
         }
 
-        const backboneSampleEntity: Entity = {
-            noteSpecs: backbonePart,
+        const backbone: Entity = {
+            noteSpecs: parts.backbone,
             timbreName: TimbreNameEnum.PIANO,
         }
 
-        const kickSampleEntity: Entity = {
-            noteSpecs: kickPart,
+        const kick: Entity = {
+            noteSpecs: parts.kick,
             timbreName: TimbreNameEnum.KICK,
         }
-        const snareSampleEntity: Entity = {
-            noteSpecs: snarePart,
+        const snare: Entity = {
+            noteSpecs: parts.snare,
             timbreName: TimbreNameEnum.SNARE,
         }
-        const hihatSampleEntity: Entity = {
-            noteSpecs: hihatPart,
+        const hihat: Entity = {
+            noteSpecs: parts.hihat,
             timbreName: TimbreNameEnum.HIHAT,
         }
 
         return {
-            fivePerSampleEntity,
-            hihatSampleEntity,
-            kickSampleEntity,
-            mainDescentContinuationSampleEntity,
-            mainDescentSampleEntity,
-            sevenPerSampleEntity,
-            snareSampleEntity,
-            threePerSampleEntity,
+            fivePer,
+            hihat,
+            kick,
+            mainDescent,
+            mainDescentContinuation,
+            sevenPer,
+            snare,
+            threePer,
         }
     }
 

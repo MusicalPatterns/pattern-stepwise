@@ -5,6 +5,7 @@ export {
     buildEntities,
     buildScales,
     buildNoteSpec,
+    StepwiseBlocks,
 } from './material/indexForTest'
 export { pattern } from './patterns'
 
