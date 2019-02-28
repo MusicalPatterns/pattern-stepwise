@@ -15,6 +15,7 @@ const metadata: Metadata = {
     mostRecentPublish: process.env.PUBLISH_DATE || '2018-08-14T07:00:00.000Z',
     musicalIdeaIllustrated: 'nested sequential summing',
     originalPublish: '2018-08-14T07:00:00.000Z',
+    version: process.env.PATTERN_VERSION || 'unknown',
 }
 
 const pattern: StandardPattern = {
