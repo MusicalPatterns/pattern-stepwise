@@ -13,13 +13,17 @@ interface OscillatorEntities extends StepwiseEntities {
     ninePer: Entity,
 }
 
-interface SampleEntities extends StepwiseEntities {
+interface OnlySampleEntities {
     hihat: Entity,
     kick: Entity,
     snare: Entity,
 }
 
+interface SampleEntities extends StepwiseEntities, OnlySampleEntities {
+}
+
 export {
     OscillatorEntities,
     SampleEntities,
+    OnlySampleEntities,
 }

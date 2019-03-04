@@ -1,42 +1,26 @@
 import { NoteSpec } from '@musical-patterns/compiler'
-import { sequence, to } from '@musical-patterns/utilities'
-import { buildBlocks } from './blocks'
+import { buildContours, buildUnpitchedContours } from './contours'
 import { buildNoteSpec, buildUnpitchedNoteSpec } from './notes'
-import { StepwiseBlocks, StepwiseParts } from './types'
+import { StepwiseContours, StepwiseParts, StepwiseUnpitchedContours } from './types'
 
 const buildParts: () => StepwiseParts =
     (): StepwiseParts => {
-        const blocks: StepwiseBlocks = buildBlocks()
+        const contours: StepwiseContours = buildContours()
+        const unpitchedContours: StepwiseUnpitchedContours = buildUnpitchedContours()
 
-        const mainDescent: NoteSpec[] = to.Block(sequence([
-            blocks.mainDescent,
-            blocks.mainDescentContinuation,
-        ]))
-            .map(buildNoteSpec)
-        const mainDescentContinuation: NoteSpec[] = to.Block(sequence([
-            blocks.mainDescentContinuation,
-            blocks.mainDescent,
-        ]))
-            .map(buildNoteSpec)
+        const mainDescent: NoteSpec[] = contours.mainDescent.map(buildNoteSpec)
+        const mainDescentContinuation: NoteSpec[] = contours.mainDescentContinuation.map(buildNoteSpec)
 
-        const threePer: NoteSpec[] = to.Block(sequence([ blocks.threePer, blocks.ninePer ]))
-            .map(buildNoteSpec)
-        const fivePer: NoteSpec[] = blocks.fivePer
-            .map(buildNoteSpec)
-        const sevenPer: NoteSpec[] = blocks.sevenPer
-            .map(buildNoteSpec)
-        const ninePer: NoteSpec[] = to.Block(sequence([ blocks.ninePer, blocks.threePer ]))
-            .map(buildNoteSpec)
+        const threePer: NoteSpec[] = contours.threePer.map(buildNoteSpec)
+        const fivePer: NoteSpec[] = contours.fivePer.map(buildNoteSpec)
+        const sevenPer: NoteSpec[] = contours.sevenPer.map(buildNoteSpec)
+        const ninePer: NoteSpec[] = contours.ninePer.map(buildNoteSpec)
 
-        const backbone: NoteSpec[] = blocks.backbone
-            .map(buildNoteSpec)
+        const backbone: NoteSpec[] = contours.backbone.map(buildNoteSpec)
 
-        const kick: NoteSpec[] = blocks.kick
-            .map(buildUnpitchedNoteSpec)
-        const snare: NoteSpec[] = blocks.snare
-            .map(buildUnpitchedNoteSpec)
-        const hihat: NoteSpec[] = blocks.hihat
-            .map(buildUnpitchedNoteSpec)
+        const kick: NoteSpec[] = unpitchedContours.kick.map(buildUnpitchedNoteSpec)
+        const snare: NoteSpec[] = unpitchedContours.snare.map(buildUnpitchedNoteSpec)
+        const hihat: NoteSpec[] = unpitchedContours.hihat.map(buildUnpitchedNoteSpec)
 
         return {
             backbone,
