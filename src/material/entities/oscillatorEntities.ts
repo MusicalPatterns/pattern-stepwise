@@ -19,22 +19,22 @@ const buildOscillatorEntities: () => OscillatorEntities =
 
         const threePer: Entity = {
             noteSpecs: parts.threePer,
-            timbreName: TimbreNameEnum.SQUARE,
+            timbreName: TimbreNameEnum.SINE,
         }
 
         const fivePer: Entity = {
             noteSpecs: parts.fivePer,
-            timbreName: TimbreNameEnum.SQUARE,
+            timbreName: TimbreNameEnum.SINE,
         }
 
         const sevenPer: Entity = {
             noteSpecs: parts.sevenPer,
-            timbreName: TimbreNameEnum.SQUARE,
+            timbreName: TimbreNameEnum.SINE,
         }
 
         const ninePer: Entity = {
             noteSpecs: parts.ninePer,
-            timbreName: TimbreNameEnum.SQUARE,
+            timbreName: TimbreNameEnum.SINE,
         }
 
         const backbone: Entity = {

@@ -1,6 +1,6 @@
 {
   "name": "@musical-patterns/pattern-stepwise",
-  "version": "1.0.90",
+  "version": "1.0.91",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
   "license": "MIT",
@@ -14,7 +14,7 @@
     "@musical-patterns/utilities": "^1.0.278"
   },
   "devDependencies": {
-    "@musical-patterns/cli": "^1.0.458",
+    "@musical-patterns/cli": "^1.0.467",
     "@musical-patterns/playroom": "^1.0.256",
     "@musical-patterns/snapshot": "^1.0.50"
   }
