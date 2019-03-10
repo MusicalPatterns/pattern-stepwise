@@ -1,11 +1,11 @@
 // tslint:disable no-dead-store
 
-import { BuildEntitiesFunction, Entity } from '@musical-patterns/compiler'
+import { Entity, MaterializeEntities } from '@musical-patterns/compiler'
 import { buildOscillatorEntities } from './oscillatorEntities'
 import { buildSampleEntities } from './sampleEntities'
 import { OscillatorEntities, SampleEntities } from './types'
 
-const buildEntities: BuildEntitiesFunction =
+const materializeEntities: MaterializeEntities =
     (): Entity[] => {
         const sampleEntities: SampleEntities = buildSampleEntities()
         const oscillatorEntities: OscillatorEntities = buildOscillatorEntities()
@@ -25,5 +25,5 @@ const buildEntities: BuildEntitiesFunction =
     }
 
 export {
-    buildEntities,
+    materializeEntities,
 }

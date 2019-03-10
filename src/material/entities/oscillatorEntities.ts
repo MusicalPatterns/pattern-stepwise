@@ -1,44 +1,44 @@
 import { Entity, TimbreNameEnum } from '@musical-patterns/compiler'
-import { buildParts } from '../parts'
-import { StepwiseParts } from '../types'
+import { buildNotes } from '../notes'
+import { StepwiseNotes } from '../types'
 import { OscillatorEntities } from './types'
 
 const buildOscillatorEntities: () => OscillatorEntities =
     (): OscillatorEntities => {
-        const parts: StepwiseParts = buildParts()
+        const notes: StepwiseNotes = buildNotes()
 
         const mainDescent: Entity = {
-            noteSpecs: parts.mainDescent,
+            notes: notes.mainDescent,
             timbreName: TimbreNameEnum.SQUARE,
         }
 
         const mainDescentContinuation: Entity = {
-            noteSpecs: parts.mainDescentContinuation,
+            notes: notes.mainDescentContinuation,
             timbreName: TimbreNameEnum.SAW,
         }
 
         const threePer: Entity = {
-            noteSpecs: parts.threePer,
+            notes: notes.threePer,
             timbreName: TimbreNameEnum.SINE,
         }
 
         const fivePer: Entity = {
-            noteSpecs: parts.fivePer,
+            notes: notes.fivePer,
             timbreName: TimbreNameEnum.SINE,
         }
 
         const sevenPer: Entity = {
-            noteSpecs: parts.sevenPer,
+            notes: notes.sevenPer,
             timbreName: TimbreNameEnum.SINE,
         }
 
         const ninePer: Entity = {
-            noteSpecs: parts.ninePer,
+            notes: notes.ninePer,
             timbreName: TimbreNameEnum.SINE,
         }
 
         const backbone: Entity = {
-            noteSpecs: parts.backbone,
+            notes: notes.backbone,
             timbreName: TimbreNameEnum.TRIANGLE,
         }
 

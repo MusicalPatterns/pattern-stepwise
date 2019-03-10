@@ -2,9 +2,9 @@
 
 export {
     buildBlocks,
-    buildEntities,
-    buildScales,
-    buildNoteSpec,
+    materializeEntities,
+    materializeScales,
+    buildNote,
     buildContourElement,
     StepwiseBlocks,
 } from './material/indexForTest'

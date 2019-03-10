@@ -1,37 +1,41 @@
-import { NoteSpec } from '@musical-patterns/compiler'
-import {
-    DurationOnly,
-    PitchDuration,
-    STANDARD_DURATIONS_SCALE_INDEX,
-    STANDARD_PITCH_SCALE_INDEX,
-} from '@musical-patterns/pattern'
-import { ContourElement, to, translateFromOneIndexedToZeroIndexed } from '@musical-patterns/utilities'
-import { REDUCE_GAIN_BECAUSE_SAMPLES_ARE_REALLY_LOUD } from './constants'
+import { Note } from '@musical-patterns/compiler'
+import { buildContours, buildUnpitchedContours } from './contours'
+import { buildNote, buildUnpitchedNote } from './features'
+import { StepwiseContours, StepwiseNotes, StepwiseUnpitchedContours } from './types'
 
-const buildUnpitchedNoteSpec: (contourElement: ContourElement<DurationOnly>) => NoteSpec =
-    ([ duration ]: ContourElement<DurationOnly>): NoteSpec => ({
-        durationSpec: {
-            index: translateFromOneIndexedToZeroIndexed(to.Ordinal(duration)),
-            scaleIndex: STANDARD_DURATIONS_SCALE_INDEX,
-        },
-        gainSpec: {
-            scalar: REDUCE_GAIN_BECAUSE_SAMPLES_ARE_REALLY_LOUD,
-        },
-    })
+const buildNotes: () => StepwiseNotes =
+    (): StepwiseNotes => {
+        const contours: StepwiseContours = buildContours()
+        const unpitchedContours: StepwiseUnpitchedContours = buildUnpitchedContours()
 
-const buildNoteSpec: (contourElement: ContourElement<PitchDuration>) => NoteSpec =
-    ([ pitch, duration ]: ContourElement<PitchDuration>): NoteSpec => ({
-        durationSpec: {
-            index: translateFromOneIndexedToZeroIndexed(to.Ordinal(duration)),
-            scaleIndex: STANDARD_DURATIONS_SCALE_INDEX,
-        },
-        pitchSpec: {
-            index: translateFromOneIndexedToZeroIndexed(to.Ordinal(pitch)),
-            scaleIndex: STANDARD_PITCH_SCALE_INDEX,
-        },
-    })
+        const mainDescent: Note[] = contours.mainDescent.map(buildNote)
+        const mainDescentContinuation: Note[] = contours.mainDescentContinuation.map(buildNote)
+
+        const threePer: Note[] = contours.threePer.map(buildNote)
+        const fivePer: Note[] = contours.fivePer.map(buildNote)
+        const sevenPer: Note[] = contours.sevenPer.map(buildNote)
+        const ninePer: Note[] = contours.ninePer.map(buildNote)
+
+        const backbone: Note[] = contours.backbone.map(buildNote)
+
+        const kick: Note[] = unpitchedContours.kick.map(buildUnpitchedNote)
+        const snare: Note[] = unpitchedContours.snare.map(buildUnpitchedNote)
+        const hihat: Note[] = unpitchedContours.hihat.map(buildUnpitchedNote)
+
+        return {
+            backbone,
+            fivePer,
+            hihat,
+            kick,
+            mainDescent,
+            mainDescentContinuation,
+            ninePer,
+            sevenPer,
+            snare,
+            threePer,
+        }
+    }
 
 export {
-    buildNoteSpec,
-    buildUnpitchedNoteSpec,
+    buildNotes,
 }

@@ -1,6 +1,6 @@
 [
   {
-    "notes": [
+    "sounds": [
       {
         "duration": 450,
         "gain": 1,
@@ -442,13 +442,13 @@
         "sustain": 12149.9
       }
     ],
-    "voiceSpec": {
+    "sourceRequest": {
       "timbreName": "SQUARE",
-      "voiceType": "OSCILLATOR"
+      "sourceType": "OSCILLATOR"
     }
   },
   {
-    "notes": [
+    "sounds": [
       {
         "duration": 8850,
         "gain": 1,
@@ -890,13 +890,13 @@
         "sustain": 8549.9
       }
     ],
-    "voiceSpec": {
+    "sourceRequest": {
       "timbreName": "SAW",
-      "voiceType": "OSCILLATOR"
+      "sourceType": "OSCILLATOR"
     }
   },
   {
-    "notes": [
+    "sounds": [
       {
         "duration": 450,
         "gain": 1,
@@ -920,13 +920,13 @@
         "sustain": 149.9
       }
     ],
-    "voiceSpec": {
+    "sourceRequest": {
       "timbreName": "TRIANGLE",
-      "voiceType": "OSCILLATOR"
+      "sourceType": "OSCILLATOR"
     }
   },
   {
-    "notes": [
+    "sounds": [
       {
         "duration": 450,
         "gain": 1,
@@ -2842,13 +2842,13 @@
         "sustain": 149.9
       }
     ],
-    "voiceSpec": {
+    "sourceRequest": {
       "timbreName": "SINE",
-      "voiceType": "OSCILLATOR"
+      "sourceType": "OSCILLATOR"
     }
   },
   {
-    "notes": [
+    "sounds": [
       {
         "duration": 1650,
         "gain": 1,
@@ -3950,13 +3950,13 @@
         "sustain": 1949.9
       }
     ],
-    "voiceSpec": {
+    "sourceRequest": {
       "timbreName": "SINE",
-      "voiceType": "OSCILLATOR"
+      "sourceType": "OSCILLATOR"
     }
   },
   {
-    "notes": [
+    "sounds": [
       {
         "duration": 1050,
         "gain": 1,
@@ -5036,13 +5036,13 @@
         "sustain": 1349.9
       }
     ],
-    "voiceSpec": {
+    "sourceRequest": {
       "timbreName": "SINE",
-      "voiceType": "OSCILLATOR"
+      "sourceType": "OSCILLATOR"
     }
   },
   {
-    "notes": [
+    "sounds": [
       {
         "duration": 2250,
         "gain": 1,
@@ -6958,13 +6958,13 @@
         "sustain": 2549.9
       }
     ],
-    "voiceSpec": {
+    "sourceRequest": {
       "timbreName": "SINE",
-      "voiceType": "OSCILLATOR"
+      "sourceType": "OSCILLATOR"
     }
   },
   {
-    "notes": [
+    "sounds": [
       {
         "duration": 450,
         "gain": 0.25,
@@ -6977,13 +6977,13 @@
         "sustain": 449.9
       }
     ],
-    "voiceSpec": {
+    "sourceRequest": {
       "timbreName": "HIHAT",
-      "voiceType": "SAMPLE"
+      "sourceType": "SAMPLE"
     }
   },
   {
-    "notes": [
+    "sounds": [
       {
         "duration": 3600,
         "gain": 0.25,
@@ -6996,13 +6996,13 @@
         "sustain": 3599.9
       }
     ],
-    "voiceSpec": {
+    "sourceRequest": {
       "timbreName": "SNARE",
-      "voiceType": "SAMPLE"
+      "sourceType": "SAMPLE"
     }
   },
   {
-    "notes": [
+    "sounds": [
       {
         "duration": 1200,
         "gain": 0.25,
@@ -7015,9 +7015,9 @@
         "sustain": 1199.9
       }
     ],
-    "voiceSpec": {
+    "sourceRequest": {
       "timbreName": "KICK",
-      "voiceType": "SAMPLE"
+      "sourceType": "SAMPLE"
     }
   }
 ]
