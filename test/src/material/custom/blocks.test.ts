@@ -1,7 +1,7 @@
 import { Block, sum } from '@musical-patterns/utilities'
-import { buildBlocks, StepwiseBlocks } from '../../../../src/indexForTest'
+import { computeBlocks, StepwiseBlocks } from '../../../../src/indexForTest'
 
-const calculateTotalBlockDuration: (block: Block) => number =
+const computeTotalBlockDuration: (block: Block) => number =
     (block: Block): number =>
         block.reduce(
             // tslint:disable-next-line no-unnecessary-callback-wrapper
@@ -13,7 +13,7 @@ const calculateTotalBlockDuration: (block: Block) => number =
 describe('blocks', () => {
     let blocks: StepwiseBlocks
     beforeEach(() => {
-        blocks = buildBlocks()
+        blocks = computeBlocks()
     })
 
     describe('main descent', () => {
@@ -35,7 +35,7 @@ describe('blocks', () => {
     })
 
     it('is the case that the main descent and its continuation have the same total duration', () => {
-        expect(calculateTotalBlockDuration(blocks.mainDescent))
-            .toBe(calculateTotalBlockDuration(blocks.mainDescentContinuation))
+        expect(computeTotalBlockDuration(blocks.mainDescent))
+            .toBe(computeTotalBlockDuration(blocks.mainDescentContinuation))
     })
 })

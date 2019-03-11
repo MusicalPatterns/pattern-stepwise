@@ -1,11 +1,11 @@
 import { Entity, TimbreNameEnum } from '@musical-patterns/compiler'
-import { buildNotes } from '../notes'
+import { computeNotes } from '../notes'
 import { StepwiseNotes } from '../types'
 import { OscillatorEntities } from './types'
 
-const buildOscillatorEntities: () => OscillatorEntities =
+const computeOscillatorEntities: () => OscillatorEntities =
     (): OscillatorEntities => {
-        const notes: StepwiseNotes = buildNotes()
+        const notes: StepwiseNotes = computeNotes()
 
         const mainDescent: Entity = {
             notes: notes.mainDescent,
@@ -54,5 +54,5 @@ const buildOscillatorEntities: () => OscillatorEntities =
     }
 
 export {
-    buildOscillatorEntities,
+    computeOscillatorEntities,
 }

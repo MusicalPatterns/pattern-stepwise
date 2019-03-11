@@ -1,7 +1,7 @@
 import { MaterializeScales, Scale } from '@musical-patterns/compiler'
 import {
-    buildFlatDurationsScale,
-    buildSubharmonicSeriesScale,
+    computeFlatDurationsScale,
+    computeSubharmonicSeriesScale,
     materializeStandardScales,
     StandardSpec,
 } from '@musical-patterns/pattern'
@@ -11,8 +11,8 @@ const materializeScales: MaterializeScales =
         materializeStandardScales(
             spec,
             {
-                durationScalars: buildFlatDurationsScale().scalars,
-                pitchScalars: buildSubharmonicSeriesScale().scalars,
+                durationScalars: computeFlatDurationsScale().scalars,
+                pitchScalars: computeSubharmonicSeriesScale().scalars,
             },
         )
 

@@ -1,14 +1,14 @@
 // tslint:disable no-dead-store
 
 import { Entity, MaterializeEntities } from '@musical-patterns/compiler'
-import { buildOscillatorEntities } from './oscillatorEntities'
-import { buildSampleEntities } from './sampleEntities'
+import { computeOscillatorEntities } from './oscillatorEntities'
+import { computeSampleEntities } from './sampleEntities'
 import { OscillatorEntities, SampleEntities } from './types'
 
 const materializeEntities: MaterializeEntities =
     (): Entity[] => {
-        const sampleEntities: SampleEntities = buildSampleEntities()
-        const oscillatorEntities: OscillatorEntities = buildOscillatorEntities()
+        const sampleEntities: SampleEntities = computeSampleEntities()
+        const oscillatorEntities: OscillatorEntities = computeOscillatorEntities()
 
         return [
             oscillatorEntities.mainDescent,

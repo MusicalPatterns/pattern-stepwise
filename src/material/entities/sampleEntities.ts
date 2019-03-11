@@ -1,13 +1,13 @@
 // tslint:disable no-dead-store
 
 import { Entity, TimbreNameEnum } from '@musical-patterns/compiler'
-import { buildNotes } from '../notes'
+import { computeNotes } from '../notes'
 import { StepwiseNotes } from '../types'
 import { SampleEntities } from './types'
 
-const buildSampleEntities: () => SampleEntities =
+const computeSampleEntities: () => SampleEntities =
     (): SampleEntities => {
-        const notes: StepwiseNotes = buildNotes()
+        const notes: StepwiseNotes = computeNotes()
 
         const mainDescent: Entity = {
             notes: notes.mainDescent,
@@ -66,5 +66,5 @@ const buildSampleEntities: () => SampleEntities =
     }
 
 export {
-    buildSampleEntities,
+    computeSampleEntities,
 }

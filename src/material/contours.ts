@@ -1,53 +1,53 @@
 import { DurationOnly, PitchDuration } from '@musical-patterns/pattern'
 import { ContourElement, ContourWhole, sequence, to } from '@musical-patterns/utilities'
-import { buildBlocks } from './blocks'
+import { computeBlocks } from './blocks'
 import { StepwiseBlocks, StepwiseContours, StepwiseUnpitchedContours } from './types'
 
-const buildContourElement: (blockElement: number) => ContourElement<PitchDuration> =
+const computeContourElement: (blockElement: number) => ContourElement<PitchDuration> =
     (blockElement: number): ContourElement<PitchDuration> =>
         to.ContourElement<PitchDuration>([
             blockElement,
             blockElement,
         ])
 
-const buildUnpitchedContourElement: (blockElement: number) => ContourElement<DurationOnly> =
+const computeUnpitchedContourElement: (blockElement: number) => ContourElement<DurationOnly> =
     (blockElement: number): ContourElement<DurationOnly> =>
         to.ContourElement<DurationOnly>([
             blockElement,
         ])
 
-const buildContours: () => StepwiseContours =
+const computeContours: () => StepwiseContours =
     (): StepwiseContours => {
-        const blocks: StepwiseBlocks = buildBlocks()
+        const blocks: StepwiseBlocks = computeBlocks()
 
         const mainDescent: ContourWhole<PitchDuration> = to.ContourWhole<PitchDuration>(sequence([
             blocks.mainDescent,
             blocks.mainDescentContinuation,
         ])
-            .map(buildContourElement))
+            .map(computeContourElement))
         const mainDescentContinuation: ContourWhole<PitchDuration> = to.ContourWhole<PitchDuration>(sequence([
             blocks.mainDescentContinuation,
             blocks.mainDescent,
         ])
-            .map(buildContourElement))
+            .map(computeContourElement))
 
         const threePer: ContourWhole<PitchDuration> = to.ContourWhole<PitchDuration>(sequence([
             blocks.threePer,
             blocks.ninePer,
         ])
-            .map(buildContourElement))
+            .map(computeContourElement))
         const fivePer: ContourWhole<PitchDuration> = to.ContourWhole<PitchDuration>(blocks.fivePer
-            .map(buildContourElement))
+            .map(computeContourElement))
         const sevenPer: ContourWhole<PitchDuration> = to.ContourWhole<PitchDuration>(blocks.sevenPer
-            .map(buildContourElement))
+            .map(computeContourElement))
         const ninePer: ContourWhole<PitchDuration> = to.ContourWhole<PitchDuration>(sequence([
             blocks.ninePer,
             blocks.threePer,
         ])
-            .map(buildContourElement))
+            .map(computeContourElement))
 
         const backbone: ContourWhole<PitchDuration> = to.ContourWhole<PitchDuration>(blocks.backbone
-            .map(buildContourElement))
+            .map(computeContourElement))
 
         return {
             backbone,
@@ -60,21 +60,21 @@ const buildContours: () => StepwiseContours =
         }
     }
 
-const buildUnpitchedContours: () => StepwiseUnpitchedContours =
+const computeUnpitchedContours: () => StepwiseUnpitchedContours =
     (): StepwiseUnpitchedContours => {
-        const blocks: StepwiseBlocks = buildBlocks()
+        const blocks: StepwiseBlocks = computeBlocks()
 
         const kick: ContourWhole<DurationOnly> = to.ContourWhole<DurationOnly>(
             blocks.kick
-                .map(buildUnpitchedContourElement),
+                .map(computeUnpitchedContourElement),
         )
         const snare: ContourWhole<DurationOnly> = to.ContourWhole<DurationOnly>(
             blocks.snare
-                .map(buildUnpitchedContourElement),
+                .map(computeUnpitchedContourElement),
         )
         const hihat: ContourWhole<DurationOnly> = to.ContourWhole<DurationOnly>(
             blocks.hihat
-                .map(buildUnpitchedContourElement),
+                .map(computeUnpitchedContourElement),
         )
 
         return {
@@ -85,7 +85,7 @@ const buildUnpitchedContours: () => StepwiseUnpitchedContours =
     }
 
 export {
-    buildContours,
-    buildUnpitchedContours,
-    buildContourElement,
+    computeContours,
+    computeUnpitchedContours,
+    computeContourElement,
 }

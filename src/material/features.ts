@@ -8,7 +8,7 @@ import {
 import { ContourElement, to, translateFromOneIndexedToZeroIndexed } from '@musical-patterns/utilities'
 import { REDUCE_GAIN_BECAUSE_SAMPLES_ARE_REALLY_LOUD } from './constants'
 
-const buildUnpitchedNote: (contourElement: ContourElement<DurationOnly>) => Note =
+const computeUnpitchedNote: (contourElement: ContourElement<DurationOnly>) => Note =
     ([ duration ]: ContourElement<DurationOnly>): Note => ({
         duration: {
             index: translateFromOneIndexedToZeroIndexed(to.Ordinal(duration)),
@@ -19,7 +19,7 @@ const buildUnpitchedNote: (contourElement: ContourElement<DurationOnly>) => Note
         },
     })
 
-const buildNote: (contourElement: ContourElement<PitchDuration>) => Note =
+const computeNote: (contourElement: ContourElement<PitchDuration>) => Note =
     ([ pitch, duration ]: ContourElement<PitchDuration>): Note => ({
         duration: {
             index: translateFromOneIndexedToZeroIndexed(to.Ordinal(duration)),
@@ -32,6 +32,6 @@ const buildNote: (contourElement: ContourElement<PitchDuration>) => Note =
     })
 
 export {
-    buildNote,
-    buildUnpitchedNote,
+    computeNote,
+    computeUnpitchedNote,
 }

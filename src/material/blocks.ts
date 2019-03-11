@@ -3,7 +3,7 @@
 import { Block, INITIAL, Integer, positiveIntegers, product, slice, sum, to } from '@musical-patterns/utilities'
 import { StepwiseBlocks } from './types'
 
-const buildBlocks: () => StepwiseBlocks =
+const computeBlocks: () => StepwiseBlocks =
     (): StepwiseBlocks => {
         const mainDescent: Block = to.Block(
             slice(positiveIntegers, INITIAL, to.Ordinal(28))
@@ -95,5 +95,5 @@ const buildBlocks: () => StepwiseBlocks =
     }
 
 export {
-    buildBlocks,
+    computeBlocks,
 }
