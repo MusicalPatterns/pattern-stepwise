@@ -1,5 +1,5 @@
 import { Material } from '@musical-patterns/compiler'
-import { materializeEntities } from './entities'
+import { materializeEntities } from './entity'
 import { materializeScales } from './scales'
 
 const material: Material = {
