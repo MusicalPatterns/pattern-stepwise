@@ -20,30 +20,30 @@ const computeContours: () => StepwiseContours =
     (): StepwiseContours => {
         const blocks: StepwiseBlocks = computeBlocks()
 
-        const mainDescent: ContourWhole<PitchDuration> = to.ContourWhole<PitchDuration>(sequence([
+        const mainDescent: ContourWhole<PitchDuration> = to.ContourWhole<PitchDuration>(sequence(
             blocks.mainDescent,
             blocks.mainDescentContinuation,
-        ])
+        )
             .map(computeContourElement))
-        const mainDescentContinuation: ContourWhole<PitchDuration> = to.ContourWhole<PitchDuration>(sequence([
+        const mainDescentContinuation: ContourWhole<PitchDuration> = to.ContourWhole<PitchDuration>(sequence(
             blocks.mainDescentContinuation,
             blocks.mainDescent,
-        ])
+        )
             .map(computeContourElement))
 
-        const threePer: ContourWhole<PitchDuration> = to.ContourWhole<PitchDuration>(sequence([
+        const threePer: ContourWhole<PitchDuration> = to.ContourWhole<PitchDuration>(sequence(
             blocks.threePer,
             blocks.ninePer,
-        ])
+        )
             .map(computeContourElement))
         const fivePer: ContourWhole<PitchDuration> = to.ContourWhole<PitchDuration>(blocks.fivePer
             .map(computeContourElement))
         const sevenPer: ContourWhole<PitchDuration> = to.ContourWhole<PitchDuration>(blocks.sevenPer
             .map(computeContourElement))
-        const ninePer: ContourWhole<PitchDuration> = to.ContourWhole<PitchDuration>(sequence([
+        const ninePer: ContourWhole<PitchDuration> = to.ContourWhole<PitchDuration>(sequence(
             blocks.ninePer,
             blocks.threePer,
-        ])
+        )
             .map(computeContourElement))
 
         const backbone: ContourWhole<PitchDuration> = to.ContourWhole<PitchDuration>(blocks.backbone
