@@ -10,46 +10,46 @@ const computeSampleEntities: () => SampleEntities =
         const notes: StepwiseNotes = computeNotes()
 
         const mainDescent: Entity = {
-            notes: notes.mainDescent,
+            sections: [ { notes: notes.mainDescent } ],
             timbreName: TimbreNameEnum.TROMBONE,
         }
         const mainDescentContinuation: Entity = {
-            notes: notes.mainDescentContinuation,
+            sections: [ { notes: notes.mainDescentContinuation } ],
             timbreName: TimbreNameEnum.TUBA,
         }
 
         const threePer: Entity = {
-            notes: notes.threePer,
+            sections: [ { notes: notes.threePer } ],
             timbreName: TimbreNameEnum.FLUTE,
         }
         const fivePer: Entity = {
-            notes: notes.fivePer,
+            sections: [ { notes: notes.fivePer } ],
             timbreName: TimbreNameEnum.VIOLIN,
         }
         const sevenPer: Entity = {
-            notes: notes.sevenPer,
+            sections: [ { notes: notes.sevenPer } ],
             timbreName: TimbreNameEnum.TRUMPET,
         }
         const ninePer: Entity = {
-            notes: notes.ninePer,
+            sections: [ { notes: notes.ninePer } ],
             timbreName: TimbreNameEnum.CELLO,
         }
 
         const backbone: Entity = {
-            notes: notes.backbone,
+            sections: [ { notes: notes.backbone } ],
             timbreName: TimbreNameEnum.PIANO,
         }
 
         const kick: Entity = {
-            notes: notes.kick,
+            sections: [ { notes: notes.kick } ],
             timbreName: TimbreNameEnum.KICK,
         }
         const snare: Entity = {
-            notes: notes.snare,
+            sections: [ { notes: notes.snare } ],
             timbreName: TimbreNameEnum.SNARE,
         }
         const hihat: Entity = {
-            notes: notes.hihat,
+            sections: [ { notes: notes.hihat } ],
             timbreName: TimbreNameEnum.HIHAT,
         }
 

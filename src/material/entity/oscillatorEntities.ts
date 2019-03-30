@@ -8,37 +8,37 @@ const computeOscillatorEntities: () => OscillatorEntities =
         const notes: StepwiseNotes = computeNotes()
 
         const mainDescent: Entity = {
-            notes: notes.mainDescent,
+            sections: [ { notes: notes.mainDescent } ],
             timbreName: TimbreNameEnum.SQUARE,
         }
 
         const mainDescentContinuation: Entity = {
-            notes: notes.mainDescentContinuation,
+            sections: [ { notes: notes.mainDescentContinuation } ],
             timbreName: TimbreNameEnum.SAW,
         }
 
         const threePer: Entity = {
-            notes: notes.threePer,
+            sections: [ { notes: notes.threePer } ],
             timbreName: TimbreNameEnum.SINE,
         }
 
         const fivePer: Entity = {
-            notes: notes.fivePer,
+            sections: [ { notes: notes.fivePer } ],
             timbreName: TimbreNameEnum.SINE,
         }
 
         const sevenPer: Entity = {
-            notes: notes.sevenPer,
+            sections: [ { notes: notes.sevenPer } ],
             timbreName: TimbreNameEnum.SINE,
         }
 
         const ninePer: Entity = {
-            notes: notes.ninePer,
+            sections: [ { notes: notes.ninePer } ],
             timbreName: TimbreNameEnum.SINE,
         }
 
         const backbone: Entity = {
-            notes: notes.backbone,
+            sections: [ { notes: notes.backbone } ],
             timbreName: TimbreNameEnum.TRIANGLE,
         }
 
