@@ -3,6 +3,7 @@
   "totalDuration": 252000,
   "voices": [
     {
+      "delay": 0,
       "sounds": [
         {
           "duration": 450,
@@ -452,6 +453,7 @@
       "segnoIndex": 0
     },
     {
+      "delay": 0,
       "sounds": [
         {
           "duration": 8850,
@@ -901,6 +903,7 @@
       "segnoIndex": 0
     },
     {
+      "delay": 0,
       "sounds": [
         {
           "duration": 450,
@@ -932,6 +935,7 @@
       "segnoIndex": 0
     },
     {
+      "delay": 0,
       "sounds": [
         {
           "duration": 450,
@@ -2855,6 +2859,7 @@
       "segnoIndex": 0
     },
     {
+      "delay": 0,
       "sounds": [
         {
           "duration": 1650,
@@ -3964,6 +3969,7 @@
       "segnoIndex": 0
     },
     {
+      "delay": 0,
       "sounds": [
         {
           "duration": 1050,
@@ -5051,6 +5057,7 @@
       "segnoIndex": 0
     },
     {
+      "delay": 0,
       "sounds": [
         {
           "duration": 2250,
@@ -6974,6 +6981,7 @@
       "segnoIndex": 0
     },
     {
+      "delay": 0,
       "sounds": [
         {
           "duration": 450,
@@ -6994,6 +7002,7 @@
       "segnoIndex": 0
     },
     {
+      "delay": 0,
       "sounds": [
         {
           "duration": 3600,
@@ -7014,6 +7023,7 @@
       "segnoIndex": 0
     },
     {
+      "delay": 0,
       "sounds": [
         {
           "duration": 1200,
