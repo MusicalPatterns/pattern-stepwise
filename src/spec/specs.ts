@@ -4,7 +4,7 @@ import {
     standardInitialSpecs,
     StandardSpec,
     StandardSpecs,
-} from '@musical-patterns/pattern'
+} from '@musical-patterns/spec'
 import { STEPWISE_INITIAL_BASE_DURATION, STEPWISE_INITIAL_BASE_FREQUENCY } from './constants'
 
 const initialSpecs: StandardSpecs = {

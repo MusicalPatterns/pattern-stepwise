@@ -1,10 +1,11 @@
-import { MaterializeScales, Scale } from '@musical-patterns/material'
 import {
     computeFlatDurationsScale,
     computeSubharmonicSeriesScale,
+    MaterializeScales,
     materializeStandardScales,
-    StandardSpecs,
-} from '@musical-patterns/pattern'
+    Scale,
+} from '@musical-patterns/material'
+import { StandardSpecs } from '@musical-patterns/spec'
 
 const materializeScales: MaterializeScales =
     (specs: StandardSpecs): Scale[] =>

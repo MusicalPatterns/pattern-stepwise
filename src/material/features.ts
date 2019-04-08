@@ -1,10 +1,10 @@
-import { Note } from '@musical-patterns/material'
 import {
     DurationOnly,
+    Note,
     PitchDuration,
     STANDARD_DURATIONS_SCALE_INDEX,
     STANDARD_PITCH_SCALE_INDEX,
-} from '@musical-patterns/pattern'
+} from '@musical-patterns/material'
 import { ContourElement, to, translateFromOneIndexedToZeroIndexed } from '@musical-patterns/utilities'
 import { REDUCE_GAIN_BECAUSE_SAMPLES_ARE_REALLY_LOUD } from './constants'
 

@@ -1,4 +1,4 @@
-import { DurationOnly, PitchDuration } from '@musical-patterns/pattern'
+import { DurationOnly, PitchDuration } from '@musical-patterns/material'
 import { ContourElement, ContourWhole, sequence, to } from '@musical-patterns/utilities'
 import { computeBlocks } from './blocks'
 import { StepwiseBlocks, StepwiseContours, StepwiseUnpitchedContours } from './types'
