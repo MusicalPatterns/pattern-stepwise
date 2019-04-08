@@ -1,4 +1,4 @@
-import { Note } from '@musical-patterns/compiler'
+import { Note } from '@musical-patterns/material'
 import { DurationOnly, PitchDuration } from '@musical-patterns/pattern'
 import { Block, ContourWhole, KeyMap } from '@musical-patterns/utilities'
 import { OnlySampleEntities, OscillatorEntities, SampleEntities } from './entity'

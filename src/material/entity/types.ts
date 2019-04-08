@@ -1,4 +1,4 @@
-import { Entity } from '@musical-patterns/compiler'
+import { Entity } from '@musical-patterns/material'
 
 interface StepwiseEntities {
     fivePer: Entity,

@@ -1,4 +1,4 @@
-import { Note } from '@musical-patterns/compiler'
+import { Note } from '@musical-patterns/material'
 import { computeContours, computeUnpitchedContours } from './contours'
 import { computeNote, computeUnpitchedNote } from './features'
 import { StepwiseContours, StepwiseNotes, StepwiseUnpitchedContours } from './types'

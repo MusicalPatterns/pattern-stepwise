@@ -1,4 +1,4 @@
-import { Material } from '@musical-patterns/compiler'
+import { Material } from '@musical-patterns/material'
 import { materializeEntities } from './entity'
 import { materializeScales } from './scales'
 

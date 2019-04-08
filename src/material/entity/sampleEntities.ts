@@ -1,6 +1,6 @@
 // tslint:disable no-dead-store
 
-import { Entity, TimbreNameEnum } from '@musical-patterns/compiler'
+import { Entity, TimbreNameEnum } from '@musical-patterns/material'
 import { computeNotes } from '../notes'
 import { StepwiseNotes } from '../types'
 import { SampleEntities } from './types'
