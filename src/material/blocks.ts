@@ -1,16 +1,16 @@
 // tslint:disable no-magic-numbers no-dead-store
 
-import { Block, INITIAL, Integer, positiveIntegers, product, slice, sum, to } from '@musical-patterns/utilities'
+import { Block, INITIAL, Integer, POSITIVE_INTEGERS, product, slice, sum, to } from '@musical-patterns/utilities'
 import { StepwiseBlocks } from './types'
 
 const computeBlocks: () => StepwiseBlocks =
     (): StepwiseBlocks => {
         const mainDescent: Block = to.Block(
-            slice(positiveIntegers, INITIAL, to.Ordinal(28))
+            slice(POSITIVE_INTEGERS, INITIAL, to.Ordinal(28))
                 .map((integer: Integer): number => sum(product(integer, to.Integer(2)), to.Integer(1))),
         )
         const mainDescentContinuation: Block = to.Block(
-            slice(positiveIntegers, INITIAL, to.Ordinal(12))
+            slice(POSITIVE_INTEGERS, INITIAL, to.Ordinal(12))
                 .map((integer: Integer): number => sum(product(integer, to.Integer(2)), to.Integer(57))),
         )
 
