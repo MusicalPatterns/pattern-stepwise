@@ -1,5 +1,5 @@
 import { Note } from '@musical-patterns/material'
-import { Scalar, to } from '@musical-patterns/utilities'
+import { as, Scalar } from '@musical-patterns/utilities'
 import { computeContourElement, computeNote } from '../../../src/indexForTest'
 
 describe('features', () => {
@@ -7,6 +7,6 @@ describe('features', () => {
         const note: Note = computeNote(computeContourElement(3))
 
         expect(note.duration!.index)
-            .toBe(to.Ordinal<Scalar>(2))
+            .toBe(as.Ordinal<Scalar>(2))
     })
 })
