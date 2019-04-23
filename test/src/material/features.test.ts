@@ -7,6 +7,6 @@ describe('features', () => {
         const note: Note = computeNote(computeContourElement(3))
 
         expect(note.duration!.index)
-            .toBe(as.Ordinal<Scalar>(2))
+            .toBe(as.Ordinal<Scalar[]>(2))
     })
 })

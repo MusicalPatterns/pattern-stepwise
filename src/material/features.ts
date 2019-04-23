@@ -11,7 +11,7 @@ import { REDUCE_GAIN_BECAUSE_SAMPLES_ARE_REALLY_LOUD } from './constants'
 const computeUnpitchedNote: (contourElement: ContourElement<DurationOnly>) => Note =
     ([ duration ]: ContourElement<DurationOnly>): Note => ({
         duration: {
-            index: translateFromOneIndexedToZeroIndexed(as.Ordinal<Scalar>(duration)),
+            index: translateFromOneIndexedToZeroIndexed(as.Ordinal<Scalar[]>(duration)),
             scaleIndex: STANDARD_DURATIONS_SCALE_INDEX,
         },
         gain: {
@@ -22,11 +22,11 @@ const computeUnpitchedNote: (contourElement: ContourElement<DurationOnly>) => No
 const computeNote: (contourElement: ContourElement<PitchDuration>) => Note =
     ([ pitch, duration ]: ContourElement<PitchDuration>): Note => ({
         duration: {
-            index: translateFromOneIndexedToZeroIndexed(as.Ordinal<Scalar>(duration)),
+            index: translateFromOneIndexedToZeroIndexed(as.Ordinal<Scalar[]>(duration)),
             scaleIndex: STANDARD_DURATIONS_SCALE_INDEX,
         },
         pitch: {
-            index: translateFromOneIndexedToZeroIndexed(as.Ordinal<Scalar>(pitch)),
+            index: translateFromOneIndexedToZeroIndexed(as.Ordinal<Scalar[]>(pitch)),
             scaleIndex: STANDARD_PITCH_SCALE_INDEX,
         },
     })

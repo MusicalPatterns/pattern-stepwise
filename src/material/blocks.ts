@@ -6,11 +6,11 @@ import { StepwiseBlocks } from './types'
 const computeBlocks: () => StepwiseBlocks =
     (): StepwiseBlocks => {
         const mainDescent: Block = as.Block(
-            slice(POSITIVE_INTEGERS, INITIAL, as.Ordinal(28))
+            slice(POSITIVE_INTEGERS, INITIAL, as.Ordinal<Integer[]>(28))
                 .map((integer: Integer): number => sum(product(integer, as.Integer(2)), as.Integer(1))),
         )
         const mainDescentContinuation: Block = as.Block(
-            slice(POSITIVE_INTEGERS, INITIAL, as.Ordinal(12))
+            slice(POSITIVE_INTEGERS, INITIAL, as.Ordinal<Integer[]>(12))
                 .map((integer: Integer): number => sum(product(integer, as.Integer(2)), as.Integer(57))),
         )
 
