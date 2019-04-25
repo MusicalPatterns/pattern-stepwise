@@ -2,6 +2,7 @@ import {
     DurationOnly,
     Note,
     PitchDuration,
+    REDUCE_GAIN_BECAUSE_SAMPLES_ARE_SUPER_LOUD,
     STANDARD_DURATION_SCALE_INDEX,
     STANDARD_PITCH_SCALE_INDEX,
 } from '@musical-patterns/material'
@@ -13,7 +14,6 @@ import {
     Scalar,
     translateFromOneIndexedToZeroIndexed,
 } from '@musical-patterns/utilities'
-import { REDUCE_GAIN_BECAUSE_SAMPLES_ARE_REALLY_LOUD } from './constants'
 
 const computeUnpitchedNote: (contourElement: ContourElement<DurationOnly>) => Note =
     ([ duration ]: ContourElement<DurationOnly>): Note => ({
@@ -22,7 +22,7 @@ const computeUnpitchedNote: (contourElement: ContourElement<DurationOnly>) => No
             scaleIndex: STANDARD_DURATION_SCALE_INDEX,
         },
         gain: {
-            scalar: REDUCE_GAIN_BECAUSE_SAMPLES_ARE_REALLY_LOUD,
+            scalar: REDUCE_GAIN_BECAUSE_SAMPLES_ARE_SUPER_LOUD,
         },
     })
 
