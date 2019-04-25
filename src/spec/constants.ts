@@ -5,7 +5,6 @@ import {
     Duration,
     Ms,
     Pitch,
-    Point,
     SCIENTIFIC_PITCHES,
     ScientificPitchNoteName,
     ScientificPitchOctaveNumber,
@@ -13,7 +12,7 @@ import {
 
 const STEPWISE_INITIAL_BASIS_FREQUENCY: Pitch =
     SCIENTIFIC_PITCHES[ ScientificPitchNoteName.F_SHARP_G_FLAT ][ ScientificPitchOctaveNumber._7 ]
-const STEPWISE_INITIAL_BASIS_DURATION: Duration = as.Translation<Point<Ms>>(150)
+const STEPWISE_INITIAL_BASIS_DURATION: Duration = as.Delta<Ms>(150)
 
 export {
     STEPWISE_INITIAL_BASIS_FREQUENCY,
