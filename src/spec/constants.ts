@@ -1,9 +1,8 @@
 // tslint:disable no-magic-numbers
 
 import {
-    as,
     Duration,
-    Ms,
+    musicalAs,
     Pitch,
     SCIENTIFIC_PITCHES,
     ScientificPitchNoteName,
@@ -12,7 +11,7 @@ import {
 
 const STEPWISE_INITIAL_BASIS_FREQUENCY: Pitch =
     SCIENTIFIC_PITCHES[ ScientificPitchNoteName.F_SHARP_G_FLAT ][ ScientificPitchOctaveNumber._7 ]
-const STEPWISE_INITIAL_BASIS_DURATION: Duration = as.Delta<Ms>(150)
+const STEPWISE_INITIAL_BASIS_DURATION: Duration = musicalAs.Duration(150)
 
 export {
     STEPWISE_INITIAL_BASIS_FREQUENCY,
