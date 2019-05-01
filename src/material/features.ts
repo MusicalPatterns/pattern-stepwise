@@ -2,8 +2,7 @@ import {
     Note,
     PitchValue,
     REDUCE_GAIN_BECAUSE_SAMPLES_ARE_SUPER_LOUD,
-    STANDARD_PITCH_SCALE_INDEX,
-    STANDARD_VALUE_SCALE_INDEX,
+    Scale,
     ValueOnly,
 } from '@musical-patterns/material'
 import {
@@ -20,9 +19,12 @@ const computeUnpitchedNote: (contourElement: ContourElement<ValueOnly>) => Note 
         intensity: {
             scalar: REDUCE_GAIN_BECAUSE_SAMPLES_ARE_SUPER_LOUD,
         },
+        pitch: {
+            scalar: as.Scalar<Pitch>(1),
+            scaleIndex: as.Ordinal<Array<Scale<Pitch>>>(1),
+        },
         value: {
             index: translateFromOneIndexedToZeroIndexed(as.Ordinal<Array<Scalar<Value>>>(value)),
-            scaleIndex: STANDARD_VALUE_SCALE_INDEX,
         },
     })
 
@@ -30,11 +32,9 @@ const computeNote: (contourElement: ContourElement<PitchValue>) => Note =
     ([ pitch, value ]: ContourElement<PitchValue>): Note => ({
         pitch: {
             index: translateFromOneIndexedToZeroIndexed(as.Ordinal<Array<Scalar<Pitch>>>(pitch)),
-            scaleIndex: STANDARD_PITCH_SCALE_INDEX,
         },
         value: {
             index: translateFromOneIndexedToZeroIndexed(as.Ordinal<Array<Scalar<Value>>>(value)),
-            scaleIndex: STANDARD_VALUE_SCALE_INDEX,
         },
     })
 
