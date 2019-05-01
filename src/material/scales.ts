@@ -1,5 +1,5 @@
 import {
-    computeFlatDurationsScale,
+    computeFlatValueScale,
     computeSubharmonicSeriesScale,
     MaterializeScales,
     materializeStandardScales,
@@ -12,8 +12,8 @@ const materializeScales: MaterializeScales =
         materializeStandardScales(
             specs,
             {
-                durationScalars: computeFlatDurationsScale().scalars,
                 pitchScalars: computeSubharmonicSeriesScale().scalars,
+                valueScalars: computeFlatValueScale().scalars,
             },
         )
 

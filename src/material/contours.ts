@@ -1,18 +1,18 @@
-import { DurationOnly, PitchDuration } from '@musical-patterns/material'
+import { PitchValue, ValueOnly } from '@musical-patterns/material'
 import { as, ContourElement, ContourWhole, sequence } from '@musical-patterns/utilities'
 import { computeBlocks } from './blocks'
 import { StepwiseBlocks, StepwiseContours, StepwiseUnpitchedContours } from './types'
 
-const computeContourElement: (blockElement: number) => ContourElement<PitchDuration> =
-    (blockElement: number): ContourElement<PitchDuration> =>
-        as.ContourElement<PitchDuration>([
+const computeContourElement: (blockElement: number) => ContourElement<PitchValue> =
+    (blockElement: number): ContourElement<PitchValue> =>
+        as.ContourElement<PitchValue>([
             blockElement,
             blockElement,
         ])
 
-const computeUnpitchedContourElement: (blockElement: number) => ContourElement<DurationOnly> =
-    (blockElement: number): ContourElement<DurationOnly> =>
-        as.ContourElement<DurationOnly>([
+const computeUnpitchedContourElement: (blockElement: number) => ContourElement<ValueOnly> =
+    (blockElement: number): ContourElement<ValueOnly> =>
+        as.ContourElement<ValueOnly>([
             blockElement,
         ])
 
@@ -20,33 +20,33 @@ const computeContours: () => StepwiseContours =
     (): StepwiseContours => {
         const blocks: StepwiseBlocks = computeBlocks()
 
-        const mainDescent: ContourWhole<PitchDuration> = as.ContourWhole<PitchDuration>(sequence(
+        const mainDescent: ContourWhole<PitchValue> = as.ContourWhole<PitchValue>(sequence(
             blocks.mainDescent,
             blocks.mainDescentContinuation,
         )
             .map(computeContourElement))
-        const mainDescentContinuation: ContourWhole<PitchDuration> = as.ContourWhole<PitchDuration>(sequence(
+        const mainDescentContinuation: ContourWhole<PitchValue> = as.ContourWhole<PitchValue>(sequence(
             blocks.mainDescentContinuation,
             blocks.mainDescent,
         )
             .map(computeContourElement))
 
-        const threePer: ContourWhole<PitchDuration> = as.ContourWhole<PitchDuration>(sequence(
+        const threePer: ContourWhole<PitchValue> = as.ContourWhole<PitchValue>(sequence(
             blocks.threePer,
             blocks.ninePer,
         )
             .map(computeContourElement))
-        const fivePer: ContourWhole<PitchDuration> = as.ContourWhole<PitchDuration>(blocks.fivePer
+        const fivePer: ContourWhole<PitchValue> = as.ContourWhole<PitchValue>(blocks.fivePer
             .map(computeContourElement))
-        const sevenPer: ContourWhole<PitchDuration> = as.ContourWhole<PitchDuration>(blocks.sevenPer
+        const sevenPer: ContourWhole<PitchValue> = as.ContourWhole<PitchValue>(blocks.sevenPer
             .map(computeContourElement))
-        const ninePer: ContourWhole<PitchDuration> = as.ContourWhole<PitchDuration>(sequence(
+        const ninePer: ContourWhole<PitchValue> = as.ContourWhole<PitchValue>(sequence(
             blocks.ninePer,
             blocks.threePer,
         )
             .map(computeContourElement))
 
-        const backbone: ContourWhole<PitchDuration> = as.ContourWhole<PitchDuration>(blocks.backbone
+        const backbone: ContourWhole<PitchValue> = as.ContourWhole<PitchValue>(blocks.backbone
             .map(computeContourElement))
 
         return {
@@ -64,15 +64,15 @@ const computeUnpitchedContours: () => StepwiseUnpitchedContours =
     (): StepwiseUnpitchedContours => {
         const blocks: StepwiseBlocks = computeBlocks()
 
-        const kick: ContourWhole<DurationOnly> = as.ContourWhole<DurationOnly>(
+        const kick: ContourWhole<ValueOnly> = as.ContourWhole<ValueOnly>(
             blocks.kick
                 .map(computeUnpitchedContourElement),
         )
-        const snare: ContourWhole<DurationOnly> = as.ContourWhole<DurationOnly>(
+        const snare: ContourWhole<ValueOnly> = as.ContourWhole<ValueOnly>(
             blocks.snare
                 .map(computeUnpitchedContourElement),
         )
-        const hihat: ContourWhole<DurationOnly> = as.ContourWhole<DurationOnly>(
+        const hihat: ContourWhole<ValueOnly> = as.ContourWhole<ValueOnly>(
             blocks.hihat
                 .map(computeUnpitchedContourElement),
         )

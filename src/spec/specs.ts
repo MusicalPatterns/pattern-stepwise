@@ -5,12 +5,12 @@ import {
     StandardSpec,
     StandardSpecs,
 } from '@musical-patterns/spec'
-import { STEPWISE_INITIAL_BASIS_DURATION, STEPWISE_INITIAL_BASIS_FREQUENCY } from './constants'
+import { STEPWISE_INITIAL_HZ_PHYSICALIZATION, STEPWISE_INITIAL_MS_PHYSICALIZATION } from './constants'
 
 const initialSpecs: StandardSpecs = {
     ...standardInitialSpecs,
-    [ StandardSpec.BASIS_DURATION ]: STEPWISE_INITIAL_BASIS_DURATION,
-    [ StandardSpec.BASIS_FREQUENCY ]: STEPWISE_INITIAL_BASIS_FREQUENCY,
+    [ StandardSpec.MS_PHYSICALIZATION ]: STEPWISE_INITIAL_MS_PHYSICALIZATION,
+    [ StandardSpec.HZ_PHYSICALIZATION ]: STEPWISE_INITIAL_HZ_PHYSICALIZATION,
 }
 
 const spec: Spec<StandardSpecs> = {

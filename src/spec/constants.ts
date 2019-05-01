@@ -3,17 +3,17 @@
 import {
     Duration,
     musicalAs,
-    Pitch,
     SCIENTIFIC_PITCHES,
     ScientificPitchNoteName,
     ScientificPitchOctaveNumber,
+    Tone,
 } from '@musical-patterns/utilities'
 
-const STEPWISE_INITIAL_BASIS_FREQUENCY: Pitch =
+const STEPWISE_INITIAL_HZ_PHYSICALIZATION: Tone =
     SCIENTIFIC_PITCHES[ ScientificPitchNoteName.F_SHARP_G_FLAT ][ ScientificPitchOctaveNumber._7 ]
-const STEPWISE_INITIAL_BASIS_DURATION: Duration = musicalAs.Duration(150)
+const STEPWISE_INITIAL_MS_PHYSICALIZATION: Duration = musicalAs.Duration(150)
 
 export {
-    STEPWISE_INITIAL_BASIS_FREQUENCY,
-    STEPWISE_INITIAL_BASIS_DURATION,
+    STEPWISE_INITIAL_HZ_PHYSICALIZATION,
+    STEPWISE_INITIAL_MS_PHYSICALIZATION,
 }
