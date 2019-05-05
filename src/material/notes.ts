@@ -1,26 +1,26 @@
 import { Note } from '@musical-patterns/material'
-import { computeContours, computeUnpitchedContours } from './contours'
 import { computeNote, computeUnpitchedNote } from './features'
-import { StepwiseContours, StepwiseNotes, StepwiseUnpitchedContours } from './types'
+import { StepwiseNotes, StepwiseUnpitchedWholes, StepwiseWholes } from './types'
+import { computeUnpitchedWholes, computeWholes } from './wholes'
 
 const computeNotes: () => StepwiseNotes =
     (): StepwiseNotes => {
-        const contours: StepwiseContours = computeContours()
-        const unpitchedContours: StepwiseUnpitchedContours = computeUnpitchedContours()
+        const wholes: StepwiseWholes = computeWholes()
+        const unpitchedWholes: StepwiseUnpitchedWholes = computeUnpitchedWholes()
 
-        const mainDescent: Note[] = contours.mainDescent.map(computeNote)
-        const mainDescentContinuation: Note[] = contours.mainDescentContinuation.map(computeNote)
+        const mainDescent: Note[] = wholes.mainDescent.map(computeNote)
+        const mainDescentContinuation: Note[] = wholes.mainDescentContinuation.map(computeNote)
 
-        const threePer: Note[] = contours.threePer.map(computeNote)
-        const fivePer: Note[] = contours.fivePer.map(computeNote)
-        const sevenPer: Note[] = contours.sevenPer.map(computeNote)
-        const ninePer: Note[] = contours.ninePer.map(computeNote)
+        const threePer: Note[] = wholes.threePer.map(computeNote)
+        const fivePer: Note[] = wholes.fivePer.map(computeNote)
+        const sevenPer: Note[] = wholes.sevenPer.map(computeNote)
+        const ninePer: Note[] = wholes.ninePer.map(computeNote)
 
-        const backbone: Note[] = contours.backbone.map(computeNote)
+        const backbone: Note[] = wholes.backbone.map(computeNote)
 
-        const kick: Note[] = unpitchedContours.kick.map(computeUnpitchedNote)
-        const snare: Note[] = unpitchedContours.snare.map(computeUnpitchedNote)
-        const hihat: Note[] = unpitchedContours.hihat.map(computeUnpitchedNote)
+        const kick: Note[] = unpitchedWholes.kick.map(computeUnpitchedNote)
+        const snare: Note[] = unpitchedWholes.snare.map(computeUnpitchedNote)
+        const hihat: Note[] = unpitchedWholes.hihat.map(computeUnpitchedNote)
 
         return {
             backbone,

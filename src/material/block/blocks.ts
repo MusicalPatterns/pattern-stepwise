@@ -1,6 +1,9 @@
-// tslint:disable no-magic-numbers no-dead-store
+// tslint:disable no-magic-numbers
 
-import { as, Block, Integer, ONE, product, range, sum } from '@musical-patterns/utilities'
+import { as, Block, Integer, map, ONE, product, range, sequence, sum } from '@musical-patterns/utilities'
+import { Landing } from '../../nominals'
+import { THREE_PER_PIECE_LANDING_RANGE } from '../constants'
+import { computeFlight } from './flights'
 import { StepwiseBlocks } from './types'
 
 const computeBlocks: () => StepwiseBlocks =
@@ -14,19 +17,10 @@ const computeBlocks: () => StepwiseBlocks =
                 .map((integer: Integer): number => sum(product(integer, as.Integer(2)), as.Integer(57))),
         )
 
-        const threePer: Block = as.Block([
-            3, 1, 3, 1, 3, 1, 3, 5, 3, 1,                   // 1
-            3, 5, 3, 5, 3, 5,                               // 1
-            7, 5, 3, 5, 7, 5, 7, 5, 7, 9, 7, 5,             // 3
-            7, 9, 7, 9, 7, 9,                               // 2
-            11, 9, 7, 9, 11, 9, 11, 9, 11, 13, 11, 9,       // 5
-            11, 13,                                         // 1
-            11, 13,                                         // 1
-            11, 13,                                         // 1
-            15, 13, 11, 13, 15, 13, 15, 13, 15, 17, 15, 13, // 7
-            15, 17, 15, 17, 15, 17,                         // 4
-            19, 17, 15, 17, 19, 17, 19, 17, 19, 21, 19, 17, // 9
-        ])
+        const threePer: Block = as.Block(sequence(...map(
+            range(THREE_PER_PIECE_LANDING_RANGE as unknown as Integer) as unknown as Landing[],
+            computeFlight,
+        )))
 
         const fivePer: Block = as.Block([
             11, 13,                                                     // 1
@@ -70,15 +64,6 @@ const computeBlocks: () => StepwiseBlocks =
         const kick: Block = as.Block([ 8 ])
         const snare: Block = as.Block([ 24 ])
         const hihat: Block = as.Block([ 3 ])
-
-        const divideFortyeightByTwelve: Block = as.Block([
-            3, 1, 3, 1, 3, 1, 3, 1, 3, 1, 3, 1, 3, 1, 3, 1, 3, 1, 3, 1, 3, 1, 3, 1,
-        ])
-        const divideFortyeightBySix: Block = as.Block([ 3, 5, 3, 5, 3, 5, 3, 5, 3, 5, 3, 5 ])
-        const dividFortyeightByFour: Block = as.Block([ 7, 5, 7, 5, 7, 5, 7, 5 ])
-        const divideFortyeightByThree: Block = as.Block([ 7, 9, 7, 9, 7, 9 ])
-        const divideFortyeightByTwo: Block = as.Block([ 11, 13, 11, 13 ])
-        const divideFortyeightByOne: Block = as.Block([ 47, 49 ])
 
         return {
             backbone,

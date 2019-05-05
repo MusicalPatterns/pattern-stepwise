@@ -1,5 +1,3 @@
-// tslint:disable no-dead-store
-
 import { Entity, MaterializeEntities } from '@musical-patterns/material'
 import { computeOscillatorEntities } from './oscillatorEntities'
 import { computeSampleEntities } from './sampleEntities'

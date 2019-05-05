@@ -5,7 +5,11 @@ export {
     materializeEntities,
     materializeScales,
     computeNote,
-    computeContourElement,
     StepwiseBlocks,
+    computeBackboneStoop,
+    computeAscentStoop,
+    computeDescentStoop,
+    computeFlight,
 } from './material/indexForTest'
+export { stepwiseAs } from './nominals'
 export { pattern } from './patterns'
