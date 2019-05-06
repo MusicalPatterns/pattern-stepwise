@@ -1,5 +1,14 @@
 import { PitchValue, ValueOnly } from '@musical-patterns/material'
-import { as, ContourWhole, sequence } from '@musical-patterns/utilities'
+import { as, ContourPiece, ContourWhole, Cycle, flatten, use } from '@musical-patterns/utilities'
+import {
+    BACKBONE_CYCLING_CARDINAL,
+    FIVE_PER_CYCLING_CARDINAL,
+    MAIN_DESCENT_CONTINUATION_CYCLING_CARDINAL,
+    MAIN_DESCENT_CYCLING_CARDINAL,
+    NINE_PER_CYCLING_CARDINAL,
+    SEVEN_PER_CYCLING_CARDINAL,
+    THREE_PER_CYCLING_CARDINAL,
+} from './constants'
 import { computePieces, computeUnpitchedPieces } from './pieces'
 import { StepwisePieces, StepwiseUnpitchedPieces, StepwiseUnpitchedWholes, StepwiseWholes } from './types'
 
@@ -7,7 +16,7 @@ const computeWholes: () => StepwiseWholes =
     (): StepwiseWholes => {
         const pieces: StepwisePieces = computePieces()
 
-        const threePer: ContourWhole<PitchValue> = as.ContourWhole<PitchValue>(sequence(
+        const pieceCycle: Cycle<ContourPiece<PitchValue>> = as.Cycle<ContourPiece<PitchValue>>([
             pieces.threePer,
             pieces.fivePer,
             pieces.sevenPer,
@@ -15,61 +24,36 @@ const computeWholes: () => StepwiseWholes =
             pieces.mainDescent,
             pieces.mainDescentContinuation,
             pieces.backbone,
-        ))
-        const fivePer: ContourWhole<PitchValue> = as.ContourWhole<PitchValue>(sequence(
-            pieces.fivePer,
-            pieces.sevenPer,
-            pieces.ninePer,
-            pieces.mainDescent,
-            pieces.mainDescentContinuation,
-            pieces.backbone,
-            pieces.threePer,
-        ))
-        const sevenPer: ContourWhole<PitchValue> = as.ContourWhole<PitchValue>(sequence(
-            pieces.sevenPer,
-            pieces.ninePer,
-            pieces.mainDescent,
-            pieces.mainDescentContinuation,
-            pieces.backbone,
-            pieces.threePer,
-            pieces.fivePer,
-        ))
-        const ninePer: ContourWhole<PitchValue> = as.ContourWhole<PitchValue>(sequence(
-            pieces.ninePer,
-            pieces.mainDescent,
-            pieces.mainDescentContinuation,
-            pieces.backbone,
-            pieces.threePer,
-            pieces.fivePer,
-            pieces.sevenPer,
-        ))
-        const mainDescent: ContourWhole<PitchValue> = as.ContourWhole<PitchValue>(sequence(
-            pieces.mainDescent,
-            pieces.mainDescentContinuation,
-            pieces.backbone,
-            pieces.threePer,
-            pieces.fivePer,
-            pieces.sevenPer,
-            pieces.ninePer,
-        ))
-        const mainDescentContinuation: ContourWhole<PitchValue> = as.ContourWhole<PitchValue>(sequence(
-            pieces.mainDescentContinuation,
-            pieces.backbone,
-            pieces.threePer,
-            pieces.fivePer,
-            pieces.sevenPer,
-            pieces.ninePer,
-            pieces.mainDescent,
-        ))
-        const backbone: ContourWhole<PitchValue> = as.ContourWhole<PitchValue>(sequence(
-            pieces.backbone,
-            pieces.threePer,
-            pieces.fivePer,
-            pieces.sevenPer,
-            pieces.ninePer,
-            pieces.mainDescent,
-            pieces.mainDescentContinuation,
-        ))
+        ])
+
+        const threePer: ContourWhole<PitchValue> = as.ContourWhole<PitchValue>(flatten(use.Cardinal(
+            pieceCycle,
+            THREE_PER_CYCLING_CARDINAL,
+        ) as unknown as Array<ContourPiece<PitchValue>>))
+        const fivePer: ContourWhole<PitchValue> = as.ContourWhole<PitchValue>(flatten(use.Cardinal(
+            pieceCycle,
+            FIVE_PER_CYCLING_CARDINAL,
+        ) as unknown as Array<ContourPiece<PitchValue>>))
+        const sevenPer: ContourWhole<PitchValue> = as.ContourWhole<PitchValue>(flatten(use.Cardinal(
+            pieceCycle,
+            SEVEN_PER_CYCLING_CARDINAL,
+        ) as unknown as Array<ContourPiece<PitchValue>>))
+        const ninePer: ContourWhole<PitchValue> = as.ContourWhole<PitchValue>(flatten(use.Cardinal(
+            pieceCycle,
+            NINE_PER_CYCLING_CARDINAL,
+        ) as unknown as Array<ContourPiece<PitchValue>>))
+        const mainDescent: ContourWhole<PitchValue> = as.ContourWhole<PitchValue>(flatten(use.Cardinal(
+            pieceCycle,
+            MAIN_DESCENT_CYCLING_CARDINAL,
+        ) as unknown as Array<ContourPiece<PitchValue>>))
+        const mainDescentContinuation: ContourWhole<PitchValue> = as.ContourWhole<PitchValue>(flatten(use.Cardinal(
+            pieceCycle,
+            MAIN_DESCENT_CONTINUATION_CYCLING_CARDINAL,
+        ) as unknown as Array<ContourPiece<PitchValue>>))
+        const backbone: ContourWhole<PitchValue> = as.ContourWhole<PitchValue>(flatten(use.Cardinal(
+            pieceCycle,
+            BACKBONE_CYCLING_CARDINAL,
+        ) as unknown as Array<ContourPiece<PitchValue>>))
 
         return {
             backbone,
