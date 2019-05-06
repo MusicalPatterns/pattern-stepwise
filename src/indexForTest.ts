@@ -11,5 +11,6 @@ export {
     computeDescentStoop,
     computeStoop,
     StoopType,
+    computeWholes,
 } from './material/indexForTest'
 export { pattern } from './patterns'
