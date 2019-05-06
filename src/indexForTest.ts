@@ -9,7 +9,7 @@ export {
     computeBackboneStoop,
     computeAscentStoop,
     computeDescentStoop,
-    computeFlight,
+    computeStoop,
+    StoopType,
 } from './material/indexForTest'
-export { stepwiseAs } from './nominals'
 export { pattern } from './patterns'

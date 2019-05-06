@@ -12,9 +12,22 @@ type ComputeStoopOptionsBoth = ComputeStoopByLengthOption & ComputeStoopByMinimu
 
 type ComputeStoopOptions = ComputeStoopByLengthOption | ComputeStoopByMinimumOption | ComputeStoopOptionsBoth
 
+enum StoopType {
+    BACKBONE = 'BACKBONE',
+    ASCENT = 'ASCENT',
+    DESCENT = 'DESCENT',
+}
+
+type StoopInstruction = [ Value, StoopType ]
+
+type ComputeStoopParameters = ComputeStoopOptions & { stoopType: StoopType, value: Value }
+
 export {
     ComputeStoopOptions,
     ComputeStoopByMinimumOption,
     ComputeStoopByLengthOption,
     ComputeStoopOptionsBoth,
+    StoopType,
+    StoopInstruction,
+    ComputeStoopParameters,
 }

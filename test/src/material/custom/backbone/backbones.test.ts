@@ -1,7 +1,7 @@
 // tslint:disable no-duplicate-string
 
 import { as, Block, musicalAs } from '@musical-patterns/utilities'
-import { computeBackboneStoop } from '../../../../../../src/indexForTest'
+import { computeBackboneStoop } from '../../../../../src/indexForTest'
 
 describe('backbones', () => {
     it('errors for even values', () => {

@@ -1,5 +1,5 @@
 import { as, Block, isEven, musicalAs, ofNotAs, use, Value } from '@musical-patterns/utilities'
-import { NEXT_ODD } from '../../constants'
+import { NEXT_ODD } from '../constants'
 
 const computeDescentStoopByMinimum: (value: Value, minimum: Value) => Block =
     (value: Value, minimum: Value): Block => {

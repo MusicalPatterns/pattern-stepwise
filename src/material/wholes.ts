@@ -7,27 +7,69 @@ const computeWholes: () => StepwiseWholes =
     (): StepwiseWholes => {
         const pieces: StepwisePieces = computePieces()
 
+        const threePer: ContourWhole<PitchValue> = as.ContourWhole<PitchValue>(sequence(
+            pieces.threePer,
+            pieces.fivePer,
+            pieces.sevenPer,
+            pieces.ninePer,
+            pieces.mainDescent,
+            pieces.mainDescentContinuation,
+            pieces.backbone,
+        ))
+        const fivePer: ContourWhole<PitchValue> = as.ContourWhole<PitchValue>(sequence(
+            pieces.fivePer,
+            pieces.sevenPer,
+            pieces.ninePer,
+            pieces.mainDescent,
+            pieces.mainDescentContinuation,
+            pieces.backbone,
+            pieces.threePer,
+        ))
+        const sevenPer: ContourWhole<PitchValue> = as.ContourWhole<PitchValue>(sequence(
+            pieces.sevenPer,
+            pieces.ninePer,
+            pieces.mainDescent,
+            pieces.mainDescentContinuation,
+            pieces.backbone,
+            pieces.threePer,
+            pieces.fivePer,
+        ))
+        const ninePer: ContourWhole<PitchValue> = as.ContourWhole<PitchValue>(sequence(
+            pieces.ninePer,
+            pieces.mainDescent,
+            pieces.mainDescentContinuation,
+            pieces.backbone,
+            pieces.threePer,
+            pieces.fivePer,
+            pieces.sevenPer,
+        ))
         const mainDescent: ContourWhole<PitchValue> = as.ContourWhole<PitchValue>(sequence(
             pieces.mainDescent,
             pieces.mainDescentContinuation,
+            pieces.backbone,
+            pieces.threePer,
+            pieces.fivePer,
+            pieces.sevenPer,
+            pieces.ninePer,
         ))
         const mainDescentContinuation: ContourWhole<PitchValue> = as.ContourWhole<PitchValue>(sequence(
             pieces.mainDescentContinuation,
+            pieces.backbone,
+            pieces.threePer,
+            pieces.fivePer,
+            pieces.sevenPer,
+            pieces.ninePer,
             pieces.mainDescent,
         ))
-
-        const threePer: ContourWhole<PitchValue> = as.ContourWhole<PitchValue>(sequence(
+        const backbone: ContourWhole<PitchValue> = as.ContourWhole<PitchValue>(sequence(
+            pieces.backbone,
             pieces.threePer,
+            pieces.fivePer,
+            pieces.sevenPer,
             pieces.ninePer,
+            pieces.mainDescent,
+            pieces.mainDescentContinuation,
         ))
-        const fivePer: ContourWhole<PitchValue> = as.ContourWhole<PitchValue>(pieces.fivePer)
-        const sevenPer: ContourWhole<PitchValue> = as.ContourWhole<PitchValue>(pieces.sevenPer)
-        const ninePer: ContourWhole<PitchValue> = as.ContourWhole<PitchValue>(sequence(
-            pieces.ninePer,
-            pieces.threePer,
-        ))
-
-        const backbone: ContourWhole<PitchValue> = as.ContourWhole<PitchValue>(pieces.backbone)
 
         return {
             backbone,
@@ -44,14 +86,10 @@ const computeUnpitchedWholes: () => StepwiseUnpitchedWholes =
     (): StepwiseUnpitchedWholes => {
         const pieces: StepwiseUnpitchedPieces = computeUnpitchedPieces()
 
-        const kick: ContourWhole<ValueOnly> = as.ContourWhole<ValueOnly>(pieces.kick)
-        const snare: ContourWhole<ValueOnly> = as.ContourWhole<ValueOnly>(pieces.snare)
-        const hihat: ContourWhole<ValueOnly> = as.ContourWhole<ValueOnly>(pieces.hihat)
-
         return {
-            hihat,
-            kick,
-            snare,
+            hihat: as.ContourWhole<ValueOnly>(pieces.hihat),
+            kick: as.ContourWhole<ValueOnly>(pieces.kick),
+            snare: as.ContourWhole<ValueOnly>(pieces.snare),
         }
     }
 

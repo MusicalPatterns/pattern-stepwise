@@ -2,13 +2,17 @@
 
 export { materializeEntities } from './entity'
 export { materializeScales } from './scales'
+export { computeBlocks } from './blocks'
 export { computeNote } from './features'
 
 export {
-    computeFlight,
+    StepwiseBlocks,
+} from './types'
+
+export {
     computeBackboneStoop,
     computeAscentStoop,
     computeDescentStoop,
-    computeBlocks,
-    StepwiseBlocks,
-}from './block/indexForTest'
+    computeStoop,
+    StoopType,
+}from './custom/indexForTest'

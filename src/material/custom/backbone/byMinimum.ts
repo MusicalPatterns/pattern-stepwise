@@ -16,7 +16,7 @@ import {
     INDEX_OF_THE_SMALLER_BACKBONE_CYCLE_ELEMENT,
     NEXT_ODD,
     TWO_ODDS,
-} from '../../constants'
+} from '../constants'
 
 const computeInitialBackboneCycleIndexForBackboneStoopByMinimum:
     (value: Value, backboneCycle: Cycle) => Ordinal<Cycle> =

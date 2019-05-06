@@ -1,8 +1,8 @@
 import { PitchValue, ValueOnly } from '@musical-patterns/material'
 import { ContourPiece } from '@musical-patterns/utilities'
-import { computeBlocks, StepwiseBlocks } from './block'
+import { computeBlocks } from './blocks'
 import { render, renderUnpitched } from './renderings'
-import { StepwisePieces, StepwiseUnpitchedPieces } from './types'
+import { StepwiseBlocks, StepwisePieces, StepwiseUnpitchedPieces } from './types'
 
 const computePieces: () => StepwisePieces =
     (): StepwisePieces => {

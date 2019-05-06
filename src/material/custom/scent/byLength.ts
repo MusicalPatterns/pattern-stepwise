@@ -5,7 +5,7 @@ import {
     DOUBLE,
     floor,
     isEven,
-    map, min,
+    map,
     musicalAs,
     negative,
     ONE_HALF,

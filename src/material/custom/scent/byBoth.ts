@@ -1,5 +1,5 @@
 import { as, Block, Cardinal, DECREMENT, isEven, max, min, use, Value } from '@musical-patterns/utilities'
-import { NEXT_ODD } from '../../constants'
+import { NEXT_ODD } from '../constants'
 import { ComputeStoopOptionsBoth } from '../types'
 import { computeDescentStoopByLength } from './byLength'
 

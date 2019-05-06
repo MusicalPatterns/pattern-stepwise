@@ -1,5 +1,5 @@
 import { as, Block, Cardinal, isEven, max, min, use, Value } from '@musical-patterns/utilities'
-import { NEXT_ODD } from '../../constants'
+import { NEXT_ODD } from '../constants'
 import { ComputeStoopOptionsBoth } from '../types'
 import { computeBackboneStoopByLength } from './byLength'
 

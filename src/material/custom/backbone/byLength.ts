@@ -17,7 +17,7 @@ import {
     use,
     Value,
 } from '@musical-patterns/utilities'
-import { NEXT_ODD } from '../../constants'
+import { NEXT_ODD } from '../constants'
 
 const computeBackboneStoopByLength: (value: Value, length: Cardinal<Block>) => Block =
     (value: Value, length: Cardinal<Block>): Block => {

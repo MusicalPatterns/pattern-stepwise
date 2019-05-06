@@ -1,1 +1,0 @@
-export { computeAscentStoop } from './ascents'

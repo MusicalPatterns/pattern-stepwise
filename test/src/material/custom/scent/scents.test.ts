@@ -1,7 +1,7 @@
 // tslint:disable no-duplicate-string
 
 import { as, Block, musicalAs, reverse } from '@musical-patterns/utilities'
-import { computeAscentStoop, computeDescentStoop } from '../../../../../../src/indexForTest'
+import { computeAscentStoop, computeDescentStoop } from '../../../../../src/indexForTest'
 
 describe('ascents and descents', () => {
     it('errors for even values', () => {
