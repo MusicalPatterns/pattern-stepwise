@@ -233,32 +233,6 @@ breaking each of its steps into five parts`,
             },
         )
 
-        /*
-        15-13-11-9-11 lopsidevee
-13-15-13-11-9 lopsidevee
- 7-5-3-5-3 aitch
-1-3-5-7-9 scent, min 1
-7-5-3-5-7 vee, min 3
-
-5-7-5-7-5 backbone, min 5
-7-5-7-5-7 backbone, min 5
-5-7-9-7-5 vee, min 5
-3-5-7-9-11 scent, min 3
-9-7-5-7-9 vee, min 5
-
-7-9-7-9-7 backbone, min 7
-9-7-9-7-9 backbone, min 7
-7-9-11-9-7 vee, min 7
-5-7-9-11-13 scent, min 5
-11-9-7-9-11 vee, min 7
-
-9-11-9-11-9 backbone
-11-9-11-9-11 backbone
-9-11-13-11-9 vee
-7-9-11-13-15 scent
-13-11-9-11-13 vee
-         */
-
         it('can also be looked at in terms of how, by virtue of being a detail-ization of the main descent and its continuation, it also lines up with the underlying 24 rhythm following a pattern of multiples', () => {
             expect(blocks.fivePer)
                 .toEqual([
