@@ -1,2 +1,2 @@
-export { computeAscentStoop } from './ascents'
-export { computeDescentStoop } from './descents'
+export { computeAscentShapedChildStairs } from './ascents'
+export { computeDescentShapedChildStairs } from './descents'

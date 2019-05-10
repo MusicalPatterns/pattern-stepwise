@@ -1,10 +1,10 @@
 // tslint:disable no-reaching-imports
 
-export { computeStoop } from './stoops'
+export { computeChildStairs } from './childStairs'
 
-export { computeAscentStoop, computeDescentStoop } from './scent/indexForTest'
-export { computeBackboneStoop } from './backbone/indexForTest'
+export { computeAscentShapedChildStairs, computeDescentShapedChildStairs } from './scent/indexForTest'
+export { computeWorkoutShapedChildStairs } from './workout/indexForTest'
 
 export {
-    StoopType,
+    ChildStairsShape,
 } from './types'

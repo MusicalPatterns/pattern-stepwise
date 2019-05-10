@@ -1,18 +1,21 @@
 import { as, Block, musicalAs, reverse } from '@musical-patterns/utilities'
-import { computeAscentStoop, computeDescentStoop } from '../../../../../src/indexForTest'
+import { computeAscentShapedChildStairs, computeDescentShapedChildStairs } from '../../../../../src/indexForTest'
 
-describe('ascents', () => {
-    it('are all the reversals of the equivalent descent', () => {
-        expect(computeAscentStoop(musicalAs.Value(15), { minimum: musicalAs.Value(3), length: as.Cardinal<Block>(3) }))
-            .toEqual(reverse(computeDescentStoop(musicalAs.Value(15), {
-                length: as.Cardinal<Block>(3),
-                minimum: musicalAs.Value(3),
+describe('ascent-shaped child stairs', () => {
+    it('are all the reversals of the equivalent descent-shaped child stairs', () => {
+        expect(computeAscentShapedChildStairs(musicalAs.Value(15), {
+            childCount: as.Cardinal<Block>(3),
+            minChildValue: musicalAs.Value(3),
+        }))
+            .toEqual(reverse(computeDescentShapedChildStairs(musicalAs.Value(15), {
+                childCount: as.Cardinal<Block>(3),
+                minChildValue: musicalAs.Value(3),
             })))
 
-        expect(computeAscentStoop(musicalAs.Value(35), { minimum: musicalAs.Value(3) }))
-            .toEqual(reverse(computeDescentStoop(musicalAs.Value(35), { minimum: musicalAs.Value(3) })))
+        expect(computeAscentShapedChildStairs(musicalAs.Value(35), { minChildValue: musicalAs.Value(3) }))
+            .toEqual(reverse(computeDescentShapedChildStairs(musicalAs.Value(35), { minChildValue: musicalAs.Value(3) })))
 
-        expect(computeAscentStoop(musicalAs.Value(21), { length: as.Cardinal<Block>(3) }))
-            .toEqual(reverse(computeDescentStoop(musicalAs.Value(21), { length: as.Cardinal<Block>(3) })))
+        expect(computeAscentShapedChildStairs(musicalAs.Value(21), { childCount: as.Cardinal<Block>(3) }))
+            .toEqual(reverse(computeDescentShapedChildStairs(musicalAs.Value(21), { childCount: as.Cardinal<Block>(3) })))
     })
 })

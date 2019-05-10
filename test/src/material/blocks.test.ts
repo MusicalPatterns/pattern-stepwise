@@ -3,6 +3,9 @@
 import { as, Block, slice, sum } from '@musical-patterns/utilities'
 import { computeBlocks, StepwiseBlocks } from '../../../src/indexForTest'
 
+const PARENT_STAIR_COUNT_PER_FLIGHT_FOR_ODDS_FLIGHT_CHAIN: number = 4
+const PARENT_STAIR_COUNT_PER_FLIGHT_FOR_WHOLES_FLIGHT_CHAIN: number = 2
+
 describe('blocks', () => {
     let blocks: StepwiseBlocks
     beforeEach(() => {
@@ -10,12 +13,12 @@ describe('blocks', () => {
     })
 
     it(
-        `the main descent, its continuation, and all of the "per" blocks have the same total value, \
-which is thirtyfive multiples of the underlying rhythm of duration 24`,
+        `the ParentAisles (Alpha and Beta) and all of the ChildAisles (ThreePer, FivePer, SevenPer, and NinePer) share the same total value, \
+which is thirty-five Balusters (multiples of the underlying rhythm of duration 24) = 840`,
         () => {
-            expect(sum(...blocks.mainDescent))
+            expect(sum(...blocks.alpha))
                 .toBe(24 * 35)
-            expect(sum(...blocks.mainDescentContinuation))
+            expect(sum(...blocks.beta))
                 .toBe(24 * 35)
             expect(sum(...blocks.threePer))
                 .toBe(24 * 35)
@@ -28,187 +31,200 @@ which is thirtyfive multiples of the underlying rhythm of duration 24`,
         },
     )
 
-    describe('main descent and its continuation', () => {
-        it(`main descent descends from 3 to 57, by 2's (only odds)`, () => {
-            expect(blocks.mainDescent)
-                .toEqual([
-                    //                  .. MainDescent ×24s
-                    //                  .. Odds .. All
-                    3, 5, 7, 9,         // 1×24
-                    11, 13,                     // 1×24
-                    15, 17, 19, 21,     // 3×24
-                    23, 25,                     // 2×24
-                    27, 29, 31, 33,     // 5×24
-                    35, 37,                     // 3×24
-                    39, 41, 43, 45,     // 7×24
-                    47, 49,                     // 4×24
-                    51, 53, 55, 57,     // 9×24
-                ])
-        })
-
-        it(`main descent continuation picks up where main descent ends, continuing the descent from 59 to 81, again by 2's (only odds)`, () => {
-            expect(blocks.mainDescentContinuation)
-                .toEqual([
-                    //                  .. Continuation ×24s
-                    //                  .. Odds .. All
-                    59, 61,                     // 5×24
-                    63, 65, 67, 69,     // 11×24
-                    71, 73,                     // 6×24
-                    75, 77, 79, 81,     // 13×24
-                ])
-        })
+    describe('ParentAisles: Alpha and Beta', () => {
+        it(
+            `the ParentAisle Alpha's ParentStairs grow in value from 3 to 57, by 2's (only odds), in a series of Flights which alternate \
+between two FlightChains, where one FlightChain increases in Baluster count along the odd numbers and the other along the whole numbers`,
+            () => {
+                expect(blocks.alpha)
+                    .toEqual([
+                        // ParentAisle:     // Alpha
+                        // FlightChain:     // Odds // All
+                        // ParentStairs \/  // Baluster Count \/
+                        3, 5, 7, 9,         // 1
+                        11, 13,                     // 1
+                        15, 17, 19, 21,     // 3
+                        23, 25,                     // 2
+                        27, 29, 31, 33,     // 5
+                        35, 37,                     // 3
+                        39, 41, 43, 45,     // 7
+                        47, 49,                     // 4
+                        51, 53, 55, 57,     // 9
+                    ])
+            },
+        )
 
         it(
-            `frequently realigns with multiples of an underlying rhythm of duration 24; \
-where said multiples increase each time, alternating between two different patterns of increasion; \
+            `the ParentAisle Beta picks up where the Alpha ends, continuing the growth from 59 to 81, again by 2's (only odds), \
+while continuing the alternating between FlightChains growing by Baluster count, one along the odd numbers, one along the whole numbers`,
+            () => {
+                expect(blocks.beta)
+                    .toEqual([
+                        // ParentAisle:     // Beta
+                        // FlightChain:     // Odds // All
+                        // ParentStairs \/  // Baluster Count \/
+                        59, 61,                     // 5
+                        63, 65, 67, 69,     // 11
+                        71, 73,                     // 6
+                        75, 77, 79, 81,     // 13
+                    ])
+            },
+        )
+
+        it(
+            `frequently syncs with multiples of an underlying rhythm of duration 24, "Balusters"; \
+where said multiples increase each time, alternating between two different patterns of increasion, "FlightChains"; \
 one which increments along the odd numbers, and the other which increments along all the whole numbers; \
-also the former takes 4 steps to realign each time, while the latter takes only 2 each time; \
-also this pattern wraps from the main descent to its continuation just fine`,
+also the former takes 4 ParentStairs between syncs ("Landings") each time, while the latter takes only 2 each time; \
+also this pattern wraps from Alpha to Beta just fine`,
             () => {
                 // Odds
-                expect(sum(...slice(blocks.mainDescent, as.Ordinal<Block>(0), as.Ordinal<Block>(0 + 4))))
+                expect(sum(...slice(blocks.alpha, as.Ordinal<Block>(0), as.Ordinal<Block>(0 + PARENT_STAIR_COUNT_PER_FLIGHT_FOR_ODDS_FLIGHT_CHAIN))))
                     .toBe(1 * 24)
-                expect(sum(...slice(blocks.mainDescent, as.Ordinal<Block>(6), as.Ordinal<Block>(6 + 4))))
+                expect(sum(...slice(blocks.alpha, as.Ordinal<Block>(6), as.Ordinal<Block>(6 + PARENT_STAIR_COUNT_PER_FLIGHT_FOR_ODDS_FLIGHT_CHAIN))))
                     .toBe(3 * 24)
-                expect(sum(...slice(blocks.mainDescent, as.Ordinal<Block>(12), as.Ordinal<Block>(12 + 4))))
+                expect(sum(...slice(blocks.alpha, as.Ordinal<Block>(12), as.Ordinal<Block>(12 + PARENT_STAIR_COUNT_PER_FLIGHT_FOR_ODDS_FLIGHT_CHAIN))))
                     .toBe(5 * 24)
-                expect(sum(...slice(blocks.mainDescent, as.Ordinal<Block>(18), as.Ordinal<Block>(18 + 4))))
+                expect(sum(...slice(blocks.alpha, as.Ordinal<Block>(18), as.Ordinal<Block>(18 + PARENT_STAIR_COUNT_PER_FLIGHT_FOR_ODDS_FLIGHT_CHAIN))))
                     .toBe(7 * 24)
-                expect(sum(...slice(blocks.mainDescent, as.Ordinal<Block>(24), as.Ordinal<Block>(24 + 4))))
+                expect(sum(...slice(blocks.alpha, as.Ordinal<Block>(24), as.Ordinal<Block>(24 + PARENT_STAIR_COUNT_PER_FLIGHT_FOR_ODDS_FLIGHT_CHAIN))))
                     .toBe(9 * 24)
-                expect(sum(...slice(blocks.mainDescentContinuation, as.Ordinal<Block>(2), as.Ordinal<Block>(2 + 4))))
+                expect(sum(...slice(blocks.beta, as.Ordinal<Block>(2), as.Ordinal<Block>(2 + PARENT_STAIR_COUNT_PER_FLIGHT_FOR_ODDS_FLIGHT_CHAIN))))
                     .toBe(11 * 24)
-                expect(sum(...slice(blocks.mainDescentContinuation, as.Ordinal<Block>(8), as.Ordinal<Block>(8 + 4))))
+                expect(sum(...slice(blocks.beta, as.Ordinal<Block>(8), as.Ordinal<Block>(8 + PARENT_STAIR_COUNT_PER_FLIGHT_FOR_ODDS_FLIGHT_CHAIN))))
                     .toBe(13 * 24)
 
                 // All
-                expect(sum(...slice(blocks.mainDescent, as.Ordinal<Block>(4), as.Ordinal<Block>(4 + 2))))
+                expect(sum(...slice(blocks.alpha, as.Ordinal<Block>(4), as.Ordinal<Block>(4 + PARENT_STAIR_COUNT_PER_FLIGHT_FOR_WHOLES_FLIGHT_CHAIN))))
                     .toBe(1 * 24)
-                expect(sum(...slice(blocks.mainDescent, as.Ordinal<Block>(10), as.Ordinal<Block>(10 + 2))))
+                expect(sum(...slice(blocks.alpha, as.Ordinal<Block>(10), as.Ordinal<Block>(10 + PARENT_STAIR_COUNT_PER_FLIGHT_FOR_WHOLES_FLIGHT_CHAIN))))
                     .toBe(2 * 24)
-                expect(sum(...slice(blocks.mainDescent, as.Ordinal<Block>(16), as.Ordinal<Block>(16 + 2))))
+                expect(sum(...slice(blocks.alpha, as.Ordinal<Block>(16), as.Ordinal<Block>(16 + PARENT_STAIR_COUNT_PER_FLIGHT_FOR_WHOLES_FLIGHT_CHAIN))))
                     .toBe(3 * 24)
-                expect(sum(...slice(blocks.mainDescent, as.Ordinal<Block>(22), as.Ordinal<Block>(22 + 2))))
+                expect(sum(...slice(blocks.alpha, as.Ordinal<Block>(22), as.Ordinal<Block>(22 + PARENT_STAIR_COUNT_PER_FLIGHT_FOR_WHOLES_FLIGHT_CHAIN))))
                     .toBe(4 * 24)
-                expect(sum(...slice(blocks.mainDescentContinuation, as.Ordinal<Block>(0), as.Ordinal<Block>(0 + 2))))
+                expect(sum(...slice(blocks.beta, as.Ordinal<Block>(0), as.Ordinal<Block>(0 + PARENT_STAIR_COUNT_PER_FLIGHT_FOR_WHOLES_FLIGHT_CHAIN))))
                     .toBe(5 * 24)
-                expect(sum(...slice(blocks.mainDescentContinuation, as.Ordinal<Block>(6), as.Ordinal<Block>(6 + 2))))
+                expect(sum(...slice(blocks.beta, as.Ordinal<Block>(6), as.Ordinal<Block>(6 + PARENT_STAIR_COUNT_PER_FLIGHT_FOR_WHOLES_FLIGHT_CHAIN))))
                     .toBe(6 * 24)
             },
         )
 
         it(
-            `the main descent and its continuation line up with each other not only at the beginning/end, \
-but also at two other spots: one five 24's in, and another twentytwo 24's in \
-thus the total thirtyfive 24's are divided into three sections of length five, seventeen, and thirteen`,
+            `Alpha and Beta Sync with each other at three Stories: one at the beginning/end, \
+one five Balusters in, and another twenty-two Balusters in; \
+thus the total thirty-five Balusters are divided into three Staircases with Baluster counts five, seventeen, and thirteen, respectively`,
             () => {
-                expect(sum(...slice(blocks.mainDescent, as.Ordinal<Block>(0), as.Ordinal<Block>(10))))              // 3 + ... + 21
+                expect(sum(...slice(blocks.alpha, as.Ordinal<Block>(0), as.Ordinal<Block>(10))))              // 3 + ... + 21
                     .toBe(5 * 24)
-                expect(sum(...slice(blocks.mainDescentContinuation, as.Ordinal<Block>(0), as.Ordinal<Block>(2))))   // 59 + ... + 61
+                expect(sum(...slice(blocks.beta, as.Ordinal<Block>(0), as.Ordinal<Block>(2))))   // 59 + ... + 61
                     .toBe(5 * 24)
 
-                expect(sum(...slice(blocks.mainDescent, as.Ordinal<Block>(10), as.Ordinal<Block>(22))))             // 23 + ... + 45
+                expect(sum(...slice(blocks.alpha, as.Ordinal<Block>(10), as.Ordinal<Block>(22))))             // 23 + ... + 45
                     .toBe(17 * 24)
-                expect(sum(...slice(blocks.mainDescentContinuation, as.Ordinal<Block>(2), as.Ordinal<Block>(8))))   // 63 + ... + 73
+                expect(sum(...slice(blocks.beta, as.Ordinal<Block>(2), as.Ordinal<Block>(8))))   // 63 + ... + 73
                     .toBe(17 * 24)
 
-                expect(sum(...slice(blocks.mainDescent, as.Ordinal<Block>(22), as.Ordinal<Block>(28))))             // 47 + ... + 57
+                expect(sum(...slice(blocks.alpha, as.Ordinal<Block>(22), as.Ordinal<Block>(28))))             // 47 + ... + 57
                     .toBe(13 * 24)
-                expect(sum(...slice(blocks.mainDescentContinuation, as.Ordinal<Block>(8), as.Ordinal<Block>(12))))  // 75 + ... + 81
+                expect(sum(...slice(blocks.beta, as.Ordinal<Block>(8), as.Ordinal<Block>(12))))  // 75 + ... + 81
                     .toBe(13 * 24)
             },
         )
     })
 
-    describe('three per', () => {
-        it('corresponds with the main descent, breaking each of its steps into three parts', () => {
+    describe('ThreePer ChildAisle', () => {
+        it('spawns entirely from the ParentAisle Alpha, breaking each of the ParentStairs into three ChildStairs', () => {
             expect(blocks.threePer)
                 .toEqual([
-                    //              .. MainDescent
-                    3,              // 3
-                    1, 3, 1,        // 5
-                    3, 1, 3,        // 7
-                    5, 3, 1,        // 9
-                    3, 5, 3,        // 11
-                    5, 3, 5,        // 13
-                    7, 5, 3,        // 15
-                    5, 7, 5,        // 17
-                    7, 5, 7,        // 19
-                    9, 7, 5,        // 21
-                    7, 9, 7,        // 23
-                    9, 7, 9,        // 25
-                    11, 9, 7,       // 27
-                    9, 11, 9,       // 29
-                    11, 9, 11,      // 31
-                    13, 11, 9,      // 33
-                    11, 13, 11,     // 35
-                    13, 11, 13,     // 37
-                    15, 13, 11,     // 39
-                    13, 15, 13,     // 41
-                    15, 13, 15,     // 43
-                    17, 15, 13,     // 45
-                    15, 17, 15,     // 47
-                    17, 15, 17,     // 49
-                    19, 17, 15,     // 51
-                    17, 19, 17,     // 53
-                    19, 17, 19,     // 55
-                    21, 19, 17,     // 57
+                    // ParentAisle:     // Alpha
+                    // ChildStairs \/   // Value \/
+                    3,                  // 3
+                    1, 3, 1,            // 5
+                    3, 1, 3,            // 7
+                    5, 3, 1,            // 9
+                    3, 5, 3,            // 11
+                    5, 3, 5,            // 13
+                    7, 5, 3,            // 15
+                    5, 7, 5,            // 17
+                    7, 5, 7,            // 19
+                    9, 7, 5,            // 21
+                    7, 9, 7,            // 23
+                    9, 7, 9,            // 25
+                    11, 9, 7,           // 27
+                    9, 11, 9,           // 29
+                    11, 9, 11,          // 31
+                    13, 11, 9,          // 33
+                    11, 13, 11,         // 35
+                    13, 11, 13,         // 37
+                    15, 13, 11,         // 39
+                    13, 15, 13,         // 41
+                    15, 13, 15,         // 43
+                    17, 15, 13,         // 45
+                    15, 17, 15,         // 47
+                    17, 15, 17,         // 49
+                    19, 17, 15,         // 51
+                    17, 19, 17,         // 53
+                    19, 17, 19,         // 55
+                    21, 19, 17,         // 57
                 ])
         })
 
-        it('can also be looked at in terms of how, by virtue of being a detail-ization of the main descent, it also lines up with the underlying 24 rhythm following a pattern of multiples', () => {
+        it('can also be looked at in terms of how, by virtue of subdividing the ParentStairs of the ParentAisle Alpha, it also lines up with the same Balusters, and also alternates Flights between the same two FlightChains as it does', () => {
             expect(blocks.threePer)
                 .toEqual([
-                    //                                              .. MainDescent ×24s
-                    //                                              .. Odds .. All
-                    3, 1, 3, 1, 3, 1, 3, 5, 3, 1,                   // 1×24
-                    3, 5, 3, 5, 3, 5,                                       // 1×24
-                    7, 5, 3, 5, 7, 5, 7, 5, 7, 9, 7, 5,             // 3×24
-                    7, 9, 7, 9, 7, 9,                                       // 2×24
-                    11, 9, 7, 9, 11, 9, 11, 9, 11, 13, 11, 9,       // 5×24
-                    11, 13,                                                 // 1×24
-                    11, 13,                                                 // 1×24
-                    11, 13,                                                 // 1×24
-                    15, 13, 11, 13, 15, 13, 15, 13, 15, 17, 15, 13, // 7×24
-                    15, 17, 15, 17, 15, 17,                                 // 4×24
-                    19, 17, 15, 17, 19, 17, 19, 17, 19, 21, 19, 17, // 9×24
+                    // ParentAisle:                                 // Alpha
+                    // FlightChain:                                 // Odds // All
+                    // ChildStairs \/                               // Baluster count \/
+                    3, 1, 3, 1, 3, 1, 3, 5, 3, 1,                   // 1
+                    3, 5, 3, 5, 3, 5,                                       // 1
+                    7, 5, 3, 5, 7, 5, 7, 5, 7, 9, 7, 5,             // 3
+                    7, 9, 7, 9, 7, 9,                                       // 2
+                    11, 9, 7, 9, 11, 9, 11, 9, 11, 13, 11, 9,       // 5
+                    11, 13,                                                 // 1
+                    11, 13,                                                 // 1
+                    11, 13,                                                 // 1
+                    15, 13, 11, 13, 15, 13, 15, 13, 15, 17, 15, 13, // 7
+                    15, 17, 15, 17, 15, 17,                                 // 4
+                    19, 17, 15, 17, 19, 17, 19, 17, 19, 21, 19, 17, // 9
                 ])
 
-            // MainDescent ×24s
+            // Alpha
 
             // Odds
-            expect(sum(...slice(blocks.threePer, as.Ordinal<Block>(0), as.Ordinal<Block>(0 + 10)))) // The first alignment period is an exception, lasting 10 steps instead of 12, because the first of its 4 steps really should be a three-per [ -1, 1, 3 ] where the first two cancel out, but instead, since negative time doesn't make sense, it's just a [ 3 ]
+            expect(sum(...slice(blocks.threePer, as.Ordinal<Block>(0), as.Ordinal<Block>(0 + 10)))) // The first Flight is an exception, lasting only 10 ChildStairs instead of 12, because the first of its 4 ParentStairs, 3, does not get subdivided, but strictly following the pattern it would be subdivided into three ChildStairs: [ -1, 1, 3 ] where the first two would cancel out, but negative time does not exist
                 .toBe(1 * 24)
-            expect(sum(...slice(blocks.threePer, as.Ordinal<Block>(16), as.Ordinal<Block>(16 + (3 * 4)))))
+            expect(sum(...slice(blocks.threePer, as.Ordinal<Block>(16), as.Ordinal<Block>(16 + (3 * PARENT_STAIR_COUNT_PER_FLIGHT_FOR_ODDS_FLIGHT_CHAIN)))))
                 .toBe(3 * 24)
-            expect(sum(...slice(blocks.threePer, as.Ordinal<Block>(34), as.Ordinal<Block>(34 + (3 * 4)))))
+            expect(sum(...slice(blocks.threePer, as.Ordinal<Block>(34), as.Ordinal<Block>(34 + (3 * PARENT_STAIR_COUNT_PER_FLIGHT_FOR_ODDS_FLIGHT_CHAIN)))))
                 .toBe(5 * 24)
-            expect(sum(...slice(blocks.threePer, as.Ordinal<Block>(52), as.Ordinal<Block>(52 + (3 * 4)))))
+            expect(sum(...slice(blocks.threePer, as.Ordinal<Block>(52), as.Ordinal<Block>(52 + (3 * PARENT_STAIR_COUNT_PER_FLIGHT_FOR_ODDS_FLIGHT_CHAIN)))))
                 .toBe(7 * 24)
-            expect(sum(...slice(blocks.threePer, as.Ordinal<Block>(70), as.Ordinal<Block>(70 + (3 * 4)))))
+            expect(sum(...slice(blocks.threePer, as.Ordinal<Block>(70), as.Ordinal<Block>(70 + (3 * PARENT_STAIR_COUNT_PER_FLIGHT_FOR_ODDS_FLIGHT_CHAIN)))))
                 .toBe(9 * 24)
 
-            expect(sum(...slice(blocks.threePer, as.Ordinal<Block>(10), as.Ordinal<Block>(10 + (3 * 2)))))
+            expect(sum(...slice(blocks.threePer, as.Ordinal<Block>(10), as.Ordinal<Block>(10 + (3 * PARENT_STAIR_COUNT_PER_FLIGHT_FOR_WHOLES_FLIGHT_CHAIN)))))
                 .toBe(1 * 24)
-            expect(sum(...slice(blocks.threePer, as.Ordinal<Block>(28), as.Ordinal<Block>(28 + (3 * 2)))))
+            expect(sum(...slice(blocks.threePer, as.Ordinal<Block>(28), as.Ordinal<Block>(28 + (3 * PARENT_STAIR_COUNT_PER_FLIGHT_FOR_WHOLES_FLIGHT_CHAIN)))))
                 .toBe(2 * 24)
-            expect(sum(...slice(blocks.threePer, as.Ordinal<Block>(46), as.Ordinal<Block>(46 + (3 * 2)))))
+            expect(sum(...slice(blocks.threePer, as.Ordinal<Block>(46), as.Ordinal<Block>(46 + (3 * PARENT_STAIR_COUNT_PER_FLIGHT_FOR_WHOLES_FLIGHT_CHAIN)))))
                 .toBe(3 * 24)
-            expect(sum(...slice(blocks.threePer, as.Ordinal<Block>(64), as.Ordinal<Block>(64 + (3 * 2)))))
+            expect(sum(...slice(blocks.threePer, as.Ordinal<Block>(64), as.Ordinal<Block>(64 + (3 * PARENT_STAIR_COUNT_PER_FLIGHT_FOR_WHOLES_FLIGHT_CHAIN)))))
                 .toBe(4 * 24)
         })
     })
 
-    describe('five per', () => {
+    describe('FivePer', () => {
         it(
-            `corresponds with the main descent continuation \
-until the first spot where it aligns with the main descent (five 24's in), \
-then stays with the main descent for the rest of it, \
-breaking each of its steps into five parts`,
+            `spawns from the ParentAisle Beta for the first Staircase, i.e. until the first Story \
+(spot where both ParentAisles Sync with each other), five Balusters in, \
+then spawns from the ParentAisle Alpha for the remaining two Staircases, \
+breaking each of the ParentStairs into five ChildStairs`,
             () => {
                 expect(blocks.fivePer)
                     .toEqual([
-                        //                      .. MainDescent  .. Continuation
+                        // ParentAisle:         // Alpha        // Beta
+                        // ChildStairs \/       // Value \/     // Value \/
                         15, 13, 11, 9, 11,                      // 59
                         13, 15, 13, 11, 9,                      // 61
                         7, 5, 3, 5, 3,          // 23
@@ -233,119 +249,129 @@ breaking each of its steps into five parts`,
             },
         )
 
-        it('can also be looked at in terms of how, by virtue of being a detail-ization of the main descent and its continuation, it also lines up with the underlying 24 rhythm following a pattern of multiples', () => {
+        it('can also be looked at in terms of how, by virtue of subdividing the ParentStairs of the ParentAisles, it also lines up with the same Balusters, and also alternates Flights between the same two FlightChains as they do', () => {
             expect(blocks.fivePer)
                 .toEqual([
-                    //                                                                  .. MainDescent ×24s .. Continuation ×24s
-                    //                                                                  .. Odds .. All      .. Odds .. All
-                    15, 13, 11, 9,                                                                                  // 2×24
-                    11, 13,                                                                                         // 1×24
-                    15, 13, 11, 9,                                                                                  // 2×24
-                    7, 5, 3, 5, 3, 1,                                                           // 1×24
-                    3, 5, 7, 9,                                                                 // 1×24
-                    7, 5, 3, 5, 7, 5, 7, 5, 7, 5, 7, 5, 7, 5, 7, 5, 7, 9, 7, 5,         // 5×24
-                    3, 5, 7, 9,                                                                 // 1×24
-                    11, 9, 7, 5, 7, 9,                                                          // 2×24
-                    7, 9, 7, 9, 7, 9,                                                   // 2×24
-                    7, 9, 7, 9, 7, 9,                                                   // 2×24
-                    11, 9, 7, 5, 7, 9,                                                  // 2×24
-                    11, 13,                                                             // 1×24
-                    11, 9, 7, 9, 11, 9, 11, 9, 11, 9,                                           // 4×24
-                    11, 9, 11, 9, 11, 9, 11, 13, 11, 9, 7, 9,                           // 5×24
-                    11, 13,                                                             // 1×24
-                    15, 13, 11, 9,                                                      // 2×24
-                    11, 13,                                                             // 1×24
+                    // ParentAisle:                                                     // Alpha                // Beta
+                    // FlightChain:                                                     // Odds // All          // Odds // All
+                    // ChildStairs \/                                                   // Baluster count \/    // Baluster count \/
+                    15, 13, 11, 9,                                                                                      // 2
+                    11, 13,                                                                                             // 1
+                    15, 13, 11, 9,                                                                                      // 2
+                    7, 5, 3, 5, 3, 1,                                                           // 1
+                    3, 5, 7, 9,                                                                 // 1
+                    7, 5, 3, 5, 7, 5, 7, 5, 7, 5, 7, 5, 7, 5, 7, 5, 7, 9, 7, 5,         // 5
+                    3, 5, 7, 9,                                                                 // 1
+                    11, 9, 7, 5, 7, 9,                                                          // 2
+                    7, 9, 7, 9, 7, 9,                                                   // 2
+                    7, 9, 7, 9, 7, 9,                                                   // 2
+                    11, 9, 7, 5, 7, 9,                                                  // 2
+                    11, 13,                                                             // 1
+                    11, 9, 7, 9, 11, 9, 11, 9, 11, 9,                                           // 4
+                    11, 9, 11, 9, 11, 9, 11, 13, 11, 9, 7, 9,                           // 5
+                    11, 13,                                                             // 1
+                    15, 13, 11, 9,                                                      // 2
+                    11, 13,                                                             // 1
                 ])
 
-            // Continuation ×24s
+            // Beta
 
             // All
-            expect(sum(...slice(blocks.fivePer, as.Ordinal<Block>(0), as.Ordinal<Block>(0 + (5 * 2)))))
+            expect(sum(...slice(blocks.fivePer, as.Ordinal<Block>(0), as.Ordinal<Block>(0 + (5 * PARENT_STAIR_COUNT_PER_FLIGHT_FOR_WHOLES_FLIGHT_CHAIN)))))
                 .toBe(5 * 24)
 
-            // MainDescent ×24s
+            // Alpha
 
             // Odds
-            expect(sum(...slice(blocks.fivePer, as.Ordinal<Block>(20), as.Ordinal<Block>(20 + (5 * 4)))))
+            expect(sum(...slice(blocks.fivePer, as.Ordinal<Block>(20), as.Ordinal<Block>(20 + (5 * PARENT_STAIR_COUNT_PER_FLIGHT_FOR_ODDS_FLIGHT_CHAIN)))))
                 .toBe(5 * 24)
-            expect(sum(...slice(blocks.fivePer, as.Ordinal<Block>(50), as.Ordinal<Block>(50 + (5 * 4)))))
+            expect(sum(...slice(blocks.fivePer, as.Ordinal<Block>(50), as.Ordinal<Block>(50 + (5 * PARENT_STAIR_COUNT_PER_FLIGHT_FOR_ODDS_FLIGHT_CHAIN)))))
                 .toBe(7 * 24)
-            expect(sum(...slice(blocks.fivePer, as.Ordinal<Block>(80), as.Ordinal<Block>(80 + (5 * 4)))))
+            expect(sum(...slice(blocks.fivePer, as.Ordinal<Block>(80), as.Ordinal<Block>(80 + (5 * PARENT_STAIR_COUNT_PER_FLIGHT_FOR_ODDS_FLIGHT_CHAIN)))))
                 .toBe(9 * 24)
 
             // All
-            expect(sum(...slice(blocks.fivePer, as.Ordinal<Block>(10), as.Ordinal<Block>(10 + (5 * 2)))))
+            expect(sum(...slice(blocks.fivePer, as.Ordinal<Block>(10), as.Ordinal<Block>(10 + (5 * PARENT_STAIR_COUNT_PER_FLIGHT_FOR_WHOLES_FLIGHT_CHAIN)))))
                 .toBe(2 * 24)
-            expect(sum(...slice(blocks.fivePer, as.Ordinal<Block>(40), as.Ordinal<Block>(40 + (5 * 2)))))
+            expect(sum(...slice(blocks.fivePer, as.Ordinal<Block>(40), as.Ordinal<Block>(40 + (5 * PARENT_STAIR_COUNT_PER_FLIGHT_FOR_WHOLES_FLIGHT_CHAIN)))))
                 .toBe(3 * 24)
-            expect(sum(...slice(blocks.fivePer, as.Ordinal<Block>(70), as.Ordinal<Block>(70 + (5 * 2)))))
+            expect(sum(...slice(blocks.fivePer, as.Ordinal<Block>(70), as.Ordinal<Block>(70 + (5 * PARENT_STAIR_COUNT_PER_FLIGHT_FOR_WHOLES_FLIGHT_CHAIN)))))
                 .toBe(4 * 24)
         })
     })
 
-    describe('seven per', () => {
-        it('corresponds with the main descent continuation at first for most of it, then the main descent for a bit of it, breaking each of its steps into seven parts', () => {
+    describe('SevenPer ChildAisle', () => {
+        it(
+            `spawns from the ParentAisle Beta for the first two Staircases, i.e. until the second Story \
+(spot where both ParentAisles Sync with each other), twenty-two Balusters in, \
+then spawns from the ParentAisle Alpha for the remaining Staircase, \
+breaking each of the ParentStairs into seven ChildStairs`,
+            () => {
+                expect(blocks.sevenPer)
+                    .toEqual([
+                        // ParentAisle:             // Alpha        // Beta
+                        // ChildStairs \/           // Value \/     // Value \/
+                        7, 9, 7, 9, 11, 9, 7,                       // 59
+                        5, 7, 9, 7, 9, 11, 13,                      // 61
+                        15, 13, 11, 9, 7, 5, 3,                     // 63
+                        5, 7, 9, 11, 13, 11, 9,                     // 65
+                        7, 9, 11, 9, 11, 9, 11,                     // 67
+                        9, 11, 9, 11, 9, 11, 9,                     // 69
+                        11, 9, 11, 9, 11, 9, 11,                    // 71
+                        13, 11, 9, 11, 9, 11, 9,                    // 73
+                        7, 9, 7, 9, 7, 5, 3,        // 47
+                        1, 3, 5, 7, 9, 11, 13,      // 49
+                        11, 9, 7, 5, 7, 5, 7,       // 51
+                        5, 7, 9, 7, 9, 7, 9,        // 53
+                        7, 9, 7, 9, 7, 9, 7,        // 55
+                        9, 7, 9, 7, 9, 7, 9,        // 57
+                    ])
+            },
+        )
+
+        it('can also be looked at in terms of how, by virtue of subdividing the ParentStairs of the ParentAisle of Alpha and Beta, it also lines up with the same Balusters, and also alternates Flights between the same two FlightChains as they do', () => {
             expect(blocks.sevenPer)
                 .toEqual([
-                    //                          .. MainDescent  .. Continuation
-                    7, 9, 7, 9, 11, 9, 7,                       // 59
-                    5, 7, 9, 7, 9, 11, 13,                      // 61
-                    15, 13, 11, 9, 7, 5, 3,                     // 63
-                    5, 7, 9, 11, 13, 11, 9,                     // 65
-                    7, 9, 11, 9, 11, 9, 11,                     // 67
-                    9, 11, 9, 11, 9, 11, 9,                     // 69
-                    11, 9, 11, 9, 11, 9, 11,                    // 71
-                    13, 11, 9, 11, 9, 11, 9,                    // 73
-                    7, 9, 7, 9, 7, 5, 3,        // 47
-                    1, 3, 5, 7, 9, 11, 13,      // 49
-                    11, 9, 7, 5, 7, 5, 7,       // 51
-                    5, 7, 9, 7, 9, 7, 9,        // 53
-                    7, 9, 7, 9, 7, 9, 7,        // 55
-                    9, 7, 9, 7, 9, 7, 9,        // 57
-                ])
-        })
-
-        it('can also be looked at in terms of how, by virtue of being a detail-ization of the main descent and its continuation, it also lines up with the underlying 24 rhythm following a pattern of multiples', () => {
-            expect(blocks.sevenPer)
-                .toEqual([
-                    //                                                                                              .. MainDescent ×24s .. Continuation ×24s
-                    //                                                                                              .. Odds .. All      .. Odds .. All
-                    7, 9, 7, 9, 11, 9, 7, 5, 7, 9, 7, 9, 11, 13,                                                                                // 5×24
-                    15, 13, 11, 9, 7, 5, 3, 5, 7, 9, 11, 13, 11, 9, 7, 9, 11, 9, 11, 9, 11, 9, 11, 9, 11, 9, 11, 9,                     // 11×24
-                    11, 9, 11, 9, 11, 9, 11, 13, 11, 9, 11, 9, 11, 9,                                                                           // 6×24
-                    7, 9, 7, 9, 7, 5, 3, 1, 3, 5, 7, 9, 11, 13,                                                             // 4×24
-                    11, 9, 7, 5, 7, 5, 7, 5, 7, 9, 7, 9, 7, 9, 7, 9, 7, 9, 7, 9, 7, 9, 7, 9, 7, 9, 7, 9,            // 9×24
+                    // ParentAisle:                                                                                 // Alpha                // Beta
+                    // FlightChain:                                                                                 // Odds // All          // Odds // All
+                    // ChildStairs \/                                                                               // Baluster count \/    // Baluster count \/
+                    7, 9, 7, 9, 11, 9, 7, 5, 7, 9, 7, 9, 11, 13,                                                                                    // 5
+                    15, 13, 11, 9, 7, 5, 3, 5, 7, 9, 11, 13, 11, 9, 7, 9, 11, 9, 11, 9, 11, 9, 11, 9, 11, 9, 11, 9,                         // 11
+                    11, 9, 11, 9, 11, 9, 11, 13, 11, 9, 11, 9, 11, 9,                                                                               // 6
+                    7, 9, 7, 9, 7, 5, 3, 1, 3, 5, 7, 9, 11, 13,                                                             // 4
+                    11, 9, 7, 5, 7, 5, 7, 5, 7, 9, 7, 9, 7, 9, 7, 9, 7, 9, 7, 9, 7, 9, 7, 9, 7, 9, 7, 9,            // 9
                 ])
 
-            // Continuation ×24s
+            // Beta
 
             // Odds
-            expect(sum(...slice(blocks.sevenPer, as.Ordinal<Block>(14), as.Ordinal<Block>(14 + (7 * 4)))))
+            expect(sum(...slice(blocks.sevenPer, as.Ordinal<Block>(14), as.Ordinal<Block>(14 + (7 * PARENT_STAIR_COUNT_PER_FLIGHT_FOR_ODDS_FLIGHT_CHAIN)))))
                 .toBe(11 * 24)
 
             // All
-            expect(sum(...slice(blocks.sevenPer, as.Ordinal<Block>(0), as.Ordinal<Block>(0 + (7 * 2)))))
+            expect(sum(...slice(blocks.sevenPer, as.Ordinal<Block>(0), as.Ordinal<Block>(0 + (7 * PARENT_STAIR_COUNT_PER_FLIGHT_FOR_WHOLES_FLIGHT_CHAIN)))))
                 .toBe(5 * 24)
-            expect(sum(...slice(blocks.sevenPer, as.Ordinal<Block>(42), as.Ordinal<Block>(42 + (7 * 2)))))
+            expect(sum(...slice(blocks.sevenPer, as.Ordinal<Block>(42), as.Ordinal<Block>(42 + (7 * PARENT_STAIR_COUNT_PER_FLIGHT_FOR_WHOLES_FLIGHT_CHAIN)))))
                 .toBe(6 * 24)
 
-            // MainDescent ×24s
+            // Alpha
 
             // Odds
-            expect(sum(...slice(blocks.sevenPer, as.Ordinal<Block>(70), as.Ordinal<Block>(70 + (7 * 4)))))
+            expect(sum(...slice(blocks.sevenPer, as.Ordinal<Block>(70), as.Ordinal<Block>(70 + (7 * PARENT_STAIR_COUNT_PER_FLIGHT_FOR_ODDS_FLIGHT_CHAIN)))))
                 .toBe(9 * 24)
 
             // All
-            expect(sum(...slice(blocks.sevenPer, as.Ordinal<Block>(56), as.Ordinal<Block>(56 + (7 * 2)))))
+            expect(sum(...slice(blocks.sevenPer, as.Ordinal<Block>(56), as.Ordinal<Block>(56 + (7 * PARENT_STAIR_COUNT_PER_FLIGHT_FOR_WHOLES_FLIGHT_CHAIN)))))
                 .toBe(4 * 24)
         })
     })
 
-    describe('nine per', () => {
-        it('corresponds the main descent continuation, breaking each of its steps into nine parts', () => {
+    describe('NinePer', () => {
+        it('spawns entirely from the ParentAisle Beta, breaking each of the ParentStairs into nine ChildStairs', () => {
             expect(blocks.ninePer)
                 .toEqual([
-                    //                                  .. Continuation
+                    // ParentAisle:                     // Beta
+                    // ChildStairs \/                   // Value \/
                     7, 5, 7, 5, 7, 9, 7, 5, 7,		    // 59
                     5, 7, 5, 7, 9, 7, 5, 7, 9,		    // 61
                     7, 9, 7, 9, 7, 5, 7, 5, 7,          // 63
@@ -361,29 +387,30 @@ breaking each of its steps into five parts`,
                 ])
         })
 
-        it('can also be looked at in terms of how, by virtue of being a detail-ization of the main descent continuation, it also lines up with the underlying 24 rhythm following a pattern of multiples', () => {
+        it('can also be looked at in terms of how, by virtue of subdividing the ParentStairs of the ParentAisle Beta, it also lines up with the same Balusters, and also alternates Flights between the same two FlightChains as it does', () => {
             expect(blocks.ninePer)
                 .toEqual([
-                    //                                                                                                                      .. Continuation ×24s
-                    //                                                                                                                      .. Odds .. All
-                    7, 5, 7, 5, 7, 9, 7, 5, 7, 5, 7, 5, 7, 9, 7, 5, 7, 9,                                                                           // 5×24
-                    7, 9, 7, 9, 7, 5, 7, 5, 7, 5, 3, 5, 7, 5, 7, 9, 11, 13, 15, 13, 11, 9, 7, 5, 3, 1, 3, 5, 7, 9, 7, 9, 7, 9, 7, 9,        // 11×24
-                    7, 9, 7, 9, 7, 9, 7, 9, 7, 9, 7, 9, 7, 9, 7, 9, 7, 9,                                                                           // 6×24
-                    11, 9, 7, 9, 7, 9, 7, 9, 7, 9, 11, 9, 7, 9, 7, 9, 7, 9, 7, 5, 7, 5, 7, 9, 11, 13, 15, 17, 15, 13, 11, 9, 7, 5, 3, 1,    // 13×24
+                    // ParentAisle:                                                                                                         // Beta
+                    // FlightChain:                                                                                                         // Odds // All
+                    // ChildStairs \/                                                                                                       // Baluster count \/
+                    7, 5, 7, 5, 7, 9, 7, 5, 7, 5, 7, 5, 7, 9, 7, 5, 7, 9,                                                                           // 5
+                    7, 9, 7, 9, 7, 5, 7, 5, 7, 5, 3, 5, 7, 5, 7, 9, 11, 13, 15, 13, 11, 9, 7, 5, 3, 1, 3, 5, 7, 9, 7, 9, 7, 9, 7, 9,        // 11
+                    7, 9, 7, 9, 7, 9, 7, 9, 7, 9, 7, 9, 7, 9, 7, 9, 7, 9,                                                                           // 6
+                    11, 9, 7, 9, 7, 9, 7, 9, 7, 9, 11, 9, 7, 9, 7, 9, 7, 9, 7, 5, 7, 5, 7, 9, 11, 13, 15, 17, 15, 13, 11, 9, 7, 5, 3, 1,    // 13
                 ])
 
-            // Continuation ×24s
+            // Beta
 
             // Odds
-            expect(sum(...slice(blocks.ninePer, as.Ordinal<Block>(18), as.Ordinal<Block>(18 + (9 * 4)))))
+            expect(sum(...slice(blocks.ninePer, as.Ordinal<Block>(18), as.Ordinal<Block>(18 + (9 * PARENT_STAIR_COUNT_PER_FLIGHT_FOR_ODDS_FLIGHT_CHAIN)))))
                 .toBe(11 * 24)
-            expect(sum(...slice(blocks.ninePer, as.Ordinal<Block>(72), as.Ordinal<Block>(72 + (9 * 4)))))
+            expect(sum(...slice(blocks.ninePer, as.Ordinal<Block>(72), as.Ordinal<Block>(72 + (9 * PARENT_STAIR_COUNT_PER_FLIGHT_FOR_ODDS_FLIGHT_CHAIN)))))
                 .toBe(13 * 24)
 
             // All
-            expect(sum(...slice(blocks.ninePer, as.Ordinal<Block>(0), as.Ordinal<Block>(0 + (9 * 2)))))
+            expect(sum(...slice(blocks.ninePer, as.Ordinal<Block>(0), as.Ordinal<Block>(0 + (9 * PARENT_STAIR_COUNT_PER_FLIGHT_FOR_WHOLES_FLIGHT_CHAIN)))))
                 .toBe(5 * 24)
-            expect(sum(...slice(blocks.ninePer, as.Ordinal<Block>(54), as.Ordinal<Block>(54 + (9 * 2)))))
+            expect(sum(...slice(blocks.ninePer, as.Ordinal<Block>(54), as.Ordinal<Block>(54 + (9 * PARENT_STAIR_COUNT_PER_FLIGHT_FOR_WHOLES_FLIGHT_CHAIN)))))
                 .toBe(6 * 24)
         })
     })

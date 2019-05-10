@@ -1,43 +1,46 @@
 import { as, Block, Cardinal, DECREMENT, isEven, max, min, use, Value } from '@musical-patterns/utilities'
 import { NEXT_ODD } from '../constants'
-import { ComputeStoopOptionsBoth } from '../types'
-import { computeDescentStoopByLength } from './byLength'
+import { ComputeChildStairsOptionsBoth } from '../types'
+import { computeDescentShapedChildStairsByChildCount } from './byChildCount'
 
-const maxStoopShouldReachByLength: (minimum: Value, length: Cardinal<Block>) => number =
-    (minimum: Value, length: Cardinal<Block>): number =>
+const maxChildStairsShouldBeAbleToReachWithinChildCount: (minChildValue: Value, childCount: Cardinal<Block>) => number =
+    (minChildValue: Value, childCount: Cardinal<Block>): number =>
         as.number(use.Cardinal(
-            minimum,
+            minChildValue,
             use.Multiple(
                 NEXT_ODD,
                 as.Multiple<Cardinal>(as.number(use.Cardinal(
-                    length,
+                    childCount,
                     DECREMENT,
                 ))),
             ),
         ))
 
-const computeDescentStoopByBoth: (value: Value, options: { length: Cardinal<Block>, minimum: Value }) => Block =
-    (value: Value, { length, minimum }: ComputeStoopOptionsBoth): Block => {
-        if (isEven(minimum)) {
+const computeDescentShapedChildStairsByBoth:
+    (parentValue: Value, options: { childCount: Cardinal<Block>, minChildValue: Value }) => Block =
+    (parentValue: Value, { childCount, minChildValue }: ComputeChildStairsOptionsBoth): Block => {
+        if (isEven(minChildValue)) {
             throw new Error(
-                `Cannot compute a scent stoop with an even minimum. This minimum was ${minimum}.`,
+                `Cannot compute scent-shaped child stairs with an even minimum child value. \
+This minimum child value was ${minChildValue}.`,
             )
         }
 
-        const stoop: Block = computeDescentStoopByLength(value, length)
+        const childStairs: Block = computeDescentShapedChildStairsByChildCount(parentValue, childCount)
 
         if (
-            min(...stoop) < as.number(minimum) ||
-            max(...stoop) > maxStoopShouldReachByLength(minimum, length)
+            min(...childStairs) < as.number(minChildValue) ||
+            max(...childStairs) > maxChildStairsShouldBeAbleToReachWithinChildCount(minChildValue, childCount)
         ) {
             throw new Error(
-                `Cannot compute a scent stoop for value ${value}, length ${length}, and minimum ${minimum}.`,
+                `Cannot compute scent-shaped child stairs for parent value ${parentValue}, child count ${childCount}, \
+and minimum child value ${minChildValue}.`,
             )
         }
 
-        return stoop
+        return childStairs
     }
 
 export {
-    computeDescentStoopByBoth,
+    computeDescentShapedChildStairsByBoth,
 }

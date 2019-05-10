@@ -9,9 +9,9 @@ const materializeEntities: MaterializeEntities =
         const oscillatorEntities: OscillatorEntities = computeOscillatorEntities()
 
         return [
-            oscillatorEntities.mainDescent,
-            oscillatorEntities.mainDescentContinuation,
-            oscillatorEntities.backbone,
+            oscillatorEntities.alpha,
+            oscillatorEntities.beta,
+            oscillatorEntities.workout,
             oscillatorEntities.threePer,
             oscillatorEntities.fivePer,
             oscillatorEntities.sevenPer,

@@ -1,18 +1,18 @@
 import { flatten, Integer, musicalAs, ONE, product, range, sum, TWO } from '@musical-patterns/utilities'
-import { THREE_PER_STOOP_CHUNK_COUNT } from './constants'
-import { StoopInstruction, StoopType } from './types'
+import { THREE_PER_CHILD_STAIRS_INSTRUCTIONS_CHUNK_COUNT } from './constants'
+import { ChildStairsInstruction, ChildStairsShape } from './types'
 
-const threePerStoopInstructions: StoopInstruction[] = flatten(
-    range(THREE_PER_STOOP_CHUNK_COUNT)
+const threePerChildStairsInstructionsChunk: ChildStairsInstruction[] = flatten(
+    range(THREE_PER_CHILD_STAIRS_INSTRUCTIONS_CHUNK_COUNT)
         .map((integer: Integer) => sum(product(integer, TWO), ONE))
-        .map((oddNumber: Integer): StoopInstruction[] => [
-                [ musicalAs.Value(oddNumber), StoopType.BACKBONE ],
-                [ musicalAs.Value(oddNumber), StoopType.BACKBONE ],
-                [ musicalAs.Value(oddNumber), StoopType.ASCENT ],
+        .map((oddNumber: Integer): ChildStairsInstruction[] => [
+                [ musicalAs.Value(oddNumber), ChildStairsShape.WORKOUT ],
+                [ musicalAs.Value(oddNumber), ChildStairsShape.WORKOUT ],
+                [ musicalAs.Value(oddNumber), ChildStairsShape.ASCENT ],
             ],
         ),
 )
 
 export {
-    threePerStoopInstructions,
+    threePerChildStairsInstructionsChunk,
 }

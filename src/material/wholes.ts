@@ -1,13 +1,13 @@
 import { PitchValue, ValueOnly } from '@musical-patterns/material'
 import { as, ContourPiece, ContourWhole, Cycle, flatten, use } from '@musical-patterns/utilities'
 import {
-    BACKBONE_CYCLING_CARDINAL,
+    ALPHA_CYCLING_CARDINAL,
+    BETA_CYCLING_CARDINAL,
     FIVE_PER_CYCLING_CARDINAL,
-    MAIN_DESCENT_CONTINUATION_CYCLING_CARDINAL,
-    MAIN_DESCENT_CYCLING_CARDINAL,
     NINE_PER_CYCLING_CARDINAL,
     SEVEN_PER_CYCLING_CARDINAL,
     THREE_PER_CYCLING_CARDINAL,
+    WORKOUT_CYCLING_CARDINAL,
 } from './constants'
 import { computePieces, computeUnpitchedPieces } from './pieces'
 import { StepwisePieces, StepwiseUnpitchedPieces, StepwiseUnpitchedWholes, StepwiseWholes } from './types'
@@ -21,9 +21,9 @@ const computeWholes: () => StepwiseWholes =
             pieces.fivePer,
             pieces.sevenPer,
             pieces.ninePer,
-            pieces.mainDescent,
-            pieces.mainDescentContinuation,
-            pieces.backbone,
+            pieces.alpha,
+            pieces.beta,
+            pieces.workout,
         ])
 
         const threePer: ContourWhole<PitchValue> = as.ContourWhole<PitchValue>(flatten(use.Cardinal(
@@ -42,27 +42,27 @@ const computeWholes: () => StepwiseWholes =
             pieceCycle,
             NINE_PER_CYCLING_CARDINAL,
         ) as unknown as Array<ContourPiece<PitchValue>>))
-        const mainDescent: ContourWhole<PitchValue> = as.ContourWhole<PitchValue>(flatten(use.Cardinal(
+        const alpha: ContourWhole<PitchValue> = as.ContourWhole<PitchValue>(flatten(use.Cardinal(
             pieceCycle,
-            MAIN_DESCENT_CYCLING_CARDINAL,
+            ALPHA_CYCLING_CARDINAL,
         ) as unknown as Array<ContourPiece<PitchValue>>))
-        const mainDescentContinuation: ContourWhole<PitchValue> = as.ContourWhole<PitchValue>(flatten(use.Cardinal(
+        const beta: ContourWhole<PitchValue> = as.ContourWhole<PitchValue>(flatten(use.Cardinal(
             pieceCycle,
-            MAIN_DESCENT_CONTINUATION_CYCLING_CARDINAL,
+            BETA_CYCLING_CARDINAL,
         ) as unknown as Array<ContourPiece<PitchValue>>))
-        const backbone: ContourWhole<PitchValue> = as.ContourWhole<PitchValue>(flatten(use.Cardinal(
+        const workout: ContourWhole<PitchValue> = as.ContourWhole<PitchValue>(flatten(use.Cardinal(
             pieceCycle,
-            BACKBONE_CYCLING_CARDINAL,
+            WORKOUT_CYCLING_CARDINAL,
         ) as unknown as Array<ContourPiece<PitchValue>>))
 
         return {
-            backbone,
+            alpha,
+            beta,
             fivePer,
-            mainDescent,
-            mainDescentContinuation,
             ninePer,
             sevenPer,
             threePer,
+            workout,
         }
     }
 

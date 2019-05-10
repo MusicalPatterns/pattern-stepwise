@@ -1,15 +1,21 @@
 import { isUndefined } from '@musical-patterns/utilities'
-import { ComputeStoopByLengthOption, ComputeStoopByMinimumOption, ComputeStoopOptions } from './types'
+import {
+    ComputeChildStairsByChildCountOption,
+    ComputeChildStairsByMinChildValueOption,
+    ComputeChildStairsOptions,
+} from './types'
 
-const isComputeStoopByLengthOption: (options: ComputeStoopOptions) => options is ComputeStoopByLengthOption =
-    (options: ComputeStoopOptions): options is ComputeStoopByLengthOption =>
-        !isUndefined((options as ComputeStoopByLengthOption).length)
+const isComputeChildStairsByChildCountOption:
+    (options: ComputeChildStairsOptions) => options is ComputeChildStairsByChildCountOption =
+    (options: ComputeChildStairsOptions): options is ComputeChildStairsByChildCountOption =>
+        !isUndefined((options as ComputeChildStairsByChildCountOption).childCount)
 
-const isComputeStoopByMinimumOption: (options: ComputeStoopOptions) => options is ComputeStoopByMinimumOption =
-    (options: ComputeStoopOptions): options is ComputeStoopByMinimumOption =>
-        !isUndefined((options as ComputeStoopByMinimumOption).minimum)
+const isComputeChildStairsByMinChildValueOption:
+    (options: ComputeChildStairsOptions) => options is ComputeChildStairsByMinChildValueOption =
+    (options: ComputeChildStairsOptions): options is ComputeChildStairsByMinChildValueOption =>
+        !isUndefined((options as ComputeChildStairsByMinChildValueOption).minChildValue)
 
 export {
-    isComputeStoopByLengthOption,
-    isComputeStoopByMinimumOption,
+    isComputeChildStairsByChildCountOption,
+    isComputeChildStairsByMinChildValueOption,
 }

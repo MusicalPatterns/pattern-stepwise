@@ -1,33 +1,33 @@
 import { Block, Cardinal, Value } from '@musical-patterns/utilities'
 
-interface ComputeStoopByLengthOption {
-    length: Cardinal<Block>,
+interface ComputeChildStairsByChildCountOption {
+    childCount: Cardinal<Block>,
 }
 
-interface ComputeStoopByMinimumOption {
-    minimum: Value,
+interface ComputeChildStairsByMinChildValueOption {
+    minChildValue: Value,
 }
 
-type ComputeStoopOptionsBoth = ComputeStoopByLengthOption & ComputeStoopByMinimumOption
+type ComputeChildStairsOptionsBoth = ComputeChildStairsByChildCountOption & ComputeChildStairsByMinChildValueOption
 
-type ComputeStoopOptions = ComputeStoopByLengthOption | ComputeStoopByMinimumOption | ComputeStoopOptionsBoth
+type ComputeChildStairsOptions =
+    ComputeChildStairsByChildCountOption |
+    ComputeChildStairsByMinChildValueOption |
+    ComputeChildStairsOptionsBoth
 
-enum StoopType {
-    BACKBONE = 'BACKBONE',
+enum ChildStairsShape {
+    WORKOUT = 'WORKOUT',
     ASCENT = 'ASCENT',
     DESCENT = 'DESCENT',
 }
 
-type StoopInstruction = [ Value, StoopType ]
-
-type ComputeStoopParameters = ComputeStoopOptions & { stoopType: StoopType, value: Value }
+type ChildStairsInstruction = [ Value, ChildStairsShape ]
 
 export {
-    ComputeStoopOptions,
-    ComputeStoopByMinimumOption,
-    ComputeStoopByLengthOption,
-    ComputeStoopOptionsBoth,
-    StoopType,
-    StoopInstruction,
-    ComputeStoopParameters,
+    ComputeChildStairsOptions,
+    ComputeChildStairsByMinChildValueOption,
+    ComputeChildStairsByChildCountOption,
+    ComputeChildStairsOptionsBoth,
+    ChildStairsShape,
+    ChildStairsInstruction,
 }

@@ -1,16 +1,16 @@
 import { Entity } from '@musical-patterns/material'
 
 interface StepwiseEntities {
+    alpha: Entity,
+    beta: Entity,
     fivePer: Entity,
-    mainDescent: Entity,
-    mainDescentContinuation: Entity,
     sevenPer: Entity,
     threePer: Entity,
 }
 
 interface OscillatorEntities extends StepwiseEntities {
-    backbone: Entity,
     ninePer: Entity,
+    workout: Entity,
 }
 
 interface OnlySampleEntities {

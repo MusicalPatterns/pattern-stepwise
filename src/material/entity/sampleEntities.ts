@@ -9,12 +9,12 @@ const computeSampleEntities: () => SampleEntities =
     (): SampleEntities => {
         const notes: StepwiseNotes = computeNotes()
 
-        const mainDescent: Entity = {
-            sections: [ { notes: notes.mainDescent } ],
+        const alpha: Entity = {
+            sections: [ { notes: notes.alpha } ],
             timbreName: TimbreNameEnum.TROMBONE,
         }
-        const mainDescentContinuation: Entity = {
-            sections: [ { notes: notes.mainDescentContinuation } ],
+        const beta: Entity = {
+            sections: [ { notes: notes.beta } ],
             timbreName: TimbreNameEnum.TUBA,
         }
 
@@ -35,8 +35,8 @@ const computeSampleEntities: () => SampleEntities =
             timbreName: TimbreNameEnum.CELLO,
         }
 
-        const backbone: Entity = {
-            sections: [ { notes: notes.backbone } ],
+        const workout: Entity = {
+            sections: [ { notes: notes.workout } ],
             timbreName: TimbreNameEnum.PIANO,
         }
 
@@ -54,11 +54,11 @@ const computeSampleEntities: () => SampleEntities =
         }
 
         return {
+            alpha,
+            beta,
             fivePer,
             hihat,
             kick,
-            mainDescent,
-            mainDescentContinuation,
             sevenPer,
             snare,
             threePer,

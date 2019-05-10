@@ -8,22 +8,22 @@ const computePieces: () => StepwisePieces =
     (): StepwisePieces => {
         const blocks: StepwiseBlocks = computeBlocks()
 
-        const mainDescent: ContourPiece<PitchValue> = render(blocks.mainDescent)
-        const mainDescentContinuation: ContourPiece<PitchValue> = render(blocks.mainDescentContinuation)
+        const alpha: ContourPiece<PitchValue> = render(blocks.alpha)
+        const beta: ContourPiece<PitchValue> = render(blocks.beta)
         const threePer: ContourPiece<PitchValue> = render(blocks.threePer)
         const fivePer: ContourPiece<PitchValue> = render(blocks.fivePer)
         const sevenPer: ContourPiece<PitchValue> = render(blocks.sevenPer)
         const ninePer: ContourPiece<PitchValue> = render(blocks.ninePer)
-        const backbone: ContourPiece<PitchValue> = render(blocks.backbone)
+        const workout: ContourPiece<PitchValue> = render(blocks.workout)
 
         return {
-            backbone,
+            alpha,
+            beta,
             fivePer,
-            mainDescent,
-            mainDescentContinuation,
             ninePer,
             sevenPer,
             threePer,
+            workout,
         }
     }
 
@@ -41,6 +41,7 @@ const computeUnpitchedPieces: () => StepwiseUnpitchedPieces =
             snare,
         }
     }
+
 export {
     computePieces,
     computeUnpitchedPieces,

@@ -6,11 +6,11 @@ export {
     materializeScales,
     computeNote,
     StepwiseBlocks,
-    computeBackboneStoop,
-    computeAscentStoop,
-    computeDescentStoop,
-    computeStoop,
-    StoopType,
+    computeWorkoutShapedChildStairs,
+    computeAscentShapedChildStairs,
+    computeDescentShapedChildStairs,
+    computeChildStairs,
+    ChildStairsShape,
     computeWholes,
 } from './material/indexForTest'
 export { pattern } from './patterns'

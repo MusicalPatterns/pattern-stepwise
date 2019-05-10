@@ -11,9 +11,9 @@ export {
 } from './types'
 
 export {
-    computeBackboneStoop,
-    computeAscentStoop,
-    computeDescentStoop,
-    computeStoop,
-    StoopType,
+    computeWorkoutShapedChildStairs,
+    computeAscentShapedChildStairs,
+    computeDescentShapedChildStairs,
+    computeChildStairs,
+    ChildStairsShape,
 }from './custom/indexForTest'

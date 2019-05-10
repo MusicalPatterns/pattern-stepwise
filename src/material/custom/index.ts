@@ -1,7 +1,7 @@
-export { computeStoop } from './stoops'
-export { threePerStoopInstructions } from './instructions'
+export { computeChildStairs } from './childStairs'
+export { threePerChildStairsInstructionsChunk } from './instructions'
 
 export {
-    StoopInstruction,
-    StoopType,
+    ChildStairsInstruction,
+    ChildStairsShape,
 } from './types'

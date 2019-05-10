@@ -1,14 +1,17 @@
 import { Block, Cardinal, reverse, Value } from '@musical-patterns/utilities'
-import { ComputeStoopOptions } from '../types'
-import { computeDescentStoop } from './descents'
+import { ComputeChildStairsOptions } from '../types'
+import { computeDescentShapedChildStairs } from './descents'
 
-const computeAscentStoop: (
-    value: Value,
-    options: { length: Cardinal<Block> } | { minimum: Value } | { length: Cardinal<Block>, minimum: Value },
+const computeAscentShapedChildStairs: (
+    parentValue: Value,
+    options:
+        { childCount: Cardinal<Block> } |
+        { minChildValue: Value } |
+        { childCount: Cardinal<Block>, minChildValue: Value },
 ) => Block =
-    (value: Value, options: ComputeStoopOptions): Block =>
-        reverse(computeDescentStoop(value, options))
+    (parentValue: Value, options: ComputeChildStairsOptions): Block =>
+        reverse(computeDescentShapedChildStairs(parentValue, options))
 
 export {
-    computeAscentStoop,
+    computeAscentShapedChildStairs,
 }
