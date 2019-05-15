@@ -3,15 +3,14 @@ import {
     Block,
     Cardinal,
     DECREMENT,
-    floor,
     INCREMENT,
+    integerDivide,
     isEven,
     isOdd,
     map,
     min,
     musicalAs,
     Ordinal,
-    quotient,
     repeat,
     sum,
     use,
@@ -30,7 +29,7 @@ This child count was ${childCount}.`,
 
         const childStairs: Block = as.Block([])
 
-        const basisChildValue: Value = musicalAs.Value(floor(quotient(as.number(parentValue), as.number(childCount))))
+        const basisChildValue: Value = musicalAs.Value(integerDivide(as.number(parentValue), as.number(childCount)))
         const basisChildStairs: Value[] = repeat([ basisChildValue ], as.Cardinal<Value[]>(as.number(childCount)))
 
         if (isOdd(basisChildValue)) {

@@ -4,13 +4,13 @@ import {
     Cardinal,
     DOUBLE,
     floor,
+    integerDivide,
     isEven,
     map,
     musicalAs,
     negative,
     ONE_HALF,
     Ordinal,
-    quotient,
     repeat,
     sum,
     use,
@@ -27,7 +27,7 @@ This child count was ${childCount}.`,
             )
         }
 
-        const basisChildValue: Value = musicalAs.Value(floor(quotient(as.number(parentValue), as.number(childCount))))
+        const basisChildValue: Value = musicalAs.Value(integerDivide(as.number(parentValue), as.number(childCount)))
         const basisChildStairs: Value[] = repeat([ basisChildValue ], as.Cardinal<Value[]>(as.number(childCount)))
 
         childStairs.push(...map(basisChildStairs, (entry: Value, index: Ordinal<Value[]>) =>

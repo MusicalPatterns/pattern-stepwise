@@ -1,4 +1,4 @@
-import { as, Block, musicalAs, reverse } from '@musical-patterns/utilities'
+import { as, Block, computeReverse, musicalAs } from '@musical-patterns/utilities'
 import { computeAscentShapedChildStairs, computeDescentShapedChildStairs } from '../../../../../src/indexForTest'
 
 describe('ascent-shaped child stairs', () => {
@@ -7,15 +7,15 @@ describe('ascent-shaped child stairs', () => {
             childCount: as.Cardinal<Block>(3),
             minChildValue: musicalAs.Value(3),
         }))
-            .toEqual(reverse(computeDescentShapedChildStairs(musicalAs.Value(15), {
+            .toEqual(computeReverse(computeDescentShapedChildStairs(musicalAs.Value(15), {
                 childCount: as.Cardinal<Block>(3),
                 minChildValue: musicalAs.Value(3),
             })))
 
         expect(computeAscentShapedChildStairs(musicalAs.Value(35), { minChildValue: musicalAs.Value(3) }))
-            .toEqual(reverse(computeDescentShapedChildStairs(musicalAs.Value(35), { minChildValue: musicalAs.Value(3) })))
+            .toEqual(computeReverse(computeDescentShapedChildStairs(musicalAs.Value(35), { minChildValue: musicalAs.Value(3) })))
 
         expect(computeAscentShapedChildStairs(musicalAs.Value(21), { childCount: as.Cardinal<Block>(3) }))
-            .toEqual(reverse(computeDescentShapedChildStairs(musicalAs.Value(21), { childCount: as.Cardinal<Block>(3) })))
+            .toEqual(computeReverse(computeDescentShapedChildStairs(musicalAs.Value(21), { childCount: as.Cardinal<Block>(3) })))
     })
 })

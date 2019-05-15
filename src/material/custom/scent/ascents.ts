@@ -1,4 +1,4 @@
-import { Block, Cardinal, reverse, Value } from '@musical-patterns/utilities'
+import { Block, Cardinal, computeReverse, Value } from '@musical-patterns/utilities'
 import { ComputeChildStairsOptions } from '../types'
 import { computeDescentShapedChildStairs } from './descents'
 
@@ -10,7 +10,7 @@ const computeAscentShapedChildStairs: (
         { childCount: Cardinal<Block>, minChildValue: Value },
 ) => Block =
     (parentValue: Value, options: ComputeChildStairsOptions): Block =>
-        reverse(computeDescentShapedChildStairs(parentValue, options))
+        computeReverse(computeDescentShapedChildStairs(parentValue, options))
 
 export {
     computeAscentShapedChildStairs,
