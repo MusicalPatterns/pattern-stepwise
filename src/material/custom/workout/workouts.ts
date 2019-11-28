@@ -15,7 +15,7 @@ const computeWorkoutShapedChildStairs: (
     (parentValue: Value, options: ComputeChildStairsOptions): Block => {
         if (isEven(parentValue)) {
             throw new Error(`Cannot compute workout-shaped child stairs for an even parent value. \
-This parent value was ${parentValue}.`)
+This parent value was ${String(parentValue)}.`)
         }
 
         if (isComputeChildStairsByChildCountOption(options) && isComputeChildStairsByMinChildValueOption(options)) {

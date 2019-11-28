@@ -39,7 +39,7 @@ const computeWorkoutShapedChildStairsByMinChildValue: (parentValue: Value, minCh
         if (isEven(minChildValue)) {
             throw new Error(
                 `Cannot compute workout-shaped child stairs with an even minimum child value. \
-This minimum child value was ${minChildValue}.`,
+This minimum child value was ${String(minChildValue)}.`,
             )
         }
 
@@ -62,8 +62,8 @@ This minimum child value was ${minChildValue}.`,
 
         if (totalChildStairsValue > parentValue) {
             throw new Error(
-                `Cannot compute workout-shaped child stairs for parent value ${parentValue} \
-and minimum child value ${minChildValue}.`,
+                `Cannot compute workout-shaped child stairs for parent value ${String(parentValue)} \
+and minimum child value ${String(minChildValue)}.`,
             )
         }
 

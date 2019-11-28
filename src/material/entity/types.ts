@@ -1,4 +1,5 @@
 import { Entity } from '@musical-patterns/material'
+import { ObjectOf } from '@musical-patterns/utilities'
 
 interface StepwiseEntities {
     alpha: Entity,
@@ -8,12 +9,12 @@ interface StepwiseEntities {
     threePer: Entity,
 }
 
-interface OscillatorEntities extends StepwiseEntities {
+interface OscillatorEntities extends StepwiseEntities, ObjectOf<Entity> {
     ninePer: Entity,
     workout: Entity,
 }
 
-interface OnlySampleEntities {
+interface OnlySampleEntities extends ObjectOf<Entity> {
     hihat: Entity,
     kick: Entity,
     snare: Entity,

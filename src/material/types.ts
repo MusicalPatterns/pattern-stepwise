@@ -1,8 +1,8 @@
 import { Note, PitchValue, ValueOnly } from '@musical-patterns/material'
-import { Block, ContourPiece, ContourWhole, KeyMap } from '@musical-patterns/utilities'
+import { Block, ContourPiece, ContourWhole, KeyMap, ObjectOf } from '@musical-patterns/utilities'
 import { OnlySampleEntities, OscillatorEntities, SampleEntities } from './entity'
 
-interface StepwiseMaterialSkeleton extends OscillatorEntities, SampleEntities {}
+interface StepwiseMaterialSkeleton extends OscillatorEntities, SampleEntities, ObjectOf<unknown> {}
 
 type StepwiseBlocks = KeyMap<StepwiseMaterialSkeleton, Block>
 

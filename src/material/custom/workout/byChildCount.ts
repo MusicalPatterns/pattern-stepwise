@@ -23,7 +23,7 @@ const computeWorkoutShapedChildStairsByChildCount: (parentValue: Value, childCou
         if (isEven(childCount)) {
             throw new Error(
                 `Cannot compute workout-shaped child stairs with an even child count. \
-This child count was ${childCount}.`,
+This child count was ${String(childCount)}.`,
             )
         }
 
@@ -53,8 +53,8 @@ This child count was ${childCount}.`,
 
         if (sum(...childStairs) !== as.number(parentValue) || min(...childStairs) < 1) {
             throw new Error(
-                `Cannot compute workout-shaped child stairs for parent value ${parentValue} \
-and child count ${childCount}.`,
+                `Cannot compute workout-shaped child stairs for parent value ${String(parentValue)} \
+and child count ${String(childCount)}.`,
             )
         }
 

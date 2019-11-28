@@ -7,7 +7,7 @@ const computeDescentShapedChildStairsByMinChildValue: (parentValue: Value, minCh
         if (isEven(minChildValue)) {
             throw new Error(
                 `Cannot compute scent-shaped child stairs with an even minimum child value. \
-This minimum child value was ${minChildValue}.`,
+This minimum child value was ${String(minChildValue)}.`,
             )
         }
 

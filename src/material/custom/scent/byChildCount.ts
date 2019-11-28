@@ -23,7 +23,7 @@ const computeDescentShapedChildStairsByChildCount: (parentValue: Value, childCou
         if (isEven(childCount)) {
             throw new Error(
                 `Cannot compute scent-shaped child stairs with an even child count. \
-This child count was ${childCount}.`,
+This child count was ${String(childCount)}.`,
             )
         }
 
@@ -45,8 +45,8 @@ This child count was ${childCount}.`,
 
         if (sum(...childStairs) !== as.number(parentValue)) {
             throw new Error(
-                `Cannot compute scent-shaped child stairs for parent value ${parentValue} \
-and child count ${childCount}.`,
+                `Cannot compute scent-shaped child stairs for parent value ${String(parentValue)} \
+and child count ${String(childCount)}.`,
             )
         }
 

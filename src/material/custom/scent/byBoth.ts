@@ -22,7 +22,7 @@ const computeDescentShapedChildStairsByBoth:
         if (isEven(minChildValue)) {
             throw new Error(
                 `Cannot compute scent-shaped child stairs with an even minimum child value. \
-This minimum child value was ${minChildValue}.`,
+This minimum child value was ${String(minChildValue)}.`,
             )
         }
 
@@ -33,8 +33,8 @@ This minimum child value was ${minChildValue}.`,
             max(...childStairs) > maxChildStairsShouldBeAbleToReachWithinChildCount(minChildValue, childCount)
         ) {
             throw new Error(
-                `Cannot compute scent-shaped child stairs for parent value ${parentValue}, child count ${childCount}, \
-and minimum child value ${minChildValue}.`,
+                `Cannot compute scent-shaped child stairs for parent value ${String(parentValue)}, child count ${String(childCount)}, \
+and minimum child value ${String(minChildValue)}.`,
             )
         }
 

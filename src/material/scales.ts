@@ -6,10 +6,10 @@ import {
     materializeStandardScales,
     Scales,
 } from '@musical-patterns/material'
-import { StandardSpecs } from '@musical-patterns/spec'
+import { Specs } from '@musical-patterns/spec'
 
 const materializeScales: MaterializeScales =
-    (specs: StandardSpecs): Scales => {
+    (specs: Specs): Scales => {
         const standardScales: Scales = materializeStandardScales(
             specs,
             {
