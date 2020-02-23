@@ -1,12 +1,12 @@
 import { Entity, MaterializeEntities } from '@musical-patterns/material'
-import { computeOscillatorEntities } from './oscillatorEntities'
-import { computeSampleEntities } from './sampleEntities'
+import { thunkOscillatorEntities } from './oscillatorEntities'
+import { thunkSampleEntities } from './sampleEntities'
 import { OscillatorEntities, SampleEntities } from './types'
 
 const materializeEntities: MaterializeEntities =
     (): Entity[] => {
-        const sampleEntities: SampleEntities = computeSampleEntities()
-        const oscillatorEntities: OscillatorEntities = computeOscillatorEntities()
+        const sampleEntities: SampleEntities = thunkSampleEntities()
+        const oscillatorEntities: OscillatorEntities = thunkOscillatorEntities()
 
         return [
             oscillatorEntities.alpha,

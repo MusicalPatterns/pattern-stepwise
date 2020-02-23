@@ -1,5 +1,5 @@
 import { PitchValue, ValueOnly } from '@musical-patterns/material'
-import { as, ContourPiece, ContourWhole, Cycle, flatten, use } from '@musical-patterns/utilities'
+import { as, ContourPiece, ContourWhole, Cycle, flatten, Thunk, use } from '@musical-patterns/utilities'
 import {
     ALPHA_CYCLING_CARDINAL,
     BETA_CYCLING_CARDINAL,
@@ -9,12 +9,12 @@ import {
     THREE_PER_CYCLING_CARDINAL,
     WORKOUT_CYCLING_CARDINAL,
 } from './constants'
-import { computePieces, computeUnpitchedPieces } from './pieces'
+import { thunkPieces, thunkUnpitchedPieces } from './pieces'
 import { StepwisePieces, StepwiseUnpitchedPieces, StepwiseUnpitchedWholes, StepwiseWholes } from './types'
 
-const computeWholes: () => StepwiseWholes =
+const thunkWholes: Thunk<StepwiseWholes> =
     (): StepwiseWholes => {
-        const pieces: StepwisePieces = computePieces()
+        const pieces: StepwisePieces = thunkPieces()
 
         const pieceCycle: Cycle<ContourPiece<PitchValue>> = as.Cycle<ContourPiece<PitchValue>>([
             pieces.threePer,
@@ -66,9 +66,9 @@ const computeWholes: () => StepwiseWholes =
         }
     }
 
-const computeUnpitchedWholes: () => StepwiseUnpitchedWholes =
+const thunkUnpitchedWholes: Thunk<StepwiseUnpitchedWholes> =
     (): StepwiseUnpitchedWholes => {
-        const pieces: StepwiseUnpitchedPieces = computeUnpitchedPieces()
+        const pieces: StepwiseUnpitchedPieces = thunkUnpitchedPieces()
 
         return {
             hihat: as.ContourWhole<ValueOnly>(pieces.hihat),
@@ -78,6 +78,6 @@ const computeUnpitchedWholes: () => StepwiseUnpitchedWholes =
     }
 
 export {
-    computeWholes,
-    computeUnpitchedWholes,
+    thunkWholes,
+    thunkUnpitchedWholes,
 }

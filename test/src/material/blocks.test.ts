@@ -1,21 +1,21 @@
 // tslint:disable binary-expression-operand-order
 
 import { as, Block, slice, sum } from '@musical-patterns/utilities'
-import { computeBlocks, StepwiseBlocks } from '../../../src/indexForTest'
+import { StepwiseBlocks, thunkBlocks } from '../../../src/indexForTest'
 
 const PARENT_STAIR_COUNT_PER_FLIGHT_FOR_ODDS_FLIGHT_CHAIN: number = 4
 const PARENT_STAIR_COUNT_PER_FLIGHT_FOR_WHOLES_FLIGHT_CHAIN: number = 2
 
-describe('blocks', () => {
+describe('blocks', (): void => {
     let blocks: StepwiseBlocks
-    beforeEach(() => {
-        blocks = computeBlocks()
+    beforeEach((): void => {
+        blocks = thunkBlocks()
     })
 
     it(
         `the ParentAisles (Alpha and Beta) and all of the ChildAisles (ThreePer, FivePer, SevenPer, and NinePer) share the same total value, \
 which is thirty-five Balusters (multiples of the underlying rhythm of duration 24) = 840`,
-        () => {
+        (): void => {
             expect(sum(...blocks.alpha))
                 .toBe(24 * 35)
             expect(sum(...blocks.beta))
@@ -31,11 +31,11 @@ which is thirty-five Balusters (multiples of the underlying rhythm of duration 2
         },
     )
 
-    describe('ParentAisles: Alpha and Beta', () => {
+    describe('ParentAisles: Alpha and Beta', (): void => {
         it(
             `the ParentAisle Alpha's ParentStairs grow in value from 3 to 57, by 2's (only odds), in a series of Flights which alternate \
 between two FlightChains, where one FlightChain increases in Baluster count along the odd numbers and the other along the whole numbers`,
-            () => {
+            (): void => {
                 expect(blocks.alpha)
                     .toEqual([
                         // ParentAisle:     // Alpha
@@ -57,7 +57,7 @@ between two FlightChains, where one FlightChain increases in Baluster count alon
         it(
             `the ParentAisle Beta picks up where the Alpha ends, continuing the growth from 59 to 81, again by 2's (only odds), \
 while continuing the alternating between FlightChains growing by Baluster count, one along the odd numbers, one along the whole numbers`,
-            () => {
+            (): void => {
                 expect(blocks.beta)
                     .toEqual([
                         // ParentAisle:     // Beta
@@ -77,7 +77,7 @@ where said multiples increase each time, alternating between two different patte
 one which increments along the odd numbers, and the other which increments along all the whole numbers; \
 also the former takes 4 ParentStairs between syncs ("Landings") each time, while the latter takes only 2 each time; \
 also this pattern wraps from Alpha to Beta just fine`,
-            () => {
+            (): void => {
                 // Odds
                 expect(sum(...slice(blocks.alpha, as.Ordinal<Block>(0), as.Ordinal<Block>(0 + PARENT_STAIR_COUNT_PER_FLIGHT_FOR_ODDS_FLIGHT_CHAIN))))
                     .toBe(1 * 24)
@@ -114,7 +114,7 @@ also this pattern wraps from Alpha to Beta just fine`,
             `Alpha and Beta Sync with each other at three Stories: one at the beginning/end, \
 one five Balusters in, and another twenty-two Balusters in; \
 thus the total thirty-five Balusters are divided into three Staircases with Baluster counts five, seventeen, and thirteen, respectively`,
-            () => {
+            (): void => {
                 expect(sum(...slice(blocks.alpha, as.Ordinal<Block>(0), as.Ordinal<Block>(10))))              // 3 + ... + 21
                     .toBe(5 * 24)
                 expect(sum(...slice(blocks.beta, as.Ordinal<Block>(0), as.Ordinal<Block>(2))))   // 59 + ... + 61
@@ -133,8 +133,8 @@ thus the total thirty-five Balusters are divided into three Staircases with Balu
         )
     })
 
-    describe('ThreePer ChildAisle', () => {
-        it('spawns entirely from the ParentAisle Alpha, breaking each of the ParentStairs into three ChildStairs', () => {
+    describe('ThreePer ChildAisle', (): void => {
+        it('spawns entirely from the ParentAisle Alpha, breaking each of the ParentStairs into three ChildStairs', (): void => {
             expect(blocks.threePer)
                 .toEqual([
                     // ParentAisle:     // Alpha
@@ -170,7 +170,7 @@ thus the total thirty-five Balusters are divided into three Staircases with Balu
                 ])
         })
 
-        it('can also be looked at in terms of how, by virtue of subdividing the ParentStairs of the ParentAisle Alpha, it also lines up with the same Balusters, and also alternates Flights between the same two FlightChains as it does', () => {
+        it('can also be looked at in terms of how, by virtue of subdividing the ParentStairs of the ParentAisle Alpha, it also lines up with the same Balusters, and also alternates Flights between the same two FlightChains as it does', (): void => {
             expect(blocks.threePer)
                 .toEqual([
                     // ParentAisle:                                 // Alpha
@@ -214,13 +214,13 @@ thus the total thirty-five Balusters are divided into three Staircases with Balu
         })
     })
 
-    describe('FivePer', () => {
+    describe('FivePer', (): void => {
         it(
             `spawns from the ParentAisle Beta for the first Staircase, i.e. until the first Story \
 (spot where both ParentAisles Sync with each other), five Balusters in, \
 then spawns from the ParentAisle Alpha for the remaining two Staircases, \
 breaking each of the ParentStairs into five ChildStairs`,
-            () => {
+            (): void => {
                 expect(blocks.fivePer)
                     .toEqual([
                         // ParentAisle:         // Alpha        // Beta
@@ -249,7 +249,7 @@ breaking each of the ParentStairs into five ChildStairs`,
             },
         )
 
-        it('can also be looked at in terms of how, by virtue of subdividing the ParentStairs of the ParentAisles, it also lines up with the same Balusters, and also alternates Flights between the same two FlightChains as they do', () => {
+        it('can also be looked at in terms of how, by virtue of subdividing the ParentStairs of the ParentAisles, it also lines up with the same Balusters, and also alternates Flights between the same two FlightChains as they do', (): void => {
             expect(blocks.fivePer)
                 .toEqual([
                     // ParentAisle:                                                     // Alpha                // Beta
@@ -300,13 +300,13 @@ breaking each of the ParentStairs into five ChildStairs`,
         })
     })
 
-    describe('SevenPer ChildAisle', () => {
+    describe('SevenPer ChildAisle', (): void => {
         it(
             `spawns from the ParentAisle Beta for the first two Staircases, i.e. until the second Story \
 (spot where both ParentAisles Sync with each other), twenty-two Balusters in, \
 then spawns from the ParentAisle Alpha for the remaining Staircase, \
 breaking each of the ParentStairs into seven ChildStairs`,
-            () => {
+            (): void => {
                 expect(blocks.sevenPer)
                     .toEqual([
                         // ParentAisle:             // Alpha        // Beta
@@ -329,7 +329,7 @@ breaking each of the ParentStairs into seven ChildStairs`,
             },
         )
 
-        it('can also be looked at in terms of how, by virtue of subdividing the ParentStairs of the ParentAisle of Alpha and Beta, it also lines up with the same Balusters, and also alternates Flights between the same two FlightChains as they do', () => {
+        it('can also be looked at in terms of how, by virtue of subdividing the ParentStairs of the ParentAisle of Alpha and Beta, it also lines up with the same Balusters, and also alternates Flights between the same two FlightChains as they do', (): void => {
             expect(blocks.sevenPer)
                 .toEqual([
                     // ParentAisle:                                                                                 // Alpha                // Beta
@@ -366,8 +366,8 @@ breaking each of the ParentStairs into seven ChildStairs`,
         })
     })
 
-    describe('NinePer', () => {
-        it('spawns entirely from the ParentAisle Beta, breaking each of the ParentStairs into nine ChildStairs', () => {
+    describe('NinePer', (): void => {
+        it('spawns entirely from the ParentAisle Beta, breaking each of the ParentStairs into nine ChildStairs', (): void => {
             expect(blocks.ninePer)
                 .toEqual([
                     // ParentAisle:                     // Beta
@@ -387,7 +387,7 @@ breaking each of the ParentStairs into seven ChildStairs`,
                 ])
         })
 
-        it('can also be looked at in terms of how, by virtue of subdividing the ParentStairs of the ParentAisle Beta, it also lines up with the same Balusters, and also alternates Flights between the same two FlightChains as it does', () => {
+        it('can also be looked at in terms of how, by virtue of subdividing the ParentStairs of the ParentAisle Beta, it also lines up with the same Balusters, and also alternates Flights between the same two FlightChains as it does', (): void => {
             expect(blocks.ninePer)
                 .toEqual([
                     // ParentAisle:                                                                                                         // Beta

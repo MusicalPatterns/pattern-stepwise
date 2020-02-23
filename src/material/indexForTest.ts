@@ -2,8 +2,8 @@
 
 export { materializeEntities } from './entity'
 export { materializeScales } from './scales'
-export { computeBlocks } from './blocks'
-export { computeWholes } from './wholes'
+export { thunkBlocks } from './blocks'
+export { thunkWholes } from './wholes'
 export { computeNote } from './features'
 
 export {

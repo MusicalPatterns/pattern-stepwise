@@ -1,13 +1,14 @@
 // tslint:disable no-dead-store
 
 import { Entity, TimbreNameEnum } from '@musical-patterns/material'
-import { computeNotes } from '../notes'
+import { Thunk } from '@musical-patterns/utilities'
+import { thunkNotes } from '../notes'
 import { StepwiseNotes } from '../types'
 import { SampleEntities } from './types'
 
-const computeSampleEntities: () => SampleEntities =
+const thunkSampleEntities: Thunk<SampleEntities> =
     (): SampleEntities => {
-        const notes: StepwiseNotes = computeNotes()
+        const notes: StepwiseNotes = thunkNotes()
 
         const alpha: Entity = {
             sections: [ { notes: notes.alpha } ],
@@ -66,5 +67,5 @@ const computeSampleEntities: () => SampleEntities =
     }
 
 export {
-    computeSampleEntities,
+    thunkSampleEntities,
 }

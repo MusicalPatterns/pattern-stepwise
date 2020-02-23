@@ -1,11 +1,12 @@
 import { Entity, TimbreNameEnum } from '@musical-patterns/material'
-import { computeNotes } from '../notes'
+import { Thunk } from '@musical-patterns/utilities'
+import { thunkNotes } from '../notes'
 import { StepwiseNotes } from '../types'
 import { OscillatorEntities } from './types'
 
-const computeOscillatorEntities: () => OscillatorEntities =
+const thunkOscillatorEntities: Thunk<OscillatorEntities> =
     (): OscillatorEntities => {
-        const notes: StepwiseNotes = computeNotes()
+        const notes: StepwiseNotes = thunkNotes()
 
         const alpha: Entity = {
             sections: [ { notes: notes.alpha } ],
@@ -54,5 +55,5 @@ const computeOscillatorEntities: () => OscillatorEntities =
     }
 
 export {
-    computeOscillatorEntities,
+    thunkOscillatorEntities,
 }

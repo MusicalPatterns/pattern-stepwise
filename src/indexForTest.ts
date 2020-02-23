@@ -1,7 +1,7 @@
 // tslint:disable no-reaching-imports
 
 export {
-    computeBlocks,
+    thunkBlocks,
     materializeEntities,
     materializeScales,
     computeNote,
@@ -11,6 +11,6 @@ export {
     computeDescentShapedChildStairs,
     computeChildStairs,
     ChildStairsShape,
-    computeWholes,
+    thunkWholes,
 } from './material/indexForTest'
 export { pattern } from './patterns'

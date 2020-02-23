@@ -1,9 +1,9 @@
 import { areCyclicalTranslations } from '@musical-patterns/utilities'
-import { computeWholes } from '../../../src/indexForTest'
+import { thunkWholes } from '../../../src/indexForTest'
 
-describe('wholes', () => {
-    it('each of the pitched wholes is a differently offset cyclical translation of each of the others', () => {
-        expect(areCyclicalTranslations(Object.values(computeWholes())))
+describe('wholes', (): void => {
+    it('each of the pitched wholes is a differently offset cyclical translation of each of the others', (): void => {
+        expect(areCyclicalTranslations(Object.values(thunkWholes())))
             .toBeTruthy()
     })
 })

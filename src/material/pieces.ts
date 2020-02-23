@@ -1,12 +1,12 @@
 import { PitchValue, ValueOnly } from '@musical-patterns/material'
-import { ContourPiece } from '@musical-patterns/utilities'
-import { computeBlocks } from './blocks'
+import { ContourPiece, Thunk } from '@musical-patterns/utilities'
+import { thunkBlocks } from './blocks'
 import { render, renderUnpitched } from './renderings'
 import { StepwiseBlocks, StepwisePieces, StepwiseUnpitchedPieces } from './types'
 
-const computePieces: () => StepwisePieces =
+const thunkPieces: Thunk<StepwisePieces> =
     (): StepwisePieces => {
-        const blocks: StepwiseBlocks = computeBlocks()
+        const blocks: StepwiseBlocks = thunkBlocks()
 
         const alpha: ContourPiece<PitchValue> = render(blocks.alpha)
         const beta: ContourPiece<PitchValue> = render(blocks.beta)
@@ -27,9 +27,9 @@ const computePieces: () => StepwisePieces =
         }
     }
 
-const computeUnpitchedPieces: () => StepwiseUnpitchedPieces =
+const thunkUnpitchedPieces: Thunk<StepwiseUnpitchedPieces> =
     (): StepwiseUnpitchedPieces => {
-        const blocks: StepwiseBlocks = computeBlocks()
+        const blocks: StepwiseBlocks = thunkBlocks()
 
         const kick: ContourPiece<ValueOnly> = renderUnpitched(blocks.kick)
         const snare: ContourPiece<ValueOnly> = renderUnpitched(blocks.snare)
@@ -43,6 +43,6 @@ const computeUnpitchedPieces: () => StepwiseUnpitchedPieces =
     }
 
 export {
-    computePieces,
-    computeUnpitchedPieces,
+    thunkPieces,
+    thunkUnpitchedPieces,
 }

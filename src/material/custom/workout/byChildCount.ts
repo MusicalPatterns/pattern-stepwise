@@ -33,16 +33,16 @@ This child count was ${String(childCount)}.`,
         const basisChildStairs: Value[] = repeat([ basisChildValue ], as.Cardinal<Value[]>(as.number(childCount)))
 
         if (isOdd(basisChildValue)) {
-            childStairs.push(...map(basisChildStairs, (basisChildStair: Value, index: Ordinal<Value[]>) => {
+            childStairs.push(...map(basisChildStairs, (basisChildStair: Value, index: Ordinal<Value[]>): number => {
                 if (isOdd(index)) {
                     return use.Cardinal(basisChildStair, NEXT_ODD)
                 }
 
-                return basisChildStair
+                return as.number(basisChildStair)
             }))
         }
         else {
-            childStairs.push(...map(basisChildStairs, (basisChildStair: Value, index: Ordinal<Value[]>) => {
+            childStairs.push(...map(basisChildStairs, (basisChildStair: Value, index: Ordinal<Value[]>): number => {
                 if (isEven(index)) {
                     return use.Cardinal(basisChildStair, INCREMENT)
                 }

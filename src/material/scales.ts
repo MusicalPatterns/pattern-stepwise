@@ -1,10 +1,10 @@
 import {
     AbstractName,
-    computeFlatValueScale,
     computeSubharmonicSeriesScale,
     MaterializeScales,
     materializeStandardScales,
     Scales,
+    thunkFlatValueScale,
 } from '@musical-patterns/material'
 import { Specs } from '@musical-patterns/spec'
 
@@ -14,7 +14,7 @@ const materializeScales: MaterializeScales =
             specs,
             {
                 pitchScalars: computeSubharmonicSeriesScale().scalars,
-                valueScalars: computeFlatValueScale().scalars,
+                valueScalars: thunkFlatValueScale().scalars,
             },
         )
 

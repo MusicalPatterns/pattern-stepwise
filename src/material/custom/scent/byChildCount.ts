@@ -30,7 +30,7 @@ This child count was ${String(childCount)}.`,
         const basisChildValue: Value = musicalAs.Value(integerDivide(as.number(parentValue), as.number(childCount)))
         const basisChildStairs: Value[] = repeat([ basisChildValue ], as.Cardinal<Value[]>(as.number(childCount)))
 
-        childStairs.push(...map(basisChildStairs, (entry: Value, index: Ordinal<Value[]>) =>
+        childStairs.push(...map(basisChildStairs, (entry: Value, index: Ordinal<Value[]>): number =>
             as.number(use.Cardinal(
                 entry,
                 as.Cardinal<Value>(use.Multiple(

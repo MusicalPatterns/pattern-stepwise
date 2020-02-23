@@ -17,25 +17,27 @@ import {
     sequence,
     slice,
     sum,
+    Thunk,
+    TWO,
     use,
 } from '@musical-patterns/utilities'
 import { ChildStairsInstruction, computeChildStairs, threePerChildStairsInstructionsChunk } from './custom'
 import { StepwiseBlocks } from './types'
 
-const computeBlocks: () => StepwiseBlocks =
+const thunkBlocks: Thunk<StepwiseBlocks> =
     (): StepwiseBlocks => {
         const alpha: Block = as.Block(
             range(ONE, as.Integer(29))
-                .map((integer: Integer) => sum(product(integer, 2), 1)),
+                .map((integer: Integer): Integer => sum(product(integer, TWO), ONE)),
         )
         const beta: Block = as.Block(
             range(ONE, as.Integer(13))
-                .map((integer: Integer) => sum(product(integer, 2), 57)),
+                .map((integer: Integer): Integer => sum(product(integer, TWO), as.Integer(57))),
         )
 
         const threePer: Block = as.Block(sequence([ 3 ], ...map(
             slice(alpha, insteadOf<Ordinal, Block>(FIRST), indexJustBeyondFinalElement(alpha)),
-            (parentStepValue: number, index: Ordinal) => {
+            (parentStepValue: number, index: Ordinal): Block => {
                 const [ minChildValue, childStairsShape ] = use.Ordinal(
                     threePerChildStairsInstructionsChunk,
                     insteadOf<Ordinal, ChildStairsInstruction[]>(index),
@@ -127,5 +129,5 @@ const computeBlocks: () => StepwiseBlocks =
     }
 
 export {
-    computeBlocks,
+    thunkBlocks,
 }

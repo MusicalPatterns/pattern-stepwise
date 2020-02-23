@@ -1,12 +1,13 @@
 import { Note } from '@musical-patterns/material'
+import { Thunk } from '@musical-patterns/utilities'
 import { computeNote, computeUnpitchedNote } from './features'
 import { StepwiseNotes, StepwiseUnpitchedWholes, StepwiseWholes } from './types'
-import { computeUnpitchedWholes, computeWholes } from './wholes'
+import { thunkUnpitchedWholes, thunkWholes } from './wholes'
 
-const computeNotes: () => StepwiseNotes =
+const thunkNotes: Thunk<StepwiseNotes> =
     (): StepwiseNotes => {
-        const wholes: StepwiseWholes = computeWholes()
-        const unpitchedWholes: StepwiseUnpitchedWholes = computeUnpitchedWholes()
+        const wholes: StepwiseWholes = thunkWholes()
+        const unpitchedWholes: StepwiseUnpitchedWholes = thunkUnpitchedWholes()
 
         const alpha: Note[] = wholes.alpha.map(computeNote)
         const beta: Note[] = wholes.beta.map(computeNote)
@@ -37,5 +38,5 @@ const computeNotes: () => StepwiseNotes =
     }
 
 export {
-    computeNotes,
+    thunkNotes,
 }
