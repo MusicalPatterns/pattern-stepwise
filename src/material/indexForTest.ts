@@ -16,4 +16,4 @@ export {
     computeDescentShapedChildStairs,
     computeChildStairs,
     ChildStairsShape,
-}from './custom/indexForTest'
+} from './custom/indexForTest'

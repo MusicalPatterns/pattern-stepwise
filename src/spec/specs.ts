@@ -1,10 +1,4 @@
-import {
-    Spec,
-    Specs,
-    standardConfigurations,
-    standardInitialSpecs,
-    StandardSpec,
-} from '@musical-patterns/spec'
+import { Spec, Specs, standardConfigurations, standardInitialSpecs, StandardSpec } from '@musical-patterns/spec'
 import { STEPWISE_INITIAL_HZ_PHYSICALIZATION, STEPWISE_INITIAL_MS_PHYSICALIZATION } from './constants'
 
 const initialSpecs: Specs = {
